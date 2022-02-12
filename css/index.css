@@ -1,0 +1,213 @@
+/* 设置中间部分 */
+.middle-section{
+    position: relative;
+}
+
+/* 设置左边的导航列表 */
+.middle-section .left-aside{
+    width: 200px;
+    height: 800px;
+    box-sizing: border-box;
+    background-color: #cccccc;
+    left: 0px;
+    float: left;
+    padding: 20px 0;
+    position: relative;
+    box-shadow: 2px -2px 6px 2px #dddddd;
+    z-index: 99;
+}
+
+.left-aside .left-manu{
+    line-height: 50px;
+    display: block;
+    font-family: Optima-Regular, Optima, -apple-system, system-ui, "Segoe UI", Roboto, Ubuntu, Cantarell, "Noto Sans", sans-serif, BlinkMacSystemFont, "Helvetica Neue", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", Arial;
+    color: #505050;
+    font-weight: bold;
+    padding: 0 20px;
+}
+
+.left-aside .left-manu:active{
+    background-color: #a8a8a8;
+    color: #ffffff;
+}
+
+.icon-youjiantou{
+    float: right;
+}
+
+/* 中间主体 */
+.middle-section .main{
+    height: 800px;
+    width: 800px;
+    float: left;
+    background-color: #ffffff;
+}
+
+/* 设置中间主体的展示框 */
+.main .content-wrapper{
+    background-color: #ffffff;
+    box-sizing: border-box;
+    width: 680px;
+    margin: 20px auto;
+    border-radius: 10px;
+    padding: 20px 20px;
+    box-shadow: 0 0 8px 1px #dddddd;
+    transition: all 1s;
+}
+
+/* 展示框触碰效果 */
+.main .content-wrapper:hover{
+    width: 700px;
+    padding: 25px 30px;
+    box-shadow: 0 0 8px 1px #bbbbbb;
+}
+
+.main .content-wrapper .title{
+    font-size: 24px;
+    font-family: Optima-Regular, Optima, -apple-system, system-ui, "Segoe UI", Roboto, Ubuntu, Cantarell, "Noto Sans", sans-serif, BlinkMacSystemFont, "Helvetica Neue", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", Arial;
+    color: #505050;
+    font-weight: bolder;
+}
+
+.main .content-wrapper .brief{
+    margin: 10px 0;
+    font-size: 16px;
+    font-family: Optima-Regular, Optima, -apple-system, system-ui, "Segoe UI", Roboto, Ubuntu, Cantarell, "Noto Sans", sans-serif, BlinkMacSystemFont, "Helvetica Neue", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", Arial;
+    color: #505050;
+    line-height: 1.5rem;
+}
+
+.main .content-wrapper .bottom-wrapper{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 15px;
+    color: #858585;
+}
+
+/* read more触碰效果 */
+.main .content-wrapper .bottom-wrapper .read-more:hover{
+    color: rgb(86, 156, 214);
+}
+
+.main .content-wrapper .bottom-wrapper .creation-time .icon-bianji {
+    font-weight: bold;
+}
+
+.main .content-wrapper .bottom-wrapper .read-more .icon-youjiantou {
+    font-weight: bold;
+    margin-left: 6px;
+}
+
+/* 右边最新 */
+.middle-section .right-aside{
+    float: left;
+    height: 800px;
+    box-sizing: border-box;
+    background-color: #eeeeee;
+    width: 200px;
+    padding: 20px 0;
+    position: relative;
+    box-shadow: -2px -2px 6px 2px #dddddd;
+    z-index: 99;
+}
+
+.right-aside .tip{
+    font-weight: bold;
+    font-size: 16px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    color: #484848;
+    text-align: center;
+}
+
+.right-aside .new-wrapper{
+    display: block;
+    width: 180px;
+    border-radius: 5px;
+    margin: 20px auto;
+    padding: 5px 5px;
+    box-sizing: border-box;
+    box-shadow: 0 0 8px 2px #cccccc;
+    background-color: #ffffff;
+}
+
+.right-aside .motivate-sentence{
+    display: block;
+    font-size: 14px;
+    line-height: 1.1rem;
+    font-family: Optima-Regular, Optima, -apple-system, system-ui, "Segoe UI", Roboto, Ubuntu, Cantarell, "Noto Sans", sans-serif, BlinkMacSystemFont, "Helvetica Neue", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", Arial;
+    color: #505050;
+    margin: 5px 0;
+}
+
+.right-aside .new-wrapper .title{
+    font-size: 16px;
+    font-family: Optima-Regular, Optima, -apple-system, system-ui, "Segoe UI", Roboto, Ubuntu, Cantarell, "Noto Sans", sans-serif, BlinkMacSystemFont, "Helvetica Neue", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", Arial;
+    color: #505050;
+    font-weight: bold;
+
+}
+
+.right-aside .new-wrapper .introduction{
+    font-size: 14px;
+    font-family: Optima-Regular, Optima, -apple-system, system-ui, "Segoe UI", Roboto, Ubuntu, Cantarell, "Noto Sans", sans-serif, BlinkMacSystemFont, "Helvetica Neue", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", Arial;
+    color: #505050;
+    line-height: 1.1rem;
+    margin: 5px 0;
+}
+
+.right-aside .new-wrapper .time{
+    text-align: right;
+    font-size: 13px;
+    font-family: Optima-Regular, Optima, -apple-system, system-ui, "Segoe UI", Roboto, Ubuntu, Cantarell, "Noto Sans", sans-serif, BlinkMacSystemFont, "Helvetica Neue", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", Arial;
+    color: #505050;
+}
+
+.right-aside .new-wrapper .time .icon-shijian{
+    font-size: 13px;
+}
+
+.main .page-change-wrapper{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.main .page-change-wrapper .page-change{
+    height: 40px;
+    width: 80px;
+    border-radius: 5px;
+    box-shadow: 0 0 8px 1px #dddddd;
+    text-align: center;
+    line-height: 40px;
+    font-family: Optima-Regular, Optima, -apple-system, system-ui, "Segoe UI", Roboto, Ubuntu, Cantarell, "Noto Sans", sans-serif, BlinkMacSystemFont, "Helvetica Neue", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", Arial;
+    color: #505050;
+    margin: 10px 60px;
+    font-size: 16px;
+    transition: all 0.5s;
+}
+
+.main .page-change-wrapper .page-change:hover{
+    height: 45px;
+    width: 85px;
+    line-height: 45px;
+    background-color: rgb(86, 156, 214);
+    color: #ffffff;
+}
+
+.main .page-change-wrapper .page-change:hover > .icon-prev,
+.main .page-change-wrapper .page-change:hover > .icon-next{
+    color: #ffffff;
+}
+
+.main .page-change-wrapper .page-change .icon-prev{
+    margin-right: 4px;
+    font-size: 16px;
+    color: #505050;
+}
+
+.main .page-change-wrapper .page-change .icon-next{
+    margin-left: 4px;
+    font-size: 16px;
+    color: #505050;
+}
