@@ -154,9 +154,9 @@ mark .md-meta { color: rgb(0, 0, 0); }
 .md-fences-advanced:not(.md-focus) { padding: 0px; white-space: nowrap; border: 0px; }
 .md-fences-advanced:not(.md-focus) { background: inherit; }
 .typora-export-show-outline .typora-export-content { max-width: 1440px; margin: auto; display: flex; flex-direction: row; }
-.typora-export-sidebar { width: 300px; font-size: 0.8rem; margin-top: 80px; margin-right: 18px; }
+.typora-export-sidebar { width: 300px; font-size: 0.8rem; margin-top: 60px; margin-right: 18px; }
 .typora-export-show-outline #write { --webkit-flex:2; flex: 2 1 0%; }
-.typora-export-sidebar .outline-content { position: fixed; top: 0px; max-height: 100%; overflow: hidden auto; padding-bottom: 30px; padding-top: 60px; width: 300px; }
+.typora-export-sidebar .outline-content { position: fixed; top: 60px; max-height: calc(100% - 60px); overflow: hidden auto; padding-bottom: 30px; padding-top: 10px; width: 300px; }
 @media screen and (max-width: 1024px) {
   .typora-export-sidebar, .typora-export-sidebar .outline-content { width: 240px; }
 }

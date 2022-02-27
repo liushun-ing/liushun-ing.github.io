@@ -35,7 +35,12 @@ a{
     background-color: #ffffff;
 }
 
-.header .name-wrapper{
+.header .top-wrapper{
+    min-width: 1200px;
+    margin: 0 auto;
+}
+
+.header .top-wrapper .name-wrapper{
     float: left;
     margin-left: 100px;
     height: 60px;
@@ -43,7 +48,7 @@ a{
     align-items: center;
 }
 
-.header .name-wrapper .name{
+.header .top-wrapper .name-wrapper .name{
     font-size: 30px;
     font-family: Optima-Regular, Optima, -apple-system, system-ui, "Segoe UI", Roboto, Ubuntu, Cantarell, "Noto Sans", sans-serif, BlinkMacSystemFont, "Helvetica Neue", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", Arial;
     color: #484848;
@@ -51,7 +56,7 @@ a{
     margin: aoto 0;
 }
 
-.header .name-wrapper .welcome{
+.header .top-wrapper .name-wrapper .welcome{
     margin-left: 20px;
     font-size: 14px;
     font-family: Optima-Regular, Optima, -apple-system, system-ui, "Segoe UI", Roboto, Ubuntu, Cantarell, "Noto Sans", sans-serif, BlinkMacSystemFont, "Helvetica Neue", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", Arial;
@@ -60,7 +65,7 @@ a{
     margin-top: 15px;
 }
 
-.header .back-wrapper{
+.header .top-wrapper .back-wrapper{
     float: right;
     height: 60px;
     margin-right: 50px;
@@ -72,28 +77,28 @@ a{
     color: #484848;
 }
 
-.header .back-wrapper a{
+.header .top-wrapper .back-wrapper a{
     color: #484848;
     text-decoration: none;
 }
 
-.header .back-wrapper .home{
+.header .top-wrapper .back-wrapper .home{
     line-height: 60px;
     width: 100%;
     height: 100%;
 }
 
-.header .back-wrapper .home:hover{
+.header .top-wrapper .back-wrapper .home:hover{
     color: rgb(86, 156, 214);
 }
 
-.header .back-wrapper .github{
+.header .top-wrapper .back-wrapper .github{
     line-height: 60px;
     width: 100%;
     height: 100%;
 }
 
-.header .back-wrapper .github:hover{
+.header .top-wrapper .back-wrapper .github:hover{
     color: rgb(86, 156, 214);
 }
 
@@ -102,7 +107,7 @@ a{
     margin-right: 10px;
 }
 
-.header .back-wrapper .github{
+.header .top-wrapper .back-wrapper .github{
     margin-right: 40px;
 }
 

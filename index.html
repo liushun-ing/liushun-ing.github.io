@@ -10,90 +10,51 @@
     <link rel="stylesheet" href="./css/iconfont.css">
     <link rel="stylesheet" href="./css/common.css">
     <link rel="stylesheet" href="./css/index.css">
-
-    <!-- es6的module语法，需要设置type,默认是引入单个js文件type="text/javascript" -->
-    <script src="index.js" type="module"></script>
     
 </head>
 <body>
     <div class="header clearfix">
-        <div class="name-wrapper">
-            <span class="name">刘 顺</span>
-            <span class="welcome">Welcome to liushun-ing's blog!</span>
-        </div>
-        <div class="back-wrapper">
-            <a class="github" target="_blank" href="https://github.com/liushun-ing">
-                <i class="iconfont icon-github"></i>Github
-            </a>
-            <a class="home" target="_self" href="/index.html">
-                <i class="iconfont icon-home"></i>Home
-            </a>
+        <div class="top-wrapper clearfix">
+            <div class="name-wrapper">
+                <span class="name">刘 顺</span>
+                <span class="welcome">Welcome to liushun-ing's blog!</span>
+            </div>
+            <div class="back-wrapper">
+                <a class="github" target="_blank" href="https://github.com/liushun-ing">
+                    <i class="iconfont icon-github"></i>Github
+                </a>
+                <a class="home" target="_self" href="/index.html">
+                    <i class="iconfont icon-home"></i>Home
+                </a>
+            </div>            
         </div>
     </div>
 
     <div class="middle clearfix middle-section">
         <div class="left-aside">
-            <a class="left-manu" href="#">java
+            <a class="left-manu" href="#" name="JavaScript">js
                 <i class="iconfont icon-youjiantou"></i>
             </a>
-            <a class="left-manu" href="#">微信小程序
+            <a class="left-manu" href="#" name="HTML_CSS">html&css
                 <i class="iconfont icon-youjiantou"></i>
             </a>
-            <a class="left-manu" href="#">html&css
+            <a class="left-manu" href="#" name="JAVA">java
                 <i class="iconfont icon-youjiantou"></i>
             </a>
-            <a class="left-manu" href="#">js
+            <a class="left-manu" href="#" name="MiniProgram">miniProgram
                 <i class="iconfont icon-youjiantou"></i>
             </a>
-            <a class="left-manu" href="#">vue
+            <a class="left-manu" href="#" name="VUE">vue
                 <i class="iconfont icon-youjiantou"></i>
             </a>
         </div>
 
         <div class="main">
-            <div class="content-wrapper">
-                <div class="title" value="java_data[0].title">MyBatis</div>
-                <div class="brief">MyBatis 是一款优秀的持久层框架，它支持自定义 SQL、存储过程以及高级映射。MyBatis 免除了几乎所有的 JDBC 代码以及设置参数和获取结果集的工作。</div>
-                <div class="bottom-wrapper">
-                    <div class="creation-time">
-                        <i class="iconfont icon-bianji"></i> 2021-07-20</div>
-                    <a class="read-more" href="./java/Mybatis/index.html">
-                        More<i class="iconfont icon-youjiantou"></i>
-                    </a>
-                </div>
-            </div>
-            <div class="content-wrapper">
-                <div class="title">Spring</div>
-                <div class="brief">Spring是一个轻量级的控制反转(IOC)和面向切面(AOP)的容器框架</div>
-                <div class="bottom-wrapper">
-                    <div class="creation-time">
-                        <i class="iconfont icon-bianji"></i> 2021-08-03</div>
-                    <a class="read-more" href="./java/Spring/index.html">
-                        More<i class="iconfont icon-youjiantou"></i>
-                    </a>
-                </div>
-            </div>
-            <div class="content-wrapper">
-                <div class="title">SpringMVC</div>
-                <div class="brief">Spring MVC是Spring Framework的一部分，是基于Java实现MVC的轻量级Web框架。Spring的web框架围绕DispatcherServlet[调度Servlet]设计。</div>
-                <div class="bottom-wrapper">
-                    <div class="creation-time">
-                        <i class="iconfont icon-bianji"></i> 2021-08-24</div>
-                    <a class="read-more" href="./java/SpringMVC/index.html">
-                        More<i class="iconfont icon-youjiantou"></i>
-                    </a>
-                </div>
-            </div>
-            <div class="content-wrapper">
-                <div class="title">SpringBoot</div>
-                <div class="brief">Spring为我们带来了构建大型分布式微服务的全套、全程产品;构建一个个功能独立的微服务应用单元，可以使用springboot，可以帮我们快速构建一个应用;</div>
-                <div class="bottom-wrapper">
-                    <div class="creation-time">
-                        <i class="iconfont icon-bianji"></i> 2022-10-13</div>
-                    <a class="read-more" href="./java/SpringBoot/index.html">
-                        More<i class="iconfont icon-youjiantou"></i>
-                    </a>
-                </div>
+            <!-- 提示 -->
+            <div class="content-title"></div>
+
+            <!-- 主体展示内容 -->
+            <div class="content-div">
             </div>
 
             <!-- 上一页、下一页 -->
@@ -108,36 +69,32 @@
         </div>
 
         <div class="right-aside">
-            <div class="tip">最新动态</div>
-            <a href="" class="new-wrapper" target="_self">
-                <div class="title">MyBatis</div>
-                <div class="introduction">总结项目中遇到的mybatis问题</div>
-                <div class="time">
-                    <i class="iconfont icon-shijian"></i> 7天前
+            <div>
+                <div class="tip">最新动态</div>
+                <div id="new-container">
+                    <a href="" class="new-wrapper" target="_self">
+                        <div class="title">MyBatis</div>
+                        <div class="introduction">总结项目中遇到的mybatis问题</div>
+                        <div class="time">
+                            <i class="iconfont icon-shijian"></i> 7天前
+                        </div>
+                    </a>  
                 </div>
-            </a>
-            <a href="" class="new-wrapper">
-                <div class="title">MyBatis</div>
-                <div class="introduction">总结项目中遇到的mybatis问题</div>
-                <div class="time">
-                    <i class="iconfont icon-shijian"></i> 7天前
-                </div>
-            </a>
-            <a href="" class="new-wrapper">
-                <div class="title">MyBatis</div>
-                <div class="introduction">总结项目中遇到的mybatis问题</div>
-                <div class="time">
-                    <i class="iconfont icon-shijian"></i> 7天前
-                </div>
-            </a>
-            <br><br>
-            <div class="tip">自我勉励</div>
-            <div class="new-wrapper">
-                <span class="motivate-sentence">我们都怀揣憧憬，却屈服于生活。可只要心中希望还在，知道现在的坚持是为理想铺路，便永不会失败。</span>
             </div>
-            <div class="new-wrapper">
-                <span class="motivate-sentence">We all have hopes, but succumb to life. But as long as there is hope in your heart and you know that your persistence is paving the way for your ideal, you will never fail.</span>
+
+            <div>
+                <div class="tip">自我勉励</div>
+                <div class="new-wrapper">
+                    <span class="motivate-sentence" id="chinese-span"></span>
+                </div>
+                <div class="new-wrapper">
+                    <span class="motivate-sentence" id="english-span"></span>
+                </div>
+                <div class="buttom-button">
+                   <button class="change-button">换一换</button>     
+                </div>     
             </div>
+
         </div>        
     </div>
 
@@ -153,5 +110,7 @@
         </div>
     </div>
 
+    <!-- es6的module语法，需要设置type,默认是引入单个js文件type="text/javascript" -->
+    <script src="index.js" type="module"></script>
 </body>
 </html>

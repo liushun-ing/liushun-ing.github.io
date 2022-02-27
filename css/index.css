@@ -43,8 +43,17 @@
     background-color: #ffffff;
 }
 
+/* 设置主体标题 */
+.main .content-title {
+    margin: 10px 0 0 20px;
+    font-family: Optima-Regular, Optima, -apple-system, system-ui, "Segoe UI", Roboto, Ubuntu, Cantarell, "Noto Sans", sans-serif, BlinkMacSystemFont, "Helvetica Neue", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", Arial;
+    color: #505050;
+    font-weight: bold;
+    font-size: 20px;
+}
+
 /* 设置中间主体的展示框 */
-.main .content-wrapper{
+.main .content-div .content-wrapper{
     background-color: #ffffff;
     box-sizing: border-box;
     width: 680px;
@@ -56,20 +65,20 @@
 }
 
 /* 展示框触碰效果 */
-.main .content-wrapper:hover{
+.main .content-div .content-wrapper:hover{
     width: 700px;
     padding: 25px 30px;
     box-shadow: 0 0 8px 1px #bbbbbb;
 }
 
-.main .content-wrapper .title{
+.main .content-div .content-wrapper .title{
     font-size: 24px;
     font-family: Optima-Regular, Optima, -apple-system, system-ui, "Segoe UI", Roboto, Ubuntu, Cantarell, "Noto Sans", sans-serif, BlinkMacSystemFont, "Helvetica Neue", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", Arial;
     color: #505050;
     font-weight: bolder;
 }
 
-.main .content-wrapper .brief{
+.main .content-div .content-wrapper .brief{
     margin: 10px 0;
     font-size: 16px;
     font-family: Optima-Regular, Optima, -apple-system, system-ui, "Segoe UI", Roboto, Ubuntu, Cantarell, "Noto Sans", sans-serif, BlinkMacSystemFont, "Helvetica Neue", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", Arial;
@@ -77,7 +86,7 @@
     line-height: 1.5rem;
 }
 
-.main .content-wrapper .bottom-wrapper{
+.main .content-div .content-wrapper .bottom-wrapper{
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -86,17 +95,63 @@
 }
 
 /* read more触碰效果 */
-.main .content-wrapper .bottom-wrapper .read-more:hover{
+.main .content-div .content-wrapper .bottom-wrapper .read-more:hover{
     color: rgb(86, 156, 214);
 }
 
-.main .content-wrapper .bottom-wrapper .creation-time .icon-bianji {
+.main .content-div .content-wrapper .bottom-wrapper .creation-time .icon-bianji {
     font-weight: bold;
 }
 
-.main .content-wrapper .bottom-wrapper .read-more .icon-youjiantou {
+.main .content-div .content-wrapper .bottom-wrapper .read-more .icon-youjiantou {
     font-weight: bold;
     margin-left: 6px;
+}
+
+/* 切换页样式 */
+.main .page-change-wrapper{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.main .page-change-wrapper .page-change{
+    height: 40px;
+    width: 80px;
+    border-radius: 5px;
+    box-shadow: 0 0 8px 1px #dddddd;
+    text-align: center;
+    line-height: 40px;
+    font-family: Optima-Regular, Optima, -apple-system, system-ui, "Segoe UI", Roboto, Ubuntu, Cantarell, "Noto Sans", sans-serif, BlinkMacSystemFont, "Helvetica Neue", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", Arial;
+    color: #505050;
+    margin: 10px 60px;
+    font-size: 16px;
+    transition: all 0.5s;
+}
+
+.main .page-change-wrapper .page-change:hover{
+    height: 45px;
+    width: 85px;
+    line-height: 45px;
+    background-color: rgb(86, 156, 214);
+    color: #ffffff;
+}
+
+.main .page-change-wrapper .page-change:hover > .icon-prev,
+.main .page-change-wrapper .page-change:hover > .icon-next{
+    color: #ffffff;
+}
+
+.main .page-change-wrapper .page-change .icon-prev{
+    margin-right: 4px;
+    font-size: 16px;
+    color: #505050;
+}
+
+.main .page-change-wrapper .page-change .icon-next{
+    margin-left: 4px;
+    font-size: 16px;
+    color: #505050;
 }
 
 /* 右边最新 */
@@ -104,12 +159,15 @@
     float: left;
     height: 800px;
     box-sizing: border-box;
-    background-color: #eeeeee;
+    background-color: #cccccc;
     width: 200px;
-    padding: 20px 0;
+    padding: 20px 0 0 0;
     position: relative;
     box-shadow: -2px -2px 6px 2px #dddddd;
     z-index: 99;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 .right-aside .tip{
@@ -167,47 +225,24 @@
     font-size: 13px;
 }
 
-.main .page-change-wrapper{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+/* 换一换按钮 */
+.right-aside .buttom-button{
+    text-align: right;
+    margin: 0 auto;
+    margin-top: -10px;
+    margin-bottom: 10px;
+    width: 180px;
 }
 
-.main .page-change-wrapper .page-change{
-    height: 40px;
-    width: 80px;
+.right-aside .buttom-button .change-button{
+    width: 50px;
+    height: 30px;
     border-radius: 5px;
-    box-shadow: 0 0 8px 1px #dddddd;
-    text-align: center;
-    line-height: 40px;
     font-family: Optima-Regular, Optima, -apple-system, system-ui, "Segoe UI", Roboto, Ubuntu, Cantarell, "Noto Sans", sans-serif, BlinkMacSystemFont, "Helvetica Neue", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", Arial;
     color: #505050;
-    margin: 10px 60px;
-    font-size: 16px;
-    transition: all 0.5s;
 }
 
-.main .page-change-wrapper .page-change:hover{
-    height: 45px;
-    width: 85px;
-    line-height: 45px;
+.right-aside .buttom-button .change-button:hover{
     background-color: rgb(86, 156, 214);
     color: #ffffff;
-}
-
-.main .page-change-wrapper .page-change:hover > .icon-prev,
-.main .page-change-wrapper .page-change:hover > .icon-next{
-    color: #ffffff;
-}
-
-.main .page-change-wrapper .page-change .icon-prev{
-    margin-right: 4px;
-    font-size: 16px;
-    color: #505050;
-}
-
-.main .page-change-wrapper .page-change .icon-next{
-    margin-left: 4px;
-    font-size: 16px;
-    color: #505050;
 }
