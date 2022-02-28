@@ -1,0 +1,82 @@
+/* 目录页的样式文件 */
+.catalogue-wrapper{
+    width: 1200px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 50px 0;
+}
+
+/* 目录部分 */
+.catalogue-wrapper .content-wrapper{
+    width: 500px;
+    height: 500px;
+    box-shadow: 0 0 8px 1px #dddddd;
+    border-radius: 10px;
+    padding: 20px 30px;
+    box-sizing: border-box;
+    transition: all .5s;
+}
+
+.catalogue-wrapper .content-wrapper:hover{
+    box-shadow: 0 0 8px 1px #bbbbbb;
+    transform:scale(1.02);
+}
+
+.catalogue-wrapper .content-wrapper .tip-wrapper{
+    font-family: Optima-Regular, Optima, -apple-system, system-ui, "Segoe UI", Roboto, Ubuntu, Cantarell, "Noto Sans", sans-serif, BlinkMacSystemFont, "Helvetica Neue", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", Arial;
+    color: #505050;
+    font-weight: bold;
+    font-size: 22px;
+}
+
+.catalogue-wrapper .content-wrapper ul{
+    font-family: Optima-Regular, Optima, -apple-system, system-ui, "Segoe UI", Roboto, Ubuntu, Cantarell, "Noto Sans", sans-serif, BlinkMacSystemFont, "Helvetica Neue", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", Arial;
+    color: #505050;
+    margin: 20px 0;
+}
+
+.catalogue-wrapper .content-wrapper ul span{
+    font-weight: bold;
+    display: block;
+    font-style: 18px;
+    margin-bottom: 10px;
+}
+
+.catalogue-wrapper .content-wrapper ul li{
+    display: inline-block;
+    margin-right: 15px;
+    line-height: 1.5rem;
+}
+
+.catalogue-wrapper .content-wrapper ul li:nth-child(2) {
+    margin-left: 20px;
+}
+
+.catalogue-wrapper .content-wrapper ul li a:hover{
+    color: rgb(86, 156, 214);
+}
+
+/* 中间目录 */
+.catalogue-wrapper .middle-wrapper{
+    height: 500px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    font-size: 30px;
+    font-family: Optima-Regular, Optima, -apple-system, system-ui, "Segoe UI", Roboto, Ubuntu, Cantarell, "Noto Sans", sans-serif, BlinkMacSystemFont, "Helvetica Neue", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", Arial;
+    color: #505050;
+    font-weight: bold;
+    margin-top: -200px;
+}
+
+.catalogue-wrapper .middle-wrapper .divide-text{
+    margin: 10px 0px;
+}
+
+.icon-HTSCIT-lianjie{
+    font-size: 30px;
+    color: #505050;
+    font-weight: bold;
+}
