@@ -1,17 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>liushun-ing</title>
     <!-- 要注意引入的顺序，否则会覆盖 -->
-    <link rel="stylesheet" href="./css/reset.css">
-    <link rel="stylesheet" href="./css/iconfont.css">
-    <link rel="stylesheet" href="./css/common.css">
-    <link rel="stylesheet" href="./css/index.css">
-</head>
-<body>
+    <link rel="stylesheet" href="./css/reset.css" />
+    <link rel="stylesheet" href="./css/iconfont.css" />
+    <link rel="stylesheet" href="./css/common.css" />
+    <link rel="stylesheet" href="./css/index.css" />
+  </head>
+  <body>
     <!-- <div class="header clearfix">
         <div class="top-wrapper clearfix">
             <div class="name-wrapper">
@@ -30,74 +30,82 @@
     </div> -->
 
     <div class="middle clearfix middle-section">
-        <div class="left-aside">
-            <a class="left-manu" href="#" name="JavaScript">js
-                <i class="iconfont icon-youjiantou"></i>
+      <div class="left-aside">
+        <a class="left-manu" href="#" name="JavaScript"
+          >js
+          <i class="iconfont icon-youjiantou"></i>
+        </a>
+        <a class="left-manu" href="#" name="HTML_CSS"
+          >html&css
+          <i class="iconfont icon-youjiantou"></i>
+        </a>
+        <a class="left-manu" href="#" name="JAVA"
+          >java
+          <i class="iconfont icon-youjiantou"></i>
+        </a>
+        <a class="left-manu" href="#" name="MiniProgram"
+          >miniProgram
+          <i class="iconfont icon-youjiantou"></i>
+        </a>
+        <a class="left-manu" href="#" name="VUE"
+          >vue
+          <i class="iconfont icon-youjiantou"></i>
+        </a>
+        <a class="left-manu" href="#" name="OperatingSystem"
+          >操作系统
+          <i class="iconfont icon-youjiantou"></i>
+        </a>
+        <a class="left-manu" href="#" name="ComputerNetworkTechnology"
+          >计算机网络
+          <i class="iconfont icon-youjiantou"></i>
+        </a>
+      </div>
+
+      <div class="main">
+        <!-- 提示 -->
+        <div class="content-title"></div>
+
+        <!-- 主体展示内容 -->
+        <div class="content-div"></div>
+
+        <!-- 上一页、下一页 -->
+        <div class="page-change-wrapper">
+          <button class="page-change" id="prev-page">
+            <i class="iconfont icon-prev"></i>Prev
+          </button>
+          <button class="page-change" id="next-page">
+            Next<i class="iconfont icon-next"></i>
+          </button>
+        </div>
+      </div>
+
+      <div class="right-aside">
+        <div>
+          <div class="tip">最新动态</div>
+          <div id="new-container">
+            <a href="" class="new-wrapper" target="_self">
+              <div class="title">MyBatis</div>
+              <div class="introduction">总结项目中遇到的mybatis问题</div>
+              <div class="time">
+                <i class="iconfont icon-shijian"></i> 7天前
+              </div>
             </a>
-            <a class="left-manu" href="#" name="HTML_CSS">html&css
-                <i class="iconfont icon-youjiantou"></i>
-            </a>
-            <a class="left-manu" href="#" name="JAVA">java
-                <i class="iconfont icon-youjiantou"></i>
-            </a>
-            <a class="left-manu" href="#" name="MiniProgram">miniProgram
-                <i class="iconfont icon-youjiantou"></i>
-            </a>
-            <a class="left-manu" href="#" name="VUE">vue
-                <i class="iconfont icon-youjiantou"></i>
-            </a>
-            <a class="left-manu" href="#" name="OperatingSystem">操作系统
-                <i class="iconfont icon-youjiantou"></i>
-            </a>
+          </div>
         </div>
 
-        <div class="main">
-            <!-- 提示 -->
-            <div class="content-title"></div>
-
-            <!-- 主体展示内容 -->
-            <div class="content-div">
-            </div>
-
-            <!-- 上一页、下一页 -->
-            <div class="page-change-wrapper">
-                <button class="page-change" id="prev-page">
-                    <i class="iconfont icon-prev"></i>Prev
-                </button>
-                <button class="page-change" id="next-page">
-                    Next<i class="iconfont icon-next"></i>
-                </button>
-            </div>
+        <div>
+          <div class="tip">自我勉励</div>
+          <div class="new-wrapper">
+            <span class="motivate-sentence" id="chinese-span"></span>
+          </div>
+          <div class="new-wrapper">
+            <span class="motivate-sentence" id="english-span"></span>
+          </div>
+          <div class="buttom-button">
+            <button class="change-button">换一换</button>
+          </div>
         </div>
-
-        <div class="right-aside">
-            <div>
-                <div class="tip">最新动态</div>
-                <div id="new-container">
-                    <a href="" class="new-wrapper" target="_self">
-                        <div class="title">MyBatis</div>
-                        <div class="introduction">总结项目中遇到的mybatis问题</div>
-                        <div class="time">
-                            <i class="iconfont icon-shijian"></i> 7天前
-                        </div>
-                    </a>  
-                </div>
-            </div>
-
-            <div>
-                <div class="tip">自我勉励</div>
-                <div class="new-wrapper">
-                    <span class="motivate-sentence" id="chinese-span"></span>
-                </div>
-                <div class="new-wrapper">
-                    <span class="motivate-sentence" id="english-span"></span>
-                </div>
-                <div class="buttom-button">
-                   <button class="change-button">换一换</button>     
-                </div>     
-            </div>
-
-        </div>        
+      </div>
     </div>
 
     <!-- <div class="bottom">
@@ -116,5 +124,5 @@
     <script src="index.js" type="module"></script>
     <script src="./common_header.js"></script>
     <script src="./common_footer.js"></script>
-</body>
+  </body>
 </html>
