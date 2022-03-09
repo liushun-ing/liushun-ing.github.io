@@ -95,6 +95,72 @@ const MiniProgram = [
   },
 ];
 
+const React = [
+  {
+    title: "React入门",
+    brief:
+      "学习React全家桶教程第一次笔记，主要记录了一些基础的概念，以及jsx语法扩展...",
+    creationTime: "2022-02-28",
+    href: "./react/1",
+  },
+  {
+    title: "React面向组件编程",
+    brief:
+      "学习React全家桶教程第二次笔记，主要记录了组件的概念及分类，以及组件的三大属性，以及组件的生命周期介绍...",
+    creationTime: "2022-03-01",
+    href: "./react/2",
+  },
+  {
+    title: "React应用(基于React脚手架)",
+    brief:
+      "学习React全家桶教程第三次笔记，主要介绍了一款常用的react脚手架create-react-app的使用...",
+    creationTime: "2022-03-02",
+    href: "./react/3",
+  },
+  {
+    title: "React案例练习",
+    brief:
+      "学习React全家桶教程案例笔记，主要记录了一些教程中编写的案例，加深记忆...",
+    creationTime: "2022-03-04",
+    href: "./react/4",
+  },
+  {
+    title: "React ajax",
+    brief:
+      "学习React全家桶教程第四次笔记，主要记录了react中axios的使用，以及消息订阅-发布机制的使用，方便组件间通信...",
+    creationTime: "2022-03-05",
+    href: "./react/5",
+  },
+  {
+    title: "React路由",
+    brief:
+      "学习React全家桶教程第五次笔记，主要记录了路由的理解，和react5.x路由插件库react-router-dom的使用...",
+    creationTime: "2022-03-06",
+    href: "./react/6",
+  },
+  {
+    title: "Redux",
+    brief:
+      "学习React全家桶教程第六次笔记，redux是一个专门用于做状态管理的JS库，用来集中式管理react应用中多个组件共享的状态，重点是react-redux的使用...",
+    creationTime: "2022-03-07",
+    href: "./react/7",
+  },
+  {
+    title: "React扩展",
+    brief:
+      "学习React全家桶教程扩展，主要记录了一些语法用法的扩展，并且开始引入Hooks的使用来方便函数组件间通信...",
+    creationTime: "2022-03-08",
+    href: "./react/8",
+  },
+  {
+    title: "React Router 6",
+    brief:
+      "学习React全家桶教程React Router 6笔记，主要介绍了一些router6版本的新的语法，并且介绍了很多新的Hooks，进一步方便了函数式组件的使用，函数式组件已经成为了趋势...",
+    creationTime: "2022-03-09",
+    href: "./react/9",
+  },
+];
+
 const VUE = [];
 
 const OperatingSystem = [
@@ -216,4 +282,5 @@ export {
   VUE,
   OperatingSystem,
   ComputerNetworkTechnology,
+  React,
 };
