@@ -3,6 +3,12 @@
  */
 const ActiveData = [
   {
+    title: "应用层",
+    introduction: "计算机网络技术课程的第二章笔记",
+    time: "2022-04-02",
+    href: "./computer_network/2",
+  },
+  {
     title: "React-Router-6",
     introduction: "本文主要记录了一些react-router-6的新语法",
     time: "2022-03-09",
@@ -14,15 +20,14 @@ const ActiveData = [
     time: "2022-03-06",
     href: "./computer_network/1",
   },
-  {
-    title: "ES6知识",
-    introduction: "本文是学习阮一峰ES6教程时所做的笔记",
-    time: "2022-02-26",
-    href: "./js/4",
-  },
 ];
 
 const MotivateDate = [
+  {
+    chinese: "成年人的世界，不存在永恒的靠山，你最强的靠山就是你的努力和独立。",
+    english:
+      "There is no eternal backing in the adult world. Your strongest backing is your efforts and independence.",
+  },
   {
     chinese:
       "我们都怀揣憧憬，却屈服于生活。可只要心中希望还在，知道现在的坚持是为理想铺路，便永不会失败。",
@@ -46,11 +51,6 @@ const MotivateDate = [
       "梦想是注定孤独的旅行，路上少不了质疑和嘲笑，但那又怎样，哪怕遍体鳞伤，也要活得漂亮。",
     english:
       "Dream is a journey destined to be lonely. There is no lack of doubt and ridicule on the road, but so what? Even if you are black and blue, you should live beautifully.",
-  },
-  {
-    chinese: "成年人的世界，不存在永恒的靠山，你最强的靠山就是你的努力和独立。",
-    english:
-      "There is no eternal backing in the adult world. Your strongest backing is your efforts and independence.",
   },
 ];
 

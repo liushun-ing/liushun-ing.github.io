@@ -272,6 +272,13 @@ const ComputerNetworkTechnology = [
     creationTime: "2022-03-06",
     href: "./computer_network/1",
   },
+  {
+    title: "应用层",
+    brief:
+      "计算机网络技术课程应用层章节笔记，记录了应用层协议原理、进程通信、HTTP服务、缓存、邮件传输协议、DNS、套接字编程等知识...",
+    creationTime: "2022-04-02",
+    href: "./computer_network/2",
+  },
 ];
 
 export {
