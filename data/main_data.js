@@ -279,6 +279,13 @@ const ComputerNetworkTechnology = [
     creationTime: "2022-04-02",
     href: "./computer_network/2",
   },
+  {
+    title: "运输层",
+    brief:
+      "计算机网络技术课程运输层章节笔记，记录了运输层的一些基础认识、运输层的两种协议TCP和UDP、以及可靠数据传输协议的构建、这又涉及到重要的回退N步和选择重传、最后就是TCP的拥塞控制原理等知识...",
+    creationTime: "2022-04-25",
+    href: "./computer_network/3",
+  },
 ];
 
 export {
