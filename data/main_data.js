@@ -161,7 +161,49 @@ const React = [
   },
 ];
 
-const VUE = [];
+const VUE = [
+  {
+    title: "vue封装axios api",
+    brief:
+      "本日志主要记录了自己在vue项目中如何学习封装axios, 进行代码封装和模块化, 实现更加方便的api管理...",
+    creationTime: "2021-12-20",
+    href: "./vue/api_tutorial",
+  },
+  {
+    title: "vue问题合集",
+    brief: "本文章主要用来整理记录自己在写vue项目时，遇到的一些问题...",
+    creationTime: "2022-05-04",
+    href: "./vue/basic_tutorial",
+  },
+];
+
+const CentOS = [
+  {
+    title: "Centos防火墙操作",
+    brief: "本日志主要整理了centos系统的一些防火墙的基本操作...",
+    creationTime: "2022-04-27",
+    href: "./centos/firewall_tutorial",
+  },
+  {
+    title: "Centos7安装MySQL",
+    brief: "本日志主要记录了自己如何在CentOS云服务器上安装mysql服务...",
+    creationTime: "2022-04-23",
+    href: "./centos/mysql_tutorial",
+  },
+  {
+    title: "Centos7安装nginx",
+    brief: "本日志主要记录了自己如何在CentOS云服务器上安装nignx服务...",
+    creationTime: "2022-04-24",
+    href: "./centos/nginx_tutorial",
+  },
+  {
+    title: "Centos基本操作",
+    brief:
+      "本日志主要整理了一些centos的基本操作，包括查看进程，杀死进程，配置java环境，如何部署springboot项目，25号占用等问题...",
+    creationTime: "2022-04-29",
+    href: "./centos/other_tutorial",
+  },
+];
 
 const OperatingSystem = [
   {
@@ -294,6 +336,7 @@ export {
   JAVA,
   MiniProgram,
   VUE,
+  CentOS,
   OperatingSystem,
   ComputerNetworkTechnology,
   React,

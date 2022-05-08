@@ -9,9 +9,9 @@ const ActiveData = [
     href: "./computer_network/3",
   },
   {
-    title: "应用层",
-    introduction: "计算机网络技术课程的第二章笔记",
-    time: "2022-04-02",
+    title: "centos安装nginx",
+    introduction: "centos7系统安装nginx过程",
+    time: "2022-04-24",
     href: "./computer_network/2",
   },
   {
