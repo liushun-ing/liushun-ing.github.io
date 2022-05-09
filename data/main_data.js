@@ -197,6 +197,13 @@ const CentOS = [
     href: "./centos/nginx_tutorial",
   },
   {
+    title: "Centos使用docker",
+    brief:
+      "本日志主要整理了在centos7上如何安装docker，并且使用如何使用docker来配置nginx和mysql镜像，并实例化容器对象，最终运行mysql和nginx服务...",
+    creationTime: "2022-05-09",
+    href: "./centos/docker_tutorial",
+  },
+  {
     title: "Centos基本操作",
     brief:
       "本日志主要整理了一些centos的基本操作，包括查看进程，杀死进程，配置java环境，如何部署springboot项目，25号占用等问题...",

@@ -138,3 +138,75 @@ firewall-cmd --zone=public --add-service=https --permanent
 firewall-cmd --reload
 ```
 
+
+
+### 8 卸载nginx
+
+先查看nginx是否在运行
+
+```shell
+systemctl status nginx.service
+```
+
+<img src="index.assets/image-20220509171754790.png" alt="image-20220509171754790" style="zoom:80%;" />
+
+如果在运行，就使用`nginx -s stop` 或者 `systemctl stop nginx.service`停止服务
+
+
+
+查看nginx相关文件
+
+```shell
+whereis nginx
+```
+
+<img src="index.assets/image-20220509171925824.png" alt="image-20220509171925824" style="zoom:80%;" />
+
+
+
+find查找相关文件
+
+```shell
+find / -name nginx
+```
+
+<img src="index.assets/image-20220509172047183.png" alt="image-20220509172047183" style="zoom:80%;" />
+
+注意只要红框是docker配置的nginx，不删
+
+
+
+删除相关文件
+
+```shell
+rm -rf /usr/local/nginx /usr/local/nginx/sbin/nginx
+```
+
+<img src="index.assets/image-20220509172229402.png" alt="image-20220509172229402" style="zoom:80%;" />
+
+
+
+使用yum在清理一次
+
+```shell
+yum remove nginx
+```
+
+<img src="index.assets/image-20220509172313627.png" alt="image-20220509172313627" style="zoom:80%;" />
+
+
+
+关闭一下开启自启动
+
+```shell
+systemctl disable nginx.service
+```
+
+<img src="index.assets/image-20220509172821742.png" alt="image-20220509172821742" style="zoom:80%;" />
+
+
+
+完成
+
+
+

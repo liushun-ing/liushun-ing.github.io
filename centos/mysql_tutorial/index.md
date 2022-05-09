@@ -54,7 +54,7 @@ cd /usr/local
 
 ```shell
 tar -zxvf mysql-5.7.35-linux-glibc2.12-x86_64.tar.gz
-// 可以用tar指令指定解压后的位置
+// 可以用tar指令指定解压后的位置   j
 tar -zxvf 所要解压的文件名 -C 解压位置
 tar -zxvf mysql-5.7.35-linux-glibc2.12-x86_64.tar.gz -C /usr/local/
 ```
@@ -244,3 +244,52 @@ source /etc/profile
 ```
 
 之后就可以在任何地方使用mysql指令了
+
+
+
+### 8 卸载mysql
+
+查找所有mysql文件
+
+```shell
+find / -name mysql
+```
+
+<img src="index.assets/image-20220509210106327.png" alt="image-20220509210106327" style="zoom:80%;" />
+
+
+
+依次删除这些文件即可
+
+```shell
+rm -rf /etc/selinux/targeted/active/modules/100/mysql
+rm -rf /usr/local/mysql
+rm -rf /usr/local/bin/mysql
+rm -rf /usr/lib64/mysql
+// 还需要删除配置文件
+rm -rf /etc/my.cnf
+```
+
+
+
+此时用yum工具也找不到了
+
+<img src="index.assets/image-20220509210737877.png" alt="image-20220509210737877" style="zoom:80%;" />
+
+完成
+
+
+
+记得关闭一下他的开机自启动服务
+
+```shell
+systemctl disable mysqld.service
+```
+
+<img src="index.assets/image-20220509211217522.png" alt="image-20220509211217522" style="zoom:80%;" />
+
+```shell
+systemctl list-unit-files | grep enabled
+用这个检查是否g
+```
+
