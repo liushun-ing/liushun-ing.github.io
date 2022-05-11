@@ -335,6 +335,13 @@ const ComputerNetworkTechnology = [
     creationTime: "2022-04-25",
     href: "./computer_network/3",
   },
+  {
+    title: "网络层数据平面",
+    brief:
+      "计算机网络技术课程网络层章节笔记，记录了网络层数据平面的一些基础知识，如路由器结构和功能、IPv4数据报和IPv6数据报格式定义、IPv4编址和子网分配，DHCP协议寻址等等...",
+    creationTime: "2022-04-25",
+    href: "./computer_network/3",
+  },
 ];
 
 export {
