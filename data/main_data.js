@@ -77,6 +77,13 @@ const JAVA = [
     creationTime: "2021-08-25",
     href: "./java/SpringBoot",
   },
+  {
+    title: "问题总结",
+    brief:
+      "用来记录自己在写java项目时遇到的一些问题，如依赖注入失败，日期转换等....还需要多记录....",
+    creationTime: "2021-04-20",
+    href: "./java/5",
+  },
 ];
 
 const MiniProgram = [
@@ -331,18 +338,56 @@ const ComputerNetworkTechnology = [
   {
     title: "运输层",
     brief:
-      "计算机网络技术课程运输层章节笔记，记录了运输层的一些基础认识、运输层的两种协议TCP和UDP、以及可靠数据传输协议的构建、这又涉及到重要的回退N步和选择重传、最后就是TCP的拥塞控制原理等知识...",
+      "计算机网络技术课程运输层章节笔记：运输层的两种协议TCP和UDP、以及可靠数据传输协议的构建、涉及回退N步和选择重传和TCP的拥塞控制原理等知识...",
     creationTime: "2022-04-25",
     href: "./computer_network/3",
   },
   {
     title: "网络层数据平面",
     brief:
-      "计算机网络技术课程网络层章节笔记，记录了网络层数据平面的一些基础知识，如路由器结构和功能、IPv4数据报和IPv6数据报格式定义、IPv4编址和子网分配，DHCP协议寻址等等...",
-    creationTime: "2022-04-25",
-    href: "./computer_network/3",
+      "计算机网络技术课程网络层章节笔记，记录了网络层数据平面的基础知识，如路由器结构和功能、IPv4和IPv6数据报格式定义、IPv4编址和子网分配，DHCP协议寻址等等...",
+    creationTime: "2022-05-10",
+    href: "./computer_network/4",
+  },
+  {
+    title: "网络层控制平面",
+    brief:
+      "计算机网络技术课程网络层章节笔记，记录了网络层控制平面的一些基础知识，如两种路由选择算法、因特网AS内部和AS之间的路由选择协议、ICMP协议等等...",
+    creationTime: "2022-05-20",
+    href: "./computer_network/5",
   },
 ];
+
+const DatastructureAndAlgorithm = [
+  {
+    title: "排序和查找",
+    brief:
+      "主要记录了数据结构众多排序算法（冒泡、选择、快速、桶）和查找算法（二分、二叉树、顺序、散列）的基本思想和概念，以及伪代码...",
+    creationTime: "2022-05-10",
+    href: "./datastructure_and_algorithm/sort_and_search",
+  },
+  {
+    title: "树",
+    brief:
+      "主要记录了数据结构树的一些知识，包括树的存储结构，二叉搜索树、平衡二叉树的一些基本概念，以及树的应用（哈夫曼编码，堆树）等等...",
+    creationTime: "2022-05-15",
+    href: "./datastructure_and_algorithm/tree",
+  },
+  {
+    title: "其他树结构",
+    brief:
+      "主要记录了数据结构其他树的一些概念，如B树，B+树，以及红黑树，主要用于了解，没有深入研究...",
+    creationTime: "2022-05-20",
+    href: "./datastructure_and_algorithm/other_tree",
+  },
+  {
+    title: "图",
+    brief:
+      "主要记录了数据结构图的一些知识，包括图的物理存储方式，图的数据结构，图的遍历算法，图的应用（最短路径、拓扑排序）等等知识...",
+    creationTime: "2022-05-30",
+    href: "./datastructure_and_algorithm/graph",
+  },
+]
 
 export {
   JavaScript,
@@ -354,4 +399,5 @@ export {
   OperatingSystem,
   ComputerNetworkTechnology,
   React,
+  DatastructureAndAlgorithm
 };

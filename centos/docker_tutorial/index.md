@@ -318,7 +318,7 @@ pid        /var/run/nginx.pid;
 
 
 events {
-    worker_connections  1024;
+	worker_connections  1024;
 }
 
 
@@ -327,8 +327,8 @@ http {
     default_type  application/octet-stream;
 
     log_format  main  '$remote_addr - $remote_user [$time_local] "$request" '
-                      '$status $body_bytes_sent "$http_referer" '
-                      '"$http_user_agent" "$http_x_forwarded_for"';
+    '$status $body_bytes_sent "$http_referer" '
+    '"$http_user_agent" "$http_x_forwarded_for"';
 
     access_log  /var/log/nginx/access.log  main;
 
@@ -341,7 +341,7 @@ http {
 
     include /etc/nginx/conf.d/*.conf;
 
-	// 主要是设置这个地方
+    # 主要是设置这个地方
     server {
         listen       80;
         server_name  localhost;
@@ -350,21 +350,21 @@ http {
 
         #access_log  logs/host.access.log  main;
 
-	#静态资源，都需要在这里设置访问权限,也可以不设置
-    	location ~ .*\.(gif|jpg|jpeg|png|bmp|map|swf|ioc|rar|zip|txt|flv|mid|doc|docx|pptx|ppt|pdf|xls|xlsx|mp3|wma|ttf|woff|woff2|js.map|map|eot|svg|json|ico|JPG|PNG|JPEG|DOC|DOCX|PPTX|PPT|PDF|XLS|XLSX)$
-    	{
-      		expires 30d; 
-      		#error_log /dev/null;
-      		#access_log /dev/null; 
-    	}
-    
-    	location ~ .*\.(js|css)?$
-    	{
-        		expires      12h;
-        		#error_log /dev/null;
-        		#access_log /dev/null; 
-    	}
-    	# 在这里在设置/是没用的，它默认走的是default.conf里面的配置
+        # 静态资源，都需要在这里设置访问权限,也可以不设置
+        location ~ .*\.(gif|jpg|jpeg|png|bmp|map|swf|ioc|rar|zip|txt|flv|mid|doc|docx|pptx|ppt|pdf|xls|xlsx|mp3|wma|ttf|woff|woff2|js.map|map|eot|svg|json|ico|JPG|PNG|JPEG|DOC|DOCX|PPTX|PPT|PDF|XLS|XLSX)$
+        {
+            expires 30d; 
+            #error_log /dev/null;
+            #access_log /dev/null; 
+        }
+
+        location ~ .*\.(js|css)?$
+        {
+            expires      12h;
+            #error_log /dev/null;
+            #access_log /dev/null; 
+        }
+        # 在这里在设置/是没用的，它默认走的是default.conf里面的配置
         location /mailservice {
             root   mailservice;
             index  index.html index.htm;
@@ -375,8 +375,9 @@ http {
         #
         error_page   500 502 503 504  /50x.html;
         location = /50x.html {
-            root   html;
+        	root   html;
         }
+    }
 
 }
 

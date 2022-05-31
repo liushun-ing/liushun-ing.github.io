@@ -106,7 +106,7 @@ cd /usr/lib/jvm
 ### 配置环境变量
 
 ```shell
-vi /ect/profile
+vi /etc/profile
 ```
 
 最底部添加
