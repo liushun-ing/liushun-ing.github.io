@@ -356,6 +356,13 @@ const ComputerNetworkTechnology = [
     creationTime: "2022-05-20",
     href: "./computer_network/5",
   },
+  {
+    title: "链路层和局域网",
+    brief:
+      "计算机网络技术课程链路层和局域网章节笔记，记录了链路层的基本概念、交换机和路由器的区别、MAC地址，以及MAC协议还有最重要的ARP协议...",
+    creationTime: "2022-06-08",
+    href: "./computer_network/6",
+  },
 ];
 
 const DatastructureAndAlgorithm = [
@@ -386,6 +393,20 @@ const DatastructureAndAlgorithm = [
       "主要记录了数据结构图的一些知识，包括图的物理存储方式，图的数据结构，图的遍历算法，图的应用（最短路径、拓扑排序）等等知识...",
     creationTime: "2022-05-30",
     href: "./datastructure_and_algorithm/graph",
+  },
+  {
+    title: "串",
+    brief:
+      "主要记录了数据结构串的一些知识，包括传的基本知识，最重要的就是串的匹配算法————KMP...",
+    creationTime: "2022-06-03",
+    href: "./datastructure_and_algorithm/string",
+  },
+  {
+    title: "算法",
+    brief:
+      "主要记录了算法的一些知识，包括动态规划、贪心算法的基本思想和一些经典实例...",
+    creationTime: "2022-06-08",
+    href: "./datastructure_and_algorithm/algorithms",
   },
 ]
 

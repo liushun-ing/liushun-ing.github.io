@@ -3,22 +3,22 @@
  */
 const ActiveData = [
   {
-    title: "图",
-    introduction: "本文主要复习数据结构图知识",
-    time: "2022-05-09",
-    href: "./datastructure_and_algorithm/graph",
+    title: "串",
+    introduction: "本文主要复习数据结构串知识",
+    time: "2022-06-03",
+    href: "./datastructure_and_algorithm/string",
   },
   {
-    title: "网络层控制平面",
-    introduction: "计算机网络技术课程的第四章笔记",
-    time: "2022-05-20",
-    href: "./computer_network/5",
+    title: "链路层和局域网",
+    introduction: "计算机网络技术课程的第六章笔记",
+    time: "2022-06-08",
+    href: "./computer_network/6",
   },
   {
-    title: "树",
-    introduction: "本文主要用于复习数据结构树知识",
-    time: "2022-04-24",
-    href: "./datastructure_and_algorithm/tree",
+    title: "算法",
+    introduction: "记录了部分常见的算法",
+    time: "2022-06-08",
+    href: "./datastructure_and_algorithm/algorithms",
   },
 ];
 
