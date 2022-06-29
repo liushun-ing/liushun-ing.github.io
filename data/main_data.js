@@ -78,6 +78,13 @@ const JAVA = [
     href: "./java/SpringBoot",
   },
   {
+    title: "SpringCloud微服务搭建和调用",
+    brief:
+      "记录了自己学者使用springcloud来搭建微服务的过程，作为以后使用微服务提供一个搭建思路，也实现了微服务间的简单调用....",
+    creationTime: "2021-06-18",
+    href: "./java/6",
+  },
+  {
     title: "问题总结",
     brief:
       "用来记录自己在写java项目时遇到的一些问题，如依赖注入失败，日期转换等....还需要多记录....",
@@ -407,6 +414,13 @@ const DatastructureAndAlgorithm = [
       "主要记录了算法的一些知识，包括动态规划、贪心算法的基本思想和一些经典实例...",
     creationTime: "2022-06-08",
     href: "./datastructure_and_algorithm/algorithms",
+  },
+  {
+    title: "c++用法",
+    brief:
+      "主要记录了c++的stl中常用数据结构，如vector,stack,map,heap的使用...",
+    creationTime: "2022-06-20",
+    href: "./datastructure_and_algorithm/c++",
   },
 ]
 
