@@ -1,0 +1,21 @@
+{
+  "name": "liushun-ing-github",
+  "version": "1.0.0",
+  "description": "liushun github page",
+  "main": "index.js",
+  "author": "liushun",
+  "license": "MIT",
+  "scripts": {
+    "dev": "vuepress dev docs",
+    "build": "vuepress build docs"
+  },
+  "devDependencies": {
+    "@vuepress/client": "^2.0.0-beta.62",
+    "@vuepress/plugin-external-link-icon": "^2.0.0-beta.62",
+    "@vuepress/plugin-search": "^2.0.0-beta.62",
+    "@vuepress/theme-default": "^2.0.0-beta.62",
+    "vue": "^3.3.2",
+    "vuepress": "^2.0.0-beta.62",
+    "vuepress-plugin-copy-code2": "^2.0.0-beta.210"
+  }
+}
