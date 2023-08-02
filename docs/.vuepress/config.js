@@ -137,6 +137,7 @@ export default defineUserConfig({
             "/tech/vue/api_tutorial.md",
             "/tech/vue/vue3_1.md",
             "/tech/vue/vue3_2.md",
+            "/tech/vue/pinia.md"
           ],
         },
       ],
