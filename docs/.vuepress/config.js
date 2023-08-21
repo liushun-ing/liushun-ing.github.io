@@ -102,6 +102,7 @@ export default defineUserConfig({
           text: "React",
           children: [
             "/tech/react/README.md",
+            "/tech/react/new.md",
             "/tech/react/1.md",
             "/tech/react/2.md",
             "/tech/react/3.md",
