@@ -1,6 +1,11 @@
 # liushun-ing-github
 
-基于[vuepress](https://v2.vuepress.vuejs.org/)框架的个人主页系统
+基于[vuepress](https://v2.vuepress.vuejs.org/)框架的个人主页
+
+[不愿飞的蜂鸟](https://liushun-ing.github.io/home/)
+
+- `docs`: 文档和配置
+- `home`: 打包资源
 
 ```bash
 # 本地运行dev server

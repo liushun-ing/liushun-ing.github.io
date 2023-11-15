@@ -1,24 +1,27 @@
 ---
 home: true
 title: 首页
-heroImage: /logo.jpeg
-heroText: liushun的个人网站主页
-tagline: 菜鸟养成日记
-heroHeight: 200
+heroImage: /logo.jpg
+heroText: Shunliu的个人网站主页
+tagline: 你所见即我，好坏我都不反驳
+heroHeight: 180
 actions:
-  - text: 了解的技术
-    link: /tech/
+  - text: Five研究生
+    link: /master/
     type: primary
-  - text: 学习的课程
+  - text: Five技术
+    link: /tech/
+    type: secondary
+  - text: Five课程
     link: /course/
     type: secondary
 features:
-- title: 学习的课程
-  details: 记录一部分计算机相关专业课的专业知识。
-- title: 了解的技术
-  details: 记录了菜鸟养成过程中的各种技术的浅显知识。
-- title: 座右铭
-  details: 你所见即我，好坏我都不反驳。
+- title: Five研究生
+  details: 孤苦伶仃，可怜巴巴，日常菜哭的研究生涯
+- title: Five技术
+  details: 大学期间Five使用过的各种浅显技术知识。
+- title: Five课程
+  details: 一部分计算机相关专业课的专业知识。
 
 footer: MIT Licensed | Copyright © 2020-present liushun
 ---
