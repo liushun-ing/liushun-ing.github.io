@@ -275,3 +275,126 @@ conda config --set env_prompt '({name}) '
 
    这将创建一个包含当前环境所有依赖项及其精确版本的 `requirements.txt` 文件。
 
+
+
+## Pycharm远程连接
+
+进入设置，选择解释器选项
+
+![image-20231116064359520](python_usage.assets/image-20231116064359520.png)
+
+选择添加
+
+![image-20231116064424994](python_usage.assets/image-20231116064424994.png)
+
+选择ssh，并填好主机地址，端口，用户名
+
+![image-20231116064458791](python_usage.assets/image-20231116064458791.png)
+
+填写密码登录
+
+![image-20231116064608360](python_usage.assets/image-20231116064608360.png)
+
+选择服务器上的解释器，以及需要映射项目的地址
+
+![image-20231116064652646](python_usage.assets/image-20231116064652646.png)
+
+点击finish，由于勾选了自动上传，他就会自动传文件上去服务器了，也可以先不选，再如下界面做好配置后，再手动上传。之后运行代码，他就会自动连接远程服务器，再远程服务器上跑。
+
+![image-20231116064838258](python_usage.assets/image-20231116064838258.png)
+
+如果不想用了，可以切换解释器，回到本地运行。
+
+
+
+## 执行bash命令
+
+### 单个命令
+
+`os.system`不常用了。
+
+在Python中，可以使用`subprocess`模块来运行命令行命令。以下是一个简单的示例，展示如何在Ubuntu上通过Python运行命令行命令：
+
+```python
+import subprocess
+
+# 通过subprocess.run运行命令行命令
+result = subprocess.run(["ls", "-l"], stdout=subprocess.PIPE, text=True)
+
+# 输出命令的结果
+print(result.stdout)
+```
+
+在这个例子中，`subprocess.run`函数的第一个参数是包含命令及其参数的列表。`stdout=subprocess.PIPE`参数将命令的标准输出捕获到`result.stdout`中。`text=True`参数表示输出结果以文本形式返回，而不是字节形式。
+
+可以替换`["ls", "-l"]`为你想要运行的实际命令及其参数。请注意，运行一些命令可能需要管理员权限，此时可能需要使用`sudo`命令，但请小心使用sudo以避免潜在的安全风险。
+
+```python
+import subprocess
+
+# 使用sudo运行命令行命令（需要输入密码）
+result = subprocess.run(["sudo", "your_command_here"], stdout=subprocess.PIPE, text=True, input="your_password\n", check=True)
+print(result.stdout)
+```
+
+### 多个命令
+
+当使用 `os.system` 或者 `subprocess.run` 运行命令时，可以使用 `&&` 来链接两个命令。在命令行中，`&&` 表示只有在前一个命令成功执行的情况下才执行下一个命令。
+
+下面是一个示例，演示如何使用 `&&` 在 Python 中运行两个命令：
+
+```python
+import os
+
+# 使用 os.system 运行两个命令
+os.system("command1 && command2")
+```
+
+或者使用 `subprocess.run`：
+
+```python
+import subprocess
+
+# 使用 subprocess.run 运行两个命令
+subprocess.run("command1 && command2", shell=True)
+```
+
+在这里，`command1` 是第一个命令，`command2` 是第二个命令。`&&` 确保只有在 `command1` 成功执行的情况下才会执行 `command2`。请注意，`shell=True` 参数是必须的，因为 `&&` 是 shell 中的一个操作符，而不是一个单独的可执行程序。
+
+### 设置环境变量
+
+比如要运行doxygen程序，但是找不到命令，这是因为它默认的环境变量是root用户，这需要自己python运行的环境变量。
+
+可以在 Python 脚本中通过以下方式查看当前环境变量：
+
+```python
+import os
+print(os.environ['PATH'])
+```
+
+如果命令所在的路径没有包含在其中，可以在 Python 脚本中设置环境变量，例如：
+
+```python
+import os
+
+# 将命令所在的路径添加到环境变量中
+os.environ['PATH'] = '/path/to/your/command:' + os.environ['PATH']
+
+# 然后执行命令
+os.system("command1 && command2")
+```
+
+请将 `/path/to/your/command` 替换为实际命令所在的路径。这样可以确保 Python 在执行命令时能够找到它们。
+
+
+
+## 排序sorted
+
+
+
+
+
+
+
+
+

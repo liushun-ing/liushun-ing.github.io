@@ -61,7 +61,9 @@ rm -rf ~/python3.9
 
 
 
-## 编辑文件
+## 文件操作
+
+### 编辑
 
 **Vim:**
 
@@ -73,9 +75,27 @@ vim filename
 
 在Vim中，按 `i` 进入插入模式，进行编辑。完成编辑后，按 `Esc` 键，然后输入 `:wq` 并按 `Enter` 保存更改并退出。
 
+> :w 保存文件但不退出vi
+> :w file 将修改另外保存到file中，不退出vi
+> :w! 强制保存，不推出vi
+> :wq 保存文件并退出vi
+> :wq! 强制保存文件，并退出vi
+> :q 不保存文件，退出vi
+> :q! 不保存文件，强制退出vi
+> :e! 放弃所有修改，从上次保存文件开始再编辑命令历史
 
 
-## 传文件
+
+### 复制文件
+
+```bash
+cp -r /data0/shunliu/pythonfile/code_context_model_prediction/git_repo_code/ /data0/shunliu/dataset_copy/
+cp -r 源路径 目的路径 （可以是文件夹也可以是w）
+```
+
+
+
+### 传文件
 
 要将本地文件夹传输到Ubuntu服务器，可以使用一些常见的工具和协议，例如 `scp`（Secure Copy Protocol）。下面是基本方法：（这个针对大的文件夹以及一些不合法的命名可能会失败）
 
@@ -89,6 +109,141 @@ scp -r -P 22 /path/to/local/folder username@remote_server_ip:/path/on/remote/ser
 - `username`: 远程服务器上的用户名。
 - `remote_server_ip`: 远程服务器的IP地址。
 - `/path/on/remote/server`: 远程服务器上存储文件夹的路径。
+
+
+
+## 文件系统顺序
+
+### linux
+
+Linux文件系统本身是区分大小写的，这意味着在Linux中文件和目录的名称是区分大小写的。例如，`file.txt`和`File.txt`在Linux中被视为两个不同的文件。
+
+然而，需要注意的是，Linux的文件系统对大小写敏感，但文件系统的访问权限通常是不区分大小写的。这意味着，如果你在文件系统上创建了一个名为`file.txt`的文件，你可以用`File.txt`或`FILE.txt`等形式来引用这个文件，只要确保在大小写敏感的环境中使用正确的大小写形式。
+
+总体而言，Linux的文件系统本身是区分大小写的，但在文件名的访问权限上通常不区分大小写。这与Windows的文件系统（例如NTFS）有所不同，因为Windows默认是不区分大小写的。
+
+### vs windows
+
+Ubuntu（Linux系统）和Windows系统对文件系统的排序方式可能会有所不同。这是因为它们使用不同的文件系统和排序算法。
+
+Linux系统通常使用的文件系统是类Unix的文件系统，例如ext4。在这些文件系统中，文件和目录的排序是基于字母顺序的，不区分大小写。这是因为Linux默认是区分大小写的，所以文件名的排序也会按照字符的ASCII码值进行。
+
+而在Windows系统中，默认的文件系统是NTFS（新技术文件系统）或FAT32。在Windows上，文件和目录的排序通常是不区分大小写的，同时还考虑了一些特殊字符的排序规则。
+
+因此，在跨平台开发时，如果依赖文件名的排序顺序，可能需要注意这些差异，以确保代码在不同操作系统上的一致性。在Python中，可以使用`os.listdir()`获取目录中的文件列表，然后根据需要对这个列表进行排序。例如：
+
+```python
+import os
+
+files = os.listdir('/path/to/directory')
+sorted_files = sorted(files, key=str.casefold)  # 不区分大小写的排序
+```
+
+上述代码中，`str.casefold`用于在排序时不区分大小写。这样可以帮助你处理在不同操作系统上的文件排序差异。
+
+windows:
+
+<img src="./system_usage.assets/image-20231116230054773.png" alt="image-20231116230054773" style="zoom:50%;" />
+
+linux:
+
+<img src="./system_usage.assets/image-20231116230221467.png" alt="image-20231116230221467" style="zoom:50%;" />
+
+
+
+## 文件路径
+
+### vs windows
+
+Ubuntu（Linux）和Windows在文件路径表示上有一些差异，主要表现在路径分隔符、根目录表示、以及驱动器表示等方面。
+
+1. **路径分隔符：**
+   - **Ubuntu/Linux:** 使用斜杠 `/` 作为路径分隔符。例如：`/home/user/Documents`.
+   - **Windows:** 使用反斜杠 `\` 作为路径分隔符。例如：`C:\Users\User\Documents`.
+
+2. **根目录表示：**
+   - **Ubuntu/Linux:** 根目录用 `/` 表示，根目录下的文件路径是绝对路径。例如：`/home/user/Documents`.
+   - **Windows:** 每个驱动器都有一个根目录，通常是`C:\`、`D:\`等。路径可以是绝对路径（例如：`C:\Users\User\Documents`）或相对路径。
+
+3. **驱动器表示：**
+   - **Ubuntu/Linux:** 不涉及驱动器的概念，文件系统都被挂载到目录中。
+   - **Windows:** 使用驱动器号表示不同的磁盘分区，例如`C:\`, `D:\`, 等。
+
+4. **相对路径表示：**
+   - **Ubuntu/Linux:** 相对路径从当前工作目录开始，使用 `.` 表示当前目录，`..` 表示上一级目录。例如：`./subdirectory/file.txt`.
+   - **Windows:** 同样使用 `.` 和 `..` 表示相对路径，例如：`.\subdirectory\file.txt`.
+
+需要注意的是，一些跨平台的工具和框架（如Python）可以处理这些路径差异，但在编写跨平台代码时，最好使用相对路径和跨平台的路径处理方法，以确保在不同操作系统上都能正确运行。(也坑到我了)
+
+
+
+## 进程
+
+### 查询
+
+在 Linux 中，可以使用 ps 命令来查看进程。这个命令可以显示当前运行的进程的详细信息。以下是一些常用的 ps 命令选项:
+
+- `ps aux`：显示所有用户的所有进程
+- `ps -ef`：显示所有进程的完整信息
+- `ps -uf`：显示当前用户的进程的完整信息
+- `ps -e`：显示所有进程，但不包括线程
+- `ps -f`：显示完整的格式化输出，包括父进程 ID (PPID) 和运行时间等信息
+
+也可以结合其他命令来过滤和查找特定的进程。例如，使用 grep 命令可以根据进程名称或其他关键词进行过滤。例如：`ps -ef | grep java`
+
+
+
+### 终止
+
+1、kill命令：使用kill命今可以向进程发送信号，其中SIGTERM信号可以用来优雅地终止进程，而SIGKILL信号则强制杀死进程.
+
+- 例如，要杀死进程号为1234的进程，可以使用以下命令：`kill 1234`
+- 如果进程无法响应SIGTERM信号，可以使用以下命令强制杀死进程：`kill -9 1234`
+
+2、pkill命令：pkill命令可以通过进程名称或者其他属性来杀死进程
+
+- 要杀死名为nginx的进程，可以使用以下命令：`pkill nginx`
+
+
+
+### 后台运行nohup
+
+**nohup**
+no hang up 不挂起
+npm start 启动命令
+\>app.logs 输出日志
+2>&1 将错误也输出到日志
+& 后台运行
+
+```bash
+nohup npm start >app.logs 2>&1 &
+```
+
+如果此时直接关闭终端的话，会断掉该命令所对应的session，导致nohup对应的进程被通知需要一起shutdown，起不到关掉终端后调用程序继续后台运行的作用。
+
+解决方法：使用`exit`退出终端
+
+使用exit命令退出终端，我们的程序还是会继续运行，这是为什么呢? 这是因为使用exit命令退出终端时不会向终端所属任务发SIGHUP信号，这是huponexit 配置项控制的，默认是off，可以使用shopt 命令查看
+
+```bash
+shunliu@amax:~/javafile/java-code-extractor/target$ shopt |grep huponexit
+huponexit       off
+shunliu@amax:~/javafile/java-code-extractor/target$ shopt -s huponexit
+shunliu@amax:~/javafile/java-code-extractor/target$ shopt |grep huponexit
+huponexit       on
+```
+
+1.将huponexit设置为off
+
+```bash
+shopt -u huponexit
+```
+
+2.将huponexit设置为on
+
+```bash
+shopt -s huponexit
+```
 
 
 
@@ -256,3 +411,42 @@ scp -r -P 22 /path/to/local/folder username@remote_server_ip:/path/on/remote/ser
    ```
 
    这应该显示Anaconda的版本号，表明安装成功。
+
+
+
+## 安装java
+
+1. **下载 OpenJDK 16 压缩包：**
+
+   ```bash
+   mkdir -p java
+   cd java
+   wget https://download.java.net/java/GA/jdk16/7863447f0ab643c585b9bdebf67c69db/36/GPL/openjdk-16_linux-x64_bin.tar.gz
+   ```
+
+   请注意，上述 URL 是 Java 16 的下载链接，可以根据需要选择其他版本。
+
+2. **解压缩文件：**
+
+   ```bash
+   tar -xzvf openjdk-16_linux-x64_bin.tar.gz
+   ```
+
+3. **设置环境变量：**
+
+   在 `~/.bashrc` 文件中添加以下行：
+
+   ```bash
+   export JAVA_HOME=/data1/shunliu/java/jdk-16
+   export PATH=$JAVA_HOME/bin:$PATH
+   ```
+
+   然后运行 `source ~/.bashrc` 以使更改生效。
+
+4. **验证安装：**
+
+   ```bash
+   java -version
+   ```
+
+   确保显示安装的 Java 版本信息。
