@@ -17,6 +17,7 @@ export const masterSideBar = {
         '/master/daily/README.md',
         '/master/daily/23_Nov.md',
         '/master/daily/23_Dec.md',
+        '/master/daily/24_Jan.md'
       ],
     },
   ],

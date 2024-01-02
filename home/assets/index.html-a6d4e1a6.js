@@ -1,1 +1,0 @@
-const t=JSON.parse('{"key":"v-04eb32b4","path":"/master/ubuntu/","title":"Navigation","lang":"zh-CN","frontmatter":{},"headers":[],"git":{"updatedTime":1700035602000,"contributors":[{"name":"liushun","email":"1743760069@qq.com","commits":1}]},"filePathRelative":"master/ubuntu/README.md"}');export{t as data};

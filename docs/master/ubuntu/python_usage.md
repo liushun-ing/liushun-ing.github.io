@@ -77,6 +77,12 @@ conda env list
 ```
 这将显示所有已安装的 Conda 环境。
 
+**复制环境**
+
+```bash
+conda create -n 新环境名 --clone 旧环境名
+```
+
 **导出环境配置**
 
 ```bash

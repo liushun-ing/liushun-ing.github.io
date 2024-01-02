@@ -1,1 +1,0 @@
-const t=JSON.parse('{"key":"v-78c36fbc","path":"/master/GNN/","title":"Navigation","lang":"zh-CN","frontmatter":{},"headers":[],"git":{"updatedTime":null,"contributors":[]},"filePathRelative":"master/GNN/README.md"}');export{t as data};
