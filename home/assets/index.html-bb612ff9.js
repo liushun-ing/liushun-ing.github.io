@@ -1,0 +1,1 @@
+import{_ as a,o as t,c as n,b as e,d as o}from"./app-9723bb95.js";const c={},i=e("h1",{id:"navigation",tabindex:"-1"},[e("a",{class:"header-anchor",href:"#navigation","aria-hidden":"true"},"#"),o(" Navigation")],-1),s=e("p",null,"研究生重新学习Java，开启后端之路",-1),r=[i,s];function _(d,l){return t(),n("div",null,r)}const f=a(c,[["render",_],["__file","index.html.vue"]]);export{f as default};
