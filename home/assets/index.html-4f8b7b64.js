@@ -1,0 +1,1 @@
+const t=JSON.parse('{"key":"v-bf544ff0","path":"/master/redis/","title":"Navigation","lang":"zh-CN","frontmatter":{},"headers":[],"git":{"updatedTime":null,"contributors":[]},"filePathRelative":"master/redis/README.md"}');export{t as data};

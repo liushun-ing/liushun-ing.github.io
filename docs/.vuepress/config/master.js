@@ -6,6 +6,9 @@ export const masterNavBar = {
     { text: 'Ubuntu', link: '/master/ubuntu/' },
     { text: 'GNN', link: '/master/GNN/' },
     { text: 'Python', link: '/master/python/' },
+    { text: 'Spring', link: '/master/spring/' },
+    { text: 'JVM', link: '/master/jvm/' },
+    { text: 'Redis', link: '/master/redis/' },
   ],
 }
 
@@ -49,6 +52,40 @@ export const masterSideBar = {
       children: [
         '/master/python/README.md',
         '/master/python/base_usage.md',
+      ],
+    },
+  ],
+  '/master/spring/': [
+    {
+      text: 'Spring',
+      children: [
+        '/master/spring/README.md',
+        '/master/spring/springboot.md',
+        '/master/spring/spring_annotation.md',
+      ],
+    },
+  ],
+  '/master/jvm/': [
+    {
+      text: 'JVM',
+      children: [
+        '/master/jvm/README.md',
+        '/master/jvm/1.md',
+        '/master/jvm/2.md',
+        '/master/jvm/3.md',
+        '/master/jvm/4.md',
+      ],
+    },
+  ],
+  '/master/redis/': [
+    {
+      text: 'Redis',
+      children: [
+        '/master/redis/README.md',
+        '/master/redis/1.md',
+        '/master/redis/2.md',
+        '/master/redis/3.md',
+        '/master/redis/4.md',
       ],
     },
   ],
