@@ -2,7 +2,7 @@ export const masterNavBar = {
   text: 'Five研究生',
   link: '/master/',
   children: [
-    { text: 'Daily', link: '/master/daily/' },
+    // { text: 'Daily', link: '/master/daily/' },
     { text: 'Ubuntu', link: '/master/ubuntu/' },
     { text: 'GNN', link: '/master/GNN/' },
     { text: 'Python', link: '/master/python/' },
