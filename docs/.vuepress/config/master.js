@@ -9,6 +9,7 @@ export const masterNavBar = {
     { text: 'Spring', link: '/master/spring/' },
     { text: 'JVM', link: '/master/jvm/' },
     { text: 'Redis', link: '/master/redis/' },
+    { text: 'JUC', link: '/master/juc'},
   ],
 }
 
@@ -86,6 +87,15 @@ export const masterSideBar = {
         '/master/redis/2.md',
         '/master/redis/3.md',
         '/master/redis/4.md',
+      ],
+    },
+  ],
+  '/master/juc/': [
+    {
+      text: 'JUC',
+      children: [
+        '/master/juc/README.md',
+        '/master/juc/1.md',
       ],
     },
   ],
