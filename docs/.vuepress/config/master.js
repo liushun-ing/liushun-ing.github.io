@@ -10,6 +10,8 @@ export const masterNavBar = {
     { text: 'JVM', link: '/master/jvm/' },
     { text: 'Redis', link: '/master/redis/' },
     { text: 'JUC', link: '/master/juc'},
+    { text: 'Netty', link: '/master/netty'},
+    { text: 'Security', link: '/master/security'},
   ],
 }
 
@@ -96,6 +98,25 @@ export const masterSideBar = {
       children: [
         '/master/juc/README.md',
         '/master/juc/1.md',
+      ],
+    },
+  ],
+  '/master/netty/': [
+    {
+      text: 'Netty',
+      children: [
+        '/master/netty/README.md',
+        '/master/netty/1.md',
+        '/master/netty/2.md',
+      ],
+    },
+  ],
+  '/master/security/': [
+    {
+      text: 'Security',
+      children: [
+        '/master/security/README.md',
+        '/master/security/1.md',
       ],
     },
   ],
