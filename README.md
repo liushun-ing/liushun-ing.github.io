@@ -2,7 +2,7 @@
 
 基于[vuepress](https://v2.vuepress.vuejs.org/)框架的个人主页
 
-[不愿飞的蜂鸟](https://liushun-ing.github.io/home/)
+点击前往他的个人主页 -> [不愿飞的蜂鸟](https://liushun-ing.github.io/home/) <-
 
 - `docs`: 文档和配置
 - `home`: 打包资源
