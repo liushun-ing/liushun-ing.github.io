@@ -9,9 +9,9 @@ export const masterNavBar = {
     { text: 'Spring', link: '/master/spring/' },
     { text: 'JVM', link: '/master/jvm/' },
     { text: 'Redis', link: '/master/redis/' },
-    { text: 'JUC', link: '/master/juc'},
-    { text: 'Netty', link: '/master/netty'},
-    { text: 'Security', link: '/master/security'},
+    { text: 'JUC', link: '/master/juc/'},
+    { text: 'Netty', link: '/master/netty/'},
+    { text: 'Security', link: '/master/security/'},
   ],
 }
 
@@ -116,7 +116,7 @@ export const masterSideBar = {
       text: 'Security',
       children: [
         '/master/security/README.md',
-        '/master/security/1.md',
+        '/master/security/jwt.md',
       ],
     },
   ],
