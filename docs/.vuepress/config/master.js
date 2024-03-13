@@ -12,6 +12,7 @@ export const masterNavBar = {
     { text: 'JUC', link: '/master/juc/'},
     { text: 'Netty', link: '/master/netty/'},
     { text: 'Security', link: '/master/security/'},
+    { text: 'Service', link: '/master/service/'},
   ],
 }
 
@@ -117,6 +118,17 @@ export const masterSideBar = {
       children: [
         '/master/security/README.md',
         '/master/security/jwt.md',
+        '/master/security/shiro.md',
+      ],
+    },
+  ],
+  '/master/service/': [
+    {
+      text: 'Service',
+      children: [
+        '/master/service/README.md',
+        '/master/service/jwt.md',
+        '/master/service/shiro.md',
       ],
     },
   ],

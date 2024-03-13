@@ -156,3 +156,60 @@ JWT 作为一个令牌（token），有些场合可能会放到 URL（比如 api
 - 自包含(Self-contained)：负载中包含了所有用户所需要的信息，避免了多次查询数据库；
 - Token是以JSON加密的形式保存在客户端，所以JWT是跨语言的，原则上任何web形式都支持。
 - 不需要在服务端保存会话信息，特别适用于分布式微服务。
+
+## java工具类
+
+```java
+@Data
+@Component
+@ConfigurationProperties(prefix = "token") // 读配置文件
+public class TokenConfig {
+  private long expireDate;
+  private String secret;
+}
+```
+
+```java
+@Component
+public class JWTUtil {
+  @Resource
+  private TokenConfig tokenConfig;
+
+  public String sign(String account) {
+    // 过期时间
+    Date date = new Date(System.currentTimeMillis() + tokenConfig.getExpireDate());
+    // 密钥及加密算法
+    Algorithm algorithm = Algorithm.HMAC256(tokenConfig.getSecret());
+    // 设置 header 信息
+    Map<String, Object> header = new HashMap<>();
+    header.put("typ", "JWT");
+    header.put("alg", "HS256");
+
+    // 携带 username, password 信息，生成签名
+    return JWT.create()
+            .withHeader(header)
+            .withClaim("account", account)
+            .withExpiresAt(date)
+            .sign(algorithm);
+  }
+
+  public Integer verify(String token) {
+    Algorithm algorithm = Algorithm.HMAC256(tokenConfig.getSecret());
+    JWTVerifier verifier = JWT.require(algorithm).build();
+    DecodedJWT jwt = verifier.verify(token); // 会判断各种条件，包括过期时间，签名，头部信息算法校验等等
+    Claim claim = jwt.getClaim("id");
+    return claim.asInt();
+  }
+
+  public static String getAccount(String token) {
+    try {
+      DecodedJWT jwt = JWT.decode(token);
+      return jwt.getClaim("account").asString();
+    } catch (JWTDecodeException e) {
+      return null;
+    }
+  }
+
+}
+```
+
