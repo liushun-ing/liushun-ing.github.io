@@ -1,0 +1,353 @@
+# 项目
+
+## 邮件项目
+
+***\*项目描述：\****
+
+基于POP3和SMTP协议，设计实现一个可以收发邮件的邮件服务器，以及用户代理客户端。用户可以通过小程序使用邮箱的基本功能，管理员可以通过后台管理系统进行用户管理和服务配置等操作。
+
+***\*工作职责：\****
+
+- 完成所有服务端代码开发，基于命令模式实现了 SMTP 和 POP3 中各种命令的处理逻辑
+- 基于 Netty 多路复用的 NIO 模型，提高 IO 效率，提高服务器的可用性
+- 使用 docker 容器提供 Mysql 和 Nginx 服务，基于 Shiro 和 JWT 实现用户登陆、鉴权和登出功能
+- 使用 SpringBoot 和 Vue 技术，实现邮件服务器配置管理的前后端
+
+### 邮件系统？
+
+一个电子邮件系统应当由这几个主要部分组成：
+
+<img src="./project.assets/screenshot2024-03-1417.10.23.png" alt="screenshot2024-03-14 17.10.23" style="zoom:50%;" />
+
+从上图可以看出，这里采用常用的SMTP作为邮件发送协议，采用常用的POP3作为邮件读取协议。请注意，SMTP和 POP3 (或IMAP)都是使用TCP连接来传送邮件的，使用TCP的目的是为了可靠地传送邮件。
+
+**邮件服务器**：邮件服务器的功能是发送和接收邮件，同时还要向发件人报告邮件传送的结果（已交付、被拒绝、丢失等）。邮件服务器按照客户服务器方式（C/S）工作。邮件服务器需要使用两种不同的协议。一种协议用于用户代理向邮件服务器发送邮件或在邮件服务器之间发送邮件，如SMTP协议，而另一种协议用于用户代理从邮件服务器读取邮件，如邮局协议POP3。
+
+
+
+### SMTP？
+
+#### 介绍
+
+SMTP 是一种应用层协议。SMTP 服务器是一种始终在线的侦听模式。一旦侦听来自任何客户端的 TCP 连接，SMTP 进程就会通过端口 25 启动连接。成功建立 TCP 连接后，客户端进程会立即发送邮件。
+
+**SMTP和HTTP协议一样都属于请求应答式协议，也就是一问一答，客户端发送命令后，服务器返回响应内容。**SMTP的响应格式和HTTP协议的基本一样，都是响应码+响应描述。响应码用三位数字表示，空格后则是响应信息的描述，只是HTTP协议会多一个版本信息。这种一问一答式协议，在HTTP协议上体现的并不是很明显，只有HTTP连接设置为**Keep-Alive**时，你才有机会使用GET或POST命令反复与服务器进行交互，否则只有一次问答的机会。
+
+**但在SMTP协议下这种一问一答的交互方式就非常明显了。** 主要原因是完成一次邮件的发送任务涉及到的步骤比较多，电子邮件的发送分为如下五个步骤：
+
+> **1、建立会话；**
+> **2、身份认证；**
+> **3、发送邮件信封（发件人和收件人）；**
+> **4、发送邮件内容（邮件正文和附件）；**
+> **5、关闭会话**；
+
+#### 流程
+
+建立会话
+
+**HELO or EHLO**
+
+```shell
+S: 220 yeah.net Anti-spam GT for Coremail System (yeah[20141016])
+C: HELO your-computer-name
+S: 250 OK
+```
+
+登陆
+
+**SMTP命令：AUTH LOGIN**
+
+该命令用于进行身份验证，虽然这一步在SMTP协议中不是强制的要求，但目前几乎所有的SMTP服务器都需要进行身份认证。增加这一步可以大大减少垃圾邮件的存在，以及避免有人伪造其它发件人进行邮件的发送操作。
+**这一步中账号和密码需要进行base64编码，包括服务器发来的提示信息也是base64编码。**
+首先发送**AUTH LOGIN**命令，服务器会返回“334 XNlcm5hbWU6”，“dXNlcm5hbWU6”解码后为“username:”
+UGFzc3dvcmQ6解码为"Password:"
+**也就是提示用户输入用户名和密码。认证成功后返回235**。** 接着根据服务器返回的提示，发送账号（发件人的邮箱账号）和密码。
+
+```shell
+C: AUTH LOGIN
+S: 334 dXNlcm5hbWU6
+C: base64编码后的账号（发件人的邮箱账号）
+S: 334 UGFzc3dvcmQ6
+C: base64编码后的密码
+S: 235 Authentication successful
+```
+
+发送信封信息
+
+**SMTP命令：MAIL FROM、RCPT TO**
+该阶段是告诉服务器发件人和收件人的邮箱地址，可以把这个阶段想象为你在写纸质信件的信封。MAIL FROM用于指定发件人邮箱，该邮箱地址其实就是上述身份认证中的账号，如：
+**MAIL FROM: <lig4961@yeah.net>**
+**RCPT TO**用于指定收件人邮箱，一次只能指定一个收件人地址，如果收件人有多个的话，可以多次发送RCPT TO命令。
+
+```c
+C: MAIL FROM: <lig4961@yeah.net>
+S: 250 Mail OK
+C: RCPT TO: <syfzxm@163.com>
+S: 250 Mail OK
+C: RCPT TO: <lig4961@yeah.net>
+S: 250 Mail OK
+```
+
+注意，邮件地址要用放入<>中，此外，**每条命令发送完毕后，一定要判断服务器返回码是否是250。** 如果返回的不是二百五，说明你发送的地址可能是不正确的地址，比如邮件地址中没有@，或者在同一个邮箱系统中，SMTP服务器发现收件人的地址并不存在，也就是没有注册过。
+
+**SMTP命令：DATA**
+
+这一步是发送数据最多也是最复杂的一步，但操作命令却只有一个，就是**DATA**，也就是数据（邮件内容），邮件内容主要包括三个部分（可能会有内嵌资源文件，也可以理解为狭义上的附件）：
+
+> **1、邮件头；**
+> **2、邮件正文；**
+> **3、邮件附件；**
+
+DATA命令发送后，服务器会返回**354**响应码，并告诉客户端，数据结束要以"\r\n.\r\n"来标识。接下来客户端就可以发送整个邮件内容了。
+
+```shell
+DATA
+354 End data with <CR><LF>.<CR><LF>
+SUBJECT: =?UTF-8?B?5p2l6IeqU29mdGxlZe+8jOi/meaYr+S4gOWwgea1i+ivlemCruS7tg==?=
+xxxxx
+```
+
+最后所有数据发送完毕后，一定要发送"\r\n.\r\n"，从而告诉SMTP服务器所有数据发送完毕。
+
+
+
+结束会话
+
+**SMTP命令：QUIT**
+这一步非常简单，就是发送一条QUIT命令，QUIT命令发送完毕后，还是要判断服务器的返回码是否为250。如果返回的不是，则表明发送失败，SMTP服务器可能不会将邮件转发到收件人所在的邮箱中，这一点很重要。
+
+
+
+其他
+
+**RSET命令**：该实用程序将连接重置为其初始会话。使用时，它将擦除所有发件人和收件人缓冲区和表，以提供响应代码 250 的肯定服务器响应。它使 SMTP 服务保持打开状态并准备好进行新的会话对话。
+
+**NOOP命令**：如果您不确定 SMTP 服务是否已连接并正常运行，您应该使用 NOOP 实用程序进行检查。它对您的系统没有任何作用，但会提示接收者通过响应代码 250 发送 OK 响应。
+
+
+
+### POP3？
+
+POP3(Post Office Protocol 3)即邮局协议的第3个版本，它是规定个人计算机如何连接到互联网上的邮件服务器进行收发邮件的协议。它是因特网电子邮件的第一个离线协议标准，POP3协议允许用户从服务器上把邮件存储到本地主机（即自己的计算机）上，同时根据客户端的操作删除或保存在邮件服务器上的邮件，而POP3服务器则是遵循POP3协议的接收邮件服务器，用来接收电子邮件的。
+
+当客户机与服务器建立联系时，一旦客户机提供了自己身份并成功确认，即由认可状态转入处理状态，在完成相应的操作后客户机发出quit命令，则进入更新状态，更新之后最后重返认可状态。如下:
+
+<img src="./project.assets/screenshot2024-03-1419.53.25.png" alt="screenshot2024-03-14 19.53.25" style="zoom: 33%;" />
+
+POP作为Internet上邮件的第一个离线协议标准，允许用户从服务器上把邮件下载到本地主机上，同时删除保存在邮件服务器上的邮件，从而使用户不必长时间地与邮件服务器连接，很大程度上减少了服务器和网络的整体开销。
+但 POP3有其天生的缺陷，即当用户接收电子邮件时，所有的信件都从服务器上清除并下载到客户机。在整个收信过程中，用户无法知道邮件的具体信息，只有照单全收入硬盘后，才能慢慢浏览和删除。这使用户几乎没有对邮件接收的控制决定权。一旦碰上邮箱被轰炸，或有比较大的邮件，用户不能通过分析邮件的内容及发信人地址来决定是否下载或删除，从而造成系统资源的浪费。而IMAP协议不但可以克服POP3的缺陷，而且还提供了更强大的功能。
+
+
+
+### 技术栈？
+
+邮件服务：Netty
+
+web服务：springboot + mysql + shiro + JWT + mybatis-plus + Nginx + Docker
+
+Netty主要用于提高邮件服务的IO效率，包含高可用性
+
+Shiro+JWT实现登陆，鉴权，登出等功能
+
+使用docker部署mysql和nginx服务，nginx主要用来配置反向代理，保证前端部署的文件是可以访问的。
+
+
+
+### 难点？
+
+#### IO效率的优化
+
+使用netty框架来实现非阻塞IO，提高服务可用性。
+
+产生粘包和拆包问题的主要原因是，操作系统在发送TCP数据的时候，底层会有一个缓冲区，例如1024个字节大小，如果一次请求发送的数据量比较小，没达到缓冲区大小，TCP则会将多个请求合并为同一个请求进行发送，这就形成了粘包问题；如果一次请求发送的数据量比较大，超过了缓冲区大小，TCP就会将其拆分为多次发送，这就是拆包，也就是将一个大的包拆分为多个小包进行发送。
+
+使用pipeline来为每个通道添加编码器和解码器还有处理器，保证数据能够正常读取，并使用按行读取的方式，一换行符作为解码依据，解决数据沾包问题。这样handler中的数据会自动转换为字符串
+
+```java
+/** 通道初始化对象 */
+public class SmtpServerInitializer extends ChannelInitializer<SocketChannel> {
+
+  // 每个连接建立都需要初始化
+  @Override
+  protected void initChannel(SocketChannel socketChannel) throws Exception {
+    // 往pipeline中添加配置
+    socketChannel
+        .pipeline()
+        // TCP/IP数据包的传输方式，包在传输的过程中会分片和重组
+        // 确保数据会按行读取，以换行符作为解码依据，上面的原因导致粘包，正确解包
+        .addLast("framer", new DelimiterBasedFrameDecoder(8 * 1024, Delimiters.lineDelimiter()))
+        // 添加字符串解码器，用于接受客户端数据
+        .addLast("decoder", new StringDecoder(CharsetUtil.UTF_8))
+        // 添加字符串编码器，用于向客户端发送数据
+        .addLast("encoder", new StringEncoder(CharsetUtil.UTF_8))
+        // 添加处理器，每个连接一个handler对象
+        .addLast("handler", new SmtpServerHandler());
+  }
+}
+```
+
+然后使用future在消息回复完毕后主动关闭通道
+
+```java
+  // 在回复完消息之后，将通道关闭
+  ChannelFuture future = smtpData.getChannel().writeAndFlush(ReplyMessage.QUIT_OK.getMessage());
+  // 添加异步回调事件，在回调队列中等待执行
+  future.addListener(ChannelFutureListener.CLOSE);
+```
+
+
+
+#### 指令的设计和处理
+
+设计：主要是设置指令的处理逻辑，包括设置指令的基类，然后让下面的所有指令来继承该类，每个指令一个类，都有他自己的处理方法，但也有公共的方法就放在父类里。然后包括封装指令的返回消息，返回消息的构建工具类等等
+
+处理：各种指令之间的顺序执行的保证，以及指令实现的正确性，去网上查了很多资料。
+
+
+
+#### 问题？
+
+依赖注入的问题，邮件服务是独立的，所以不交给springboot管理，但是收到邮件后需要保存到数据库，这需要用到mybatis-plus持久化，所以需要用到sprinboot管理的对象，一开始直接使用@autowired一直报空指针。
+
+原因：不归springboot管理的bean内部使用依赖注入的注解是不会生效的。
+
+所以需要手动获取，于是自己编写了一个工具类，在springboot启动的时候，将上下文对象保存到工具类的静态变量中，然后邮件服务中需要使用mapper的地方手动传入class对象屈从容器中拿bean
+
+```java
+public class ApplicationContextHolder {
+
+  // 上下文对象
+  public static ConfigurableApplicationContext context;
+
+  /** 通过name获取 Bean. */
+  public static Object getBean(String name) {
+    return context.getBean(name);
+  }
+
+  /** 通过class获取Bean. */
+  public static <T> T getBean(Class<T> clazz) {
+    return context.getBean(clazz);
+  }
+
+  /** 通过name,以及Clazz返回指定的Bean */
+  public static <T> T getBean(String name, Class<T> clazz) {
+    return context.getBean(name, clazz);
+  }
+}
+```
+
+
+
+#### 全局异常处理
+
+自定义异常，然后在这里统一处理
+
+```java
+@ControllerAdvice
+// @RestControllerAdvice 建议直接Rest，就不用一个个加@ResponseBody，因为前后端分离项目不需要返回路径
+public class GlobalExceptionHandler {
+    
+    private static final Logger logger = LoggerFactory.getLogger(GlobalExceptionHandler.class);
+
+    /**
+     * 处理自定义的业务异常
+     * @param req
+     * @param e
+     * @return
+     */
+    @ExceptionHandler(value = BizException.class)
+    @ResponseBody
+    public ResultResponse bizExceptionHandler(HttpServletRequest req, BizException e){
+        logger.error("发生业务异常！原因是：{}",e.getErrorMsg());
+        return ResultResponse.error(e.getErrorCode(),e.getErrorMsg());
+    }
+
+    /**
+     * 处理空指针的异常
+     * @param req
+     * @param e
+     * @return
+     */
+    @ExceptionHandler(value =NullPointerException.class)
+    @ResponseBody
+    public ResultResponse exceptionHandler(HttpServletRequest req, NullPointerException e){
+        logger.error("发生空指针异常！原因是:",e);
+        return ResultResponse.error(ExceptionEnum.BODY_NOT_MATCH);
+    }
+
+    /**
+     * 处理其他异常
+     * @param req
+     * @param e
+     * @return
+     */
+    @ExceptionHandler(value =Exception.class)
+    @ResponseBody
+    public ResultResponse exceptionHandler(HttpServletRequest req, Exception e){
+        logger.error("未知异常！原因是:",e);
+        return ResultResponse.error(ExceptionEnum.INTERNAL_SERVER_ERROR);
+    }
+}
+
+```
+
+
+
+### Docker？
+
+Docker 是一个开源的应用容器引擎，基于 Go 语言并遵从 Apache2.0 协议开源。
+
+Docker 可以让开发者打包他们的应用以及依赖包到一个轻量级、可移植的容器中，然后发布到任何流行的 Linux 机器上，也可以实现虚拟化。
+
+#### Docker 的优点
+
+Docker 是一个用于开发，交付和运行应用程序的开放平台。Docker 使您能够将应用程序与基础架构分开，从而可以快速交付软件。借助 Docker，您可以与管理应用程序相同的方式来管理基础架构。通过利用 Docker 的方法来快速交付，测试和部署代码，您可以大大减少编写代码和在生产环境中运行代码之间的延迟。
+
+1、快速，一致地交付您的应用程序
+
+Docker 允许开发人员使用您提供的应用程序或服务的本地容器在标准化环境中工作，从而简化了开发的生命周期。
+
+容器非常适合持续集成和持续交付（CI / CD）工作流程，请考虑以下示例方案：
+
+- 您的开发人员在本地编写代码，并使用 Docker 容器与同事共享他们的工作。
+- 他们使用 Docker 将其应用程序推送到测试环境中，并执行自动或手动测试。
+- 当开发人员发现错误时，他们可以在开发环境中对其进行修复，然后将其重新部署到测试环境中，以进行测试和验证。
+- 测试完成后，将修补程序推送给生产环境，就像将更新的镜像推送到生产环境一样简单。
+
+2、响应式部署和扩展
+
+Docker 是基于容器的平台，允许高度可移植的工作负载。Docker 容器可以在开发人员的本机上，数据中心的物理或虚拟机上，云服务上或混合环境中运行。
+
+Docker 的可移植性和轻量级的特性，还可以使您轻松地完成动态管理的工作负担，并根据业务需求指示，实时扩展或拆除应用程序和服务。
+
+3、在同一硬件上运行更多工作负载
+
+Docker 轻巧快速。它为基于虚拟机管理程序的虚拟机提供了可行、经济、高效的替代方案，因此您可以利用更多的计算能力来实现业务目标。Docker 非常适合于高密度环境以及中小型部署，而您可以用更少的资源做更多的事情。
+
+
+
+#### 基本结构
+
+一个是Docker的客户端，一个是Docker的主机，一个是Docker的远程仓库：
+
+<img src="./project.assets/screenshot2024-03-1421.10.20.png" alt="screenshot2024-03-14 21.10.20" style="zoom:50%;" />
+
+- 镜像（image)：
+
+docker镜像就是一个只读模板，比如，一个镜像可以包含一个完整的centos，里面仅安装apache或用户的其他应用，镜像可以用来创建docker容器，另外docker提供了一个很简单的机制来创建镜像或者更新现有的镜像，用户甚至可以直接从其他人那里下一个已经做好的镜像来直接使用，通过镜像启动一个容器，一个镜像是一个可执行的包，其中包括运行应用程序所需要的所有内容包含代码，运行时间，库、环境变量、和配置文件。
+
+- 容器(container)：
+
+Docker利用容器技术，独立运行一个或者一组应用，通过镜像来创建的，容器是镜像的运行实例，当被运行时有镜像状态和用户进程，可以使用docker ps 查看，它可以被启动，开始、停止、删除、每个容器都是互相隔离的，可以把容器看做是要给简易版的linux环境（包括root用户权限、镜像空间、用户空间和网络空间等）和运行在其中的应用程序
+
+- 仓库(repository)：
+
+registry是仓库主从服务器，实际上参考注册服务器上存放着多个仓库，每个仓库中又包含了多个镜像，每个镜像有不同的标签（tag）。
+
+仓库分为两种，公有参考，和私有仓库，最大的公开仓库是docker Hub，存放了数量庞大的镜像供用户下载，国内的docker pool，这里仓库的概念与Git类似，registry可以理解为github这样的托管服务。
+
+### 容器和虚拟机
+
+容器时在linux上本机运行，并与其他容器共享主机的内核，它运行的一个独立的进程，不占用其他任何可执行文件的内存，非常轻量
+
+虚拟机运行的是一个完整的操作系统，通过虚拟机管理程序对主机资源进行虚拟访问，相比之下需要的资源更多
