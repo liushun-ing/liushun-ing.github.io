@@ -13,6 +13,7 @@ export const masterNavBar = {
     { text: 'Netty', link: '/master/netty/'},
     { text: 'Security', link: '/master/security/'},
     { text: 'Service', link: '/master/service/'},
+    { text: 'MyBatis', link: '/master/mybatis/'}
   ],
 }
 
@@ -129,6 +130,15 @@ export const masterSideBar = {
         '/master/service/README.md',
         '/master/service/jwt.md',
         '/master/service/shiro.md',
+      ],
+    },
+  ],
+  '/master/mybatis/': [
+    {
+      text: 'MyBatis',
+      children: [
+        '/master/mybatis/README.md',
+        '/master/mybatis/mybatis.md',
       ],
     },
   ],

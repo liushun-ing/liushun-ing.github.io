@@ -219,7 +219,7 @@ try (BufferedOutputStream bos = new BufferedOutputStream(new FileOutputStream("o
 
 `BufferedReader` （字符缓冲输入流）和 `BufferedWriter`（字符缓冲输出流）类似于 `BufferedInputStream`（字节缓冲输入流）和`BufferedOutputStream`（字节缓冲输入流），内部都维护了一个字节数组作为缓冲区。不过，前者主要是用来操作字符信息。
 
-## 
+
 
 ### 打印流？
 
@@ -242,7 +242,7 @@ public class PrintWriter extends Writer {
 
 
 
-### 随机访问流？
+### ***随机访问流？
 
 这里要介绍的随机访问流指的是支持随意跳转到文件的任意位置进行读写的 `RandomAccessFile` 。
 
@@ -289,7 +289,7 @@ System.out.println("读取之前的偏移量：" + randomAccessFile.getFilePoint
 
 
 
-### IO设计模式有哪些？
+### ***IO设计模式有哪些？
 
 **装饰器模式**：在外面包装一层
 
@@ -425,7 +425,7 @@ class PollingWatchService extends AbstractWatchService {
 
 
 
-### Java IO模型？
+### ***Java IO模型？
 
 当应用程序发起 I/O 调用后，会经历两个步骤：
 
@@ -475,7 +475,7 @@ Java 中的 NIO ，有一个非常重要的**选择器 ( Selector )** 的概念�
 
 
 
-### NIO懂？
+### ***NIO懂？
 
 使用 NIO 并不一定意味着高性能，它的性能优势主要体现在高并发和高延迟的网络环境下。当连接数较少、并发程度较低或者网络传输速度较快时，NIO 的性能并不一定优于传统的 BIO 。
 
@@ -608,7 +608,7 @@ while (keyIterator.hasNext()) {
 
 
 
-### NIO零拷贝懂？
+### ***NIO零拷贝懂？
 
 零拷贝是提升 IO 操作性能的一个常用手段，像 ActiveMQ、Kafka 、RocketMQ、QMQ、Netty 等顶级开源项目都用到了零拷贝。
 

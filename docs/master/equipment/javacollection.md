@@ -88,14 +88,14 @@ Map
 
 
 
-### 懂RandomAccess 接口？
+### ***懂RandomAccess 接口？
 
 ```java
 public interface RandomAccess {
 }
 ```
 
-查看源码我们发现实际上 `RandomAccess` 接口中什么都没有定义。所以，在我看来 `RandomAccess` 接口不过是一个标识罢了。标识什么？ 标识实现这个接口的类具有随机访问功能。
+查看源码我们发现实际上 `RandomAccess` 接口中什么都没有定义。所以，在我看来 `RandomAccess` 接口不过是一个标识罢了。标识什么？ **标识实现这个接口的类具有随机访问功能。**
 
 在 `binarySearch（)` 方法中，它要判断传入的 list 是否 `RandomAccess` 的实例，如果是，调用`indexedBinarySearch()`方法，如果不是，那么调用`iteratorBinarySearch()`方法
 
@@ -124,7 +124,7 @@ Comparator是在调用sort函数的时候传入的自定义规则
 
 
 
-### Queue和Qeque？
+### Queue和Deque？
 
 `Queue` 是单端队列，只能从一端插入元素，另一端删除元素，实现上一般遵循 **先进先出（FIFO）** 规则。
 
@@ -195,7 +195,7 @@ public interface BlockingQueue<E> extends Queue<E> {
 
 
 
-### BlockingQueue有哪些实现类？
+### ***BlockingQueue有哪些实现类？
 
 Java 中常用的阻塞队列实现类有以下几种：
 
@@ -210,7 +210,7 @@ Java 中常用的阻塞队列实现类有以下几种：
 
 
 
-### ArrayBlockingQueue 和 LinkedBlockingQueue 有什么区别？
+### ***ArrayBlockingQueue 和 LinkedBlockingQueue 有什么区别？
 
 `ArrayBlockingQueue` 和 `LinkedBlockingQueue` 是 Java 并发包中常用的两种阻塞队列实现，它们都是线程安全的。不过，不过它们之间也存在下面这些区别：
 
@@ -223,7 +223,7 @@ Java 中常用的阻塞队列实现类有以下几种：
 
 
 
-### HashMap和Hashtable区别懂？
+### ***HashMap和Hashtable区别懂？
 
 - **线程是否安全：** `HashMap` 是非线程安全的，`Hashtable` 是线程安全的,因为 `Hashtable` 内部的方法基本都经过`synchronized` 修饰。（如果你要保证线程安全的话就使用 `ConcurrentHashMap` 吧！）；
 - **效率：** 因为线程安全的问题，`HashMap` 要比 `Hashtable` 效率高一点。另外，`Hashtable` 基本被淘汰，不要在代码中使用它；
@@ -269,7 +269,7 @@ static final int tableSizeFor(int cap) {
 
 
 
-### HashMap和TreeMap懂？
+### ***HashMap和TreeMap懂？
 
 `TreeMap` 和`HashMap` 都继承自`AbstractMap` ，但是需要注意的是`TreeMap`它还实现了`NavigableMap`接口和`SortedMap` 接口。
 
@@ -277,7 +277,9 @@ static final int tableSizeFor(int cap) {
 
 实现 `NavigableMap` 接口让 `TreeMap` 有了对集合内元素的搜索的能力。
 
-实现`SortedMap`接口让 `TreeMap` 有了对集合中的元素根据键排序的能力。默认是按 key 的升序排序，不过我们也可以指定排序的比较器。
+实现`SortedMap`接口让 `TreeMap` 有了对集合中的元素根据键排序的能力。**默认是按 key 的升序排序**，不过我们也可以指定排序的比较器。
+
+底层HashMap是数组+链表+红黑树，TreeMap底层是红黑树
 
 ```java
 TreeMap<Person, String> treeMap = new TreeMap<>((person1, person2) -> {
@@ -299,7 +301,7 @@ TreeMap<Person, String> treeMap = new TreeMap<>(new Comparator<Person>() {
 
 当你把对象加入`HashSet`时，`HashSet` 会先计算对象的`hashcode`值来判断对象加入的位置，同时也会与其他加入的对象的 `hashcode` 值作比较，如果没有相符的 `hashcode`，`HashSet` 会假设对象没有重复出现。但是如果发现有相同 `hashcode` 值的对象，这时会调用`equals()`方法来检查 `hashcode` 相等的对象是否真的相同。如果两者相同，`HashSet` 就不会让加入操作成功。
 
-在 JDK1.8 中，实际上无论`HashSet`中是否已经存在了某元素，`HashSet`都会直接插入，只是会在`add()`方法的返回值处告诉我们插入前是否存在相同元素。如果存在就会返回已经有的元素，不存在会返回null，所以他的源码如下：
+在 JDK1.8 中，**实际上无论`HashSet`中是否已经存在了某元素，`HashSet`都会直接插入，只是会在`add()`方法的返回值处告诉我们插入前是否存在相同元素。如果存在就会返回已经有的元素，不存在会返回null**，所以他的源码如下：
 
 ```java
 // Returns: true if this set did not already contain the specified element
@@ -311,7 +313,7 @@ public boolean add(E e) {
 
 
 
-### HashMap底层实现？
+### ***HashMap底层实现？
 
 JDK1.8 之前 `HashMap` 底层是 **数组和链表** 结合在一起使用也就是 **链表散列**，JDK1.8后新增了一个红黑树来提高查找效率。HashMap 通过 key 的 `hashcode` 经过扰动函数处理过后得到 hash 值，然后通过 `(n - 1) & hash` 判断当前元素存放的位置（这里的 n 指的是数组的长度），如果当前位置存在元素的话，就判断该元素与要存入的元素的 hash 值以及 key 是否相同，如果相同的话，直接覆盖，不相同就通过拉链法解决冲突。所谓 **“拉链法”** 就是：将链表和数组相结合。也就是说创建一个链表数组，数组中每一格就是一个链表。若遇到哈希冲突，则将冲突的值加到链表中即可。
 
@@ -338,12 +340,13 @@ static int hash(int h) {
 
 > TreeMap、TreeSet 以及 JDK1.8 之后的 HashMap 底层都用到了红黑树。红黑树就是为了解决二叉查找树的缺陷，因为二叉查找树在某些情况下会退化成一个线性结构。
 
-如果当链表长度达到8，回去调用红黑树转换的函数，函数内会判断如果当前数组的长度小于 64，那么会选择先进行数组扩容，而不是转换为红黑树。每次扩容都会重新hash
+**如果当链表长度达到8，回去调用红黑树转换的函数，函数内会判断如果当前数组的长度小于 64，那么会选择先进行数组扩容，而不是转换为红黑树。每次扩容都会重新hash**
 
-首先和hashcode碰撞次数的泊松分布有关，主要是为了寻找一种时间和空间的平衡。在负载因子0.75（HashMap默认）的情况下，单个hash槽内元素个数为8的概率小于百万分之一，将7作为一个分水岭，等于7时不做转换，**大于等于8才转红黑树，小于等于6才转链表**。链表中元素个数为8时的概率已经非常小，再多的就更少了，所以原作者在选择链表元素个数时选择了8，是根据概率统计而选择的。
+首先和hashcode碰撞次数的泊松分布有关，主要是为了寻找一种时间和空间的平衡。在负载因子0.75（HashMap默认）的情况下，单个hash槽内元素个数为8的概率小于百万分之一，将7作为一个分水岭，等于7时不做转换，**大于等于8才转红黑树，小于等于6才转链表**。链表中元素个数为8时的概率已经非常小，再多的就更少了，所以**原作者在选择链表元素个数时选择了8，是根据概率统计而选择的。**
 
 
-### HashMap的长度为什么是2的幂次方？
+
+### **HashMap的长度为什么是2的幂次方？
 
 为了能让 HashMap 存取高效，尽量较少碰撞，也就是要尽量把数据分配均匀。Hash 值（int类型）的范围值-2147483648 到 2147483647，前后加起来大概 40 亿的映射空间，只要哈希函数映射得比较均匀松散，一般应用是很难出现碰撞的。但问题是一个 40 亿长度的数组，内存是放不下的。hash散列值用之前还要先做对数组的长度取模运算，得到的余数才能用来要存放的位置也就是对应的数组下标。这个数组下标的计算方法是“ `(n - 1) & hash`”。（n 代表数组长度）。这也就解释了 HashMap 的长度为什么是 2 的幂次方。n-1的二进制的每一位都必须是1.
 
@@ -361,7 +364,9 @@ JDK1.7 及之前版本的 `HashMap` 在多线程环境下扩容操作可能存�
 
 
 
-### HashMap为什么线程不安全？
+### ***HashMap为什么线程不安全？
+
+并发修改公共变量
 
 JDK 1.8 后，在 `HashMap` 中，多个键值对可能会被分配到同一个桶（bucket），并以链表或红黑树的形式存储。多个线程对 `HashMap` 的 `put` 操作会导致线程不安全，具体来说会有数据覆盖或丢失的风险。
 
@@ -371,7 +376,7 @@ JDK 1.8 后，在 `HashMap` 中，多个键值对可能会被分配到同一个�
 
 
 
-### HashMap常见的遍历方式？
+### ***HashMap常见的遍历方式？
 
 HashMap **遍历从大的方向来说，可分为以下 4 类**：
 
@@ -414,21 +419,21 @@ HashMap **遍历从大的方向来说，可分为以下 4 类**：
 
 
 
-### ConcurrentHashMap` 和 `Hashtable区别？
+### ***ConcurrentHashMap 和 Hashtable区别？
 
 在 JDK1.7 的时候，`ConcurrentHashMap` 对整个桶数组进行了分割分段(`Segment`，分段锁)，每一把锁只锁容器其中一部分数据（下面有示意图），多线程访问容器里不同数据段的数据，就不会存在锁竞争，提高并发访问率。
 
 到了 JDK1.8 的时候，`ConcurrentHashMap` 已经摒弃了 `Segment` 的概念，而是直接用 `Node` 数组+链表+红黑树的数据结构来实现，并发控制使用 `synchronized` 和 CAS 来操作。数组中的节点上锁
 
-**`Hashtable`(同一把锁)** :使用 `synchronized` 来保证线程安全，效率非常低下。当一个线程访问同步方法时，其他线程也访问同步方法，可能会进入阻塞或轮询状态，如使用 put 添加元素，另一个线程不能使用 put 添加元素，也不能使用 get，竞争会越来越激烈效率越低。
+**`Hashtable`(同一把锁)** :使用 `synchronized` 来保证线程安全，效率非常低下。当一个线程访问同步方法时，其他线程也访问同步方法，可能会进入阻塞或轮询状态，如使用 put 添加元素，另一个线程不能使用 put 添加元素，也不能使用 get，竞争会越来越激烈效率越低。而且没有红黑树
 
 
 
-### ConcurrentHashMap底层原理？
+### ***ConcurrentHashMap底层原理？
 
-- **线程安全实现方式**：JDK 1.7 采用 `Segment` 分段锁来保证安全， `Segment` 是继承自 `ReentrantLock`。JDK1.8 放弃了 `Segment` 分段锁的设计，采用 `Node + CAS + synchronized` 保证线程安全，锁粒度更细，`synchronized` 只锁定当前链表或红黑二叉树的首节点。
+- **线程安全实现方式**：JDK 1.7 采用 `Segment` 分段锁来保证安全， Segment 通过继承 ReentrantLock 来进行加锁。JDK1.8 放弃了 `Segment` 分段锁的设计，采用 `Node + CAS + synchronized` 保证线程安全，锁粒度更细，`synchronized` 只锁定当前链表或红黑二叉树的首节点。
 - **Hash 碰撞解决方法** : JDK 1.7 采用拉链法，JDK1.8 采用拉链法结合红黑树（链表长度超过一定阈值时，将链表转换为红黑树）。
-- **并发度**：JDK 1.7 最大并发度是 Segment 的个数，默认是 16。JDK 1.8 最大并发度是 Node 数组的大小，并发度更大。
+- **并发度**：JDK 1.7 **最大并发度concurrencyLevel是 Segment 的个数，默认是 16**，并且一旦设定，不可改变。JDK 1.8 **最大并发度是 Node 数组的大小，并发度更大**。
 
 1.7
 
@@ -438,11 +443,15 @@ HashMap **遍历从大的方向来说，可分为以下 4 类**：
 
 <img src="./javacollection.assets/screenshot2024-03-1513.42.38.png" alt="screenshot2024-03-15 13.42.38" style="zoom: 33%;" />
 
-Java 8 中，锁粒度更细，`synchronized` 只锁定当前链表或红黑二叉树的首节点，这样只要 hash 不冲突，就不会产生并发，就不会影响其他 Node 的读写，效率大幅提升。
+Java 8 中，锁粒度更细，`synchronized` 只锁定当前链表或红黑二叉树的首节点，这样**只要 hash 不冲突，就不会产生并发，就不会影响其他 Node 的读写，效率大幅提升。**
+
+**java1.7 之前：在进行添加和删除时，调用tryLock请求获取锁，获取失败就轮询请求，他有一个最大循环次数，如果一直拿不到，就直接lock进入阻塞拿锁**
+
+**java1.8 之后：加锁方式CAS和synchronized：当要修改容量时，有一个size变量，对他进行cas，保证只有一个线程能改大小。加入元素时，如果位置为空，使用cas保证只有一个能放进去，如果不为空，则使用synchronized方法锁住第一个元素。**
 
 
 
-### concurrenthashmap为什么不支持null？
+### ***concurrenthashmap为什么不支持null？
 
 拿 get 方法取值来说，返回的结果为 null 存在两种情况：值没有在集合中 ；值本身就是 null。这样就会有二义性。
 
@@ -452,13 +461,13 @@ hashMap之所以支持，是因为他可以使用containsKey来判断这个key�
 
 
 
-### concurrenthashmap能保证操作的原子性吗？
+### ***concurrenthashmap能保证操作的原子性吗？
 
 不能！复合操作是指由多个基本操作(如`put`、`get`、`remove`、`containsKey`等)组成的操作，例如先判断某个键是否存在`containsKey(key)`，然后根据结果进行插入或更新`put(key, value)`。这种操作在执行过程中可能会被其他线程打断，导致结果不符合预期。
 
  `ConcurrentHashMap` 复合操作的原子性的保证有解决方案？
 
-`ConcurrentHashMap` 提供了一些原子性的复合操作，如 `putIfAbsent`、`compute`、`computeIfAbsent` 、`computeIfPresent`、`merge`等。这些方法都可以接受一个函数作为参数，根据给定的 key 和 value 来计算一个新的 value，并且将其更新到 map 中。
+`ConcurrentHashMap` **提供了一些原子性的复合操作**，如 `putIfAbsent`、`compute`、`computeIfAbsent` 、`computeIfPresent`、`merge`等。这些方法都可以接受一个函数作为参数，根据给定的 key 和 value 来计算一个新的 value，并且将其更新到 map 中。
 
 ```java
 // 线程 A
@@ -488,9 +497,9 @@ map.computeIfAbsent(key, k -> anotherValue);
 
 扩容机制：
 
-初始容量为10，每次满了之后，使用该规则扩容`int newCapacity = oldCapacity + (oldCapacity >> 1)`,所以 ArrayList 每次扩容之后容量都会变为原来的 1.5 倍左右
+**初始容量为10，每次满了之后，使用该规则扩容`int newCapacity = oldCapacity + (oldCapacity >> 1)`,所以 ArrayList 每次扩容之后容量都会变为原来的 1.5 倍左右**
 
-以无参数构造方法创建 `ArrayList` 时，实际上初始化赋值的是一个空数组。当真正对数组进行添加元素操作时，才真正分配容量。即向数组中添加第一个元素时，数组容量扩为 10。 如果传递了，就用它传递的。
+**以无参数构造方法创建 `ArrayList` 时，实际上初始化赋值的是一个空数组。当真正对数组进行添加元素操作时，才真正分配容量。即向数组中添加第一个元素时，数组容量扩为 10。 如果传递了，就用它传递的。**
 
 ```java
 public ArrayList(int initialCapacity) {
@@ -508,7 +517,7 @@ public ArrayList(int initialCapacity) {
 
 
 
-### HashMap底层？
+### ****HashMap底层？
 
 HashMap 主要用来存放键值对，它基于哈希表的 Map 接口实现，是常用的 Java 集合之一，是非线程安全的。
 
@@ -518,9 +527,13 @@ JDK1.8 之前 HashMap 由 数组+链表 组成的，数组是 HashMap 的主体�
 
 `HashMap` 默认的初始化大小为 16。之后每次扩充（达到负载因子，默认是0.75），容量变为原来的 2 倍。并且， `HashMap` 总是使用 2 的幂作为哈希表的大小。扩容这个过程涉及到 rehash、复制数据等操作，所以非常消耗性能。
 
-## 
+增加一个元素过程：应该是等于8和等于64，不是大于。
 
-### CopyOnWriteArrayList懂？
+<img src="./javacollection.assets/put.png" alt="put" style="zoom:67%;" />
+
+
+
+### ***CopyOnWriteArrayList懂？
 
 对于大部分业务场景来说，读取操作往往是远大于写入操作的。由于读取操作不会对原有数据进行修改，因此，对于每次读取都进行加锁其实是一种资源浪费。相比之下，我们应该允许多个线程同时访问 `List` 的内部数据，毕竟对于读取操作来说是安全的。
 
@@ -528,7 +541,7 @@ JDK1.8 之前 HashMap 由 数组+链表 组成的，数组是 HashMap 的主体�
 
 `CopyOnWriteArrayList` 线程安全的核心在于其采用了 **写时复制（Copy-On-Write）** 的策略，从 `CopyOnWriteArrayList` 的名字就能看出了。
 
-当需要修改（ `add`，`set`、`remove` 等操作） `CopyOnWriteArrayList` 的内容时，不会直接修改原数组，而是会先创建底层数组的副本，对副本数组进行修改，修改完之后再将修改后的数组赋值回去，这样就可以保证写操作不会影响读操作了。
+当需要修改（ `add`，`set`、`remove` 等操作） `CopyOnWriteArrayList` 的内容时，不会直接修改原数组，而是会先创建底层数组的副本，对副本数组进行修改，修改完之后再将修改后的数组赋值回去，这样就可以保证写操作不会影响读操作了。这里会加锁
 
 写时复制机制依然存在一些缺点，下面列举几点：
 
@@ -536,9 +549,11 @@ JDK1.8 之前 HashMap 由 数组+链表 组成的，数组是 HashMap 的主体�
 2. 写操作开销：每一次写操作都需要复制一份原始数据，然后再进行修改和替换，所以写操作的开销相对较大，在写入比较频繁的场景下，性能可能会受到影响。
 3. 数据一致性问题：修改操作不会立即反映到最终结果中，还需要等待复制完成，这可能会导致一定的数据一致性
 
+CopyOnWriteArrayList在遍历时会创建一个COWIterator，COWIterator表示迭代器，其也有一个Object类型的数组作为CopyOnWriteArrayList数组的快照，这种快照风格的迭代器方法在创建迭代器时使用了对当时数组状态的引用。此数组在迭代器的生存期内不会更改，因此不可能发生冲突，并且迭代器保证不会抛出 ConcurrentModificationException。创建迭代器以后，迭代器就不会反映列表的添加、移除或者更改。在迭代器上进行的元素更改操作(remove、set 和 add)不受支持。这些方法将直接抛出 UnsupportedOperationException。
 
 
-### 阻塞队列懂？
+
+### ***阻塞队列懂？
 
 阻塞队列就是典型的生产者-消费者模型，它可以做到以下几点:
 
@@ -567,7 +582,7 @@ public ThreadPoolExecutor(int corePoolSize,
 
 可以看put源码
 
-实际上是使用了ReentrantLock可重入锁，然后上锁循环等待，enqueue中会有`notEmpty.signal();`来释放锁并唤醒等待的线程，通过 `Condition` 实现线程间的等待和唤醒操作。
+**实际上是使用了ReentrantLock可重入锁，然后上锁循环等待，enqueue中会有`notEmpty.signal();`来释放锁并唤醒等待的线程，通过 `Condition` 实现线程间的等待和唤醒操作。**应该是dequeue的时候会有notFull.signal。
 
 ```java
 public void put(E e) throws InterruptedException {
@@ -590,4 +605,17 @@ public void put(E e) throws InterruptedException {
     }
 }
 ```
+
+
+
+
+
+### 并发修改异常ConcurrentModificationException？
+
+- 异常产生原因：并发修改异常指的是在并发环境下，当方法检测到对象的并发修改，但不允许这种修改时，抛出该异常。
+- 实际上，在单线程也会发生，如果在使用iterator遍历的时候执行了增加和删除元素，就会报这个异常
+
+在调用next方法时会调用checkForComodification()方法，方法比较modCount 变量值不等于expectedModCount变量值时，就会触发此异常。每add和remove一次，modCount会+1，而在调用iterater()获取迭代器方法时，会将modCount赋值给expectedModCount。
+
+解决：使用iterator.remove()不会产生并发修改异常，迭代器调用remove()方法删除元素，底层还是调用的集合的删除元素的方法；在调用remove()方法后，都会将modCount的值赋值给expectedModCount，保证了它两的值永远都是相等的，所以也就不会产生并发修改异常
 

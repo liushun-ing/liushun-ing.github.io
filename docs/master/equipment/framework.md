@@ -12,7 +12,7 @@ Spring 最核心的思想就是不重新造轮子，开箱即用，提高开发�
 
 
 
-### Spring有哪些模块？
+### ***Spring有哪些模块？
 
 Core Container
 
@@ -60,7 +60,7 @@ Spring Boot 只是简化了配置，如果你需要构建 MVC 架构的 Web 程�
 
 
 
-### 谈谈对IoC的理解？
+### ***谈谈对IoC的理解？
 
 **IoC（Inversion of Control:控制反转）** 是一种设计思想，而不是一个具体的技术实现。IoC 的思想就是将原本在程序中手动创建对象的控制权，交由 Spring 框架来管理。不过， IoC 并非 Spring 特有，在其他语言中也有应用。
 
@@ -96,7 +96,7 @@ Spring 时代我们一般通过 XML 文件来配置 Bean，后来开发人员觉
 
 
 
-### @Component和@Bean有啥区别？
+### ***@Component和@Bean有啥区别？
 
 - `@Component` 注解作用于类，而`@Bean`注解作用于方法。
 - `@Component`通常是通过类路径扫描来自动侦测以及自动装配到 Spring 容器中（我们可以使用 `@ComponentScan` 注解定义要扫描的路径从中找出标识了需要装配的类自动装配到 Spring 的 bean 容器中）。`@Bean` 注解通常是我们在标有该注解的方法中定义产生这个 bean,`@Bean`告诉了 Spring 这是某个类的实例，当我需要用它的时候还给我。
@@ -155,7 +155,7 @@ Spring 内置的 `@Autowired` 以及 JDK 内置的 `@Resource` 和 `@Inject` 都
 
 
 
-### @Autowired和@Resource啥区别？
+### ***@Autowired和@Resource啥区别？
 
 - `@Autowired` 是 Spring 提供的注解，`@Resource` 是 JDK 提供的注解。
 - `Autowired` 默认的注入方式为`byType`（根据类型进行匹配），`@Resource`默认注入方式为 `byName`（根据名称进行匹配）。
@@ -194,7 +194,7 @@ private SmsService smsService;
 
 
 
-### bean的作用域？
+### ***bean的作用域？
 
 Spring 中 Bean 的作用域通常有下面几种：
 
@@ -225,7 +225,7 @@ public Person personPrototype() {
 
 
 
-### bean是线程安全的吗？
+### ***bean是线程安全的吗？
 
 Spring 框架中的 Bean 是否线程安全，取决于其作用域和状态。
 
@@ -242,7 +242,7 @@ prototype 作用域下，每次获取都会创建一个新的 bean 实例，不�
 
 
 
-### bean生命周期？
+### ****bean生命周期？
 
 1. Bean 容器找到配置文件中 Spring Bean 的定义。
 2. Bean 容器利用 Java Reflection API 创建一个 Bean 的实例。
@@ -261,11 +261,11 @@ prototype 作用域下，每次获取都会创建一个新的 bean 实例，不�
 
 
 
-### 说说对AOP的理解？
+### ***说说对AOP的理解？
 
 AOP(Aspect-Oriented Programming:面向切面编程)能够将那些与业务无关，却为业务模块所共同调用的逻辑或责任（例如事务处理、日志管理、权限控制等）封装起来，便于减少系统的重复代码，降低模块间的耦合度，并有利于未来的可拓展性和可维护性。
 
-Spring AOP 就是基于动态代理的，如果要代理的对象，实现了某个接口，那么 Spring AOP 会使用 **JDK Proxy**，去创建代理对象，而对于没有实现接口的对象，就无法使用 JDK Proxy 去进行代理了，这时候 Spring AOP 会使用 **Cglib** 生成一个被代理对象的子类来作为代理，如下图所示：
+Spring AOP 就是基于动态代理的，如果要代理的对象，实现了某个接口，那么 Spring AOP 会使用 **JDK Proxy**，去创建代理对象，而对于没有实现接口的对象，就无法使用 JDK Proxy 去进行代理了，这时候 Spring AOP 会使用 **Cglib** 生成一个被代理对象的子类来作为代理，如下图所示：[实例](https://juejin.cn/post/6844903925112373262)
 
 <img src="./framework.assets/screenshot2024-03-1619.54.41.png" alt="screenshot2024-03-16 19.54.41" style="zoom:50%;" />
 
@@ -285,7 +285,7 @@ AOP 切面编程涉及到的一些专业术语：
 
 
 
-### Spring AOP 和 AspectJ AOP 有什么区别？
+### ***Spring AOP 和 AspectJ AOP 有什么区别？
 
 **Spring AOP 属于运行时增强，而 AspectJ 是编译时增强。** Spring AOP 基于代理(Proxying)，而 AspectJ 基于字节码操作(Bytecode Manipulation)。
 
@@ -344,7 +344,7 @@ MVC 是一种设计模式，Spring MVC 是一款很优秀的 MVC 框架。Spring
 
 
 
-### SpringMVC有哪些核心组件？
+### ***SpringMVC有哪些核心组件？
 
 - **`DispatcherServlet`**：**核心的中央处理器**，负责接收请求、分发，并给予客户端响应。
 - **`HandlerMapping`**：**处理器映射器**，根据 URL 去匹配查找能处理的 `Handler` ，并会将请求涉及到的拦截器和 `Handler` 一起封装。
@@ -354,7 +354,7 @@ MVC 是一种设计模式，Spring MVC 是一款很优秀的 MVC 框架。Spring
 
 
 
-### SpringMVC原理懂？
+### ***SpringMVC原理懂？
 
 <img src="./framework.assets/screenshot2024-03-1.05.18.png" alt="screenshot2024-03-16 20.05.18" style="zoom: 50%;" />
 
@@ -368,7 +368,7 @@ MVC 是一种设计模式，Spring MVC 是一款很优秀的 MVC 框架。Spring
 
 
 
-### 统一异常怎么做？
+### ***统一异常怎么做？
 
 使用注解的方式统一异常处理，具体会使用到 `@ControllerAdvice` + `@ExceptionHandler` 这两个注解 。
 
@@ -420,7 +420,7 @@ private Method getMappedMethod(Class<? extends Throwable> exceptionType) {
 
 
 
-### Spring中用到了那些模式？
+### ***Spring中用到了那些模式？
 
 - **工厂设计模式** : Spring 使用工厂模式通过 `BeanFactory`、`ApplicationContext` 创建 bean 对象。
 - **代理设计模式** : Spring AOP 功能的实现。
@@ -440,7 +440,7 @@ private Method getMappedMethod(Class<? extends Throwable> exceptionType) {
 
 
 
-### spring事物的传播方式？
+### ***spring事物的传播方式？
 
 **事务传播行为是为了解决业务层方法之间互相调用的事务问题**。
 
@@ -472,7 +472,7 @@ private Method getMappedMethod(Class<? extends Throwable> exceptionType) {
 
 
 
-### spring事物隔离级别
+### ***spring事物隔离级别
 
 ```java
 public enum Isolation {
@@ -504,11 +504,11 @@ public enum Isolation {
 
 
 
-### @Transactional(rollbackFor = Exception.class)注解了解吗？
+### ***@Transactional(rollbackFor = Exception.class)注解了解吗？
 
 `Exception` 分为运行时异常 `RuntimeException` 和非运行时异常。事务管理对于企业应用来说是至关重要的，即使出现异常情况，它也可以保证数据的一致性。
 
-当 `@Transactional` 注解作用于类上时，该类的所有 public 方法将都具有该类型的事务属性，同时，我们也可以在方法级别使用该标注来覆盖类级别的定义。
+当 `@Transactional` 注解作用于类上时，该类的所有 public 方法将都具有该类型的事务属性，同时，我们也可以在方法级别使用该标注来覆盖类级别的定义。只有@Transactional 注解应用到 public 方法，才能进行事务管理。在 Spring 的 AOP 代理下，只有目标方法由外部调用，目标方法才由 Spring 生成的代理对象来管理，这会造成自调用问题。若同一类中的其他没有@Transactional 注解的方法内部调用有@Transactional 注解的方法，有@Transactional 注解的方法的事务被忽略，不会发生回滚。要么都加注解，要么拿到ApplicationContext对象手动调用。
 
 **`@Transactional` 注解默认回滚策略是只有在遇到`RuntimeException`(运行时异常) 或者 `Error` 时才会回滚事务**，而不会回滚 `Checked Exception`（受检查异常）。这是因为 Spring 认为`RuntimeException`和 Error 是不可预期的错误，而受检异常是可预期的错误，可以通过业务逻辑来处理。
 
@@ -560,7 +560,7 @@ public class User {
 ```java
 static String transient1; // not persistent because of static
 final String transient2 = "Satish"; // not persistent because of final
-transient String transient3; // not persistent because of transient
+transient String transient3; // not persistent because of transient，阻止序列化也是这个关键字
 @Transient
 String transient4; // not persistent because of @Transient
 ```
@@ -613,7 +613,7 @@ public class UserAuditor implements AuditorAware<String> {
 
 
 
-### @SpringBootApplication?
+### ***@SpringBootApplication?
 
 我们可以把 `@SpringBootApplication`看作是 `@Configuration`、`@EnableAutoConfiguration`、`@ComponentScan` 注解的集合。
 
@@ -763,7 +763,7 @@ public class PersonController {
 
 
 
-### springboot自动装配原理？
+### ***springboot自动装配原理？
 
 > SpringBoot 定义了一套接口规范，这套规范规定：SpringBoot 在启动时会扫描外部引用 jar 包中的`META-INF/spring.factories`文件，将文件中配置的类型信息加载到 Spring 容器（此处涉及到 JVM 类加载机制与 Spring 的容器知识），并执行类中定义的各种操作。对于外部 jar 来说，只需要按照 SpringBoot 定义的标准，就能将自己的功能装置进 SpringBoot。
 
@@ -819,6 +819,44 @@ public @interface EnableAutoConfiguration {
 - `@ConditionalOnJndi`：在 JNDI 存在的条件下差在指定的位置
 - `@ConditionalOnNotWebApplication`：当前项目不是 Web 项目的条件下
 - `@ConditionalOnWebApplication`：当前项目是 Web 项 目的条件下
+
+
+
+### ***Springboot启动流程？
+
+springboot中只需要有@SpringBootApplication这个注解，有了它马上就能够让整个应用跑起来。实际上它只是一个**组合注解**，@Configuration配置类，@ComponentScan类，包扫描，@EnableAutoConfiguration根据需求自动加载相关的bean这三个注解。
+
+启动流程主要分为三个部分，第一部分进行SpringApplication的初始化模块，配置一些基本的环境变量、资源、构造器、监听器，第二部分实现了应用具体的启动方案，包括启动流程的监听模块、加载配置环境模块、及核心的创建上下文环境模块，第三部分是自动化配置模块，该模块作为springboot自动配置核心。
+
+run方法中去创建了一个SpringApplication实例，在该构造方法内，我们可以发现其调用了一个初始化的initialize方法，为SpringApplication对象赋一些初值（如确定应用程序类型，加载初始化器和监听器，设置程序运行的主类），然后进入run方法。
+
+1、开启计时器
+
+2、获取SpringApplicationRunListeners容器运行监听器，并启动，发布ApplicationStartingEvent事件
+
+3、设置应用程序参数args
+
+4、prepareEnvironment准备环境变量，maven和系统的环境变量，如JAVA_HOME等，发布ApplicationEnvironmentPreparedEvent事件
+
+5、打印banner信息
+
+6、创建应用程序上下文createApplicationContext
+
+7、实例化异常报告器
+
+8、prepareContext准备上下文环境：实例化BeanNameGenerator，执行ApplicationContextInitializer的初始化方法（创建SpringApplication对象的时候加载了初始化器），将启动参数注册到容器中（保存为springApplicationArguments对象），发布ApplicationPreparedEvent事件
+
+9、refreshContext刷新上下文：自动装配，实例化bean对象，启动tomcat服务器
+
+10、afterRefresh刷新后置处理，交给用户自定义
+
+11、停止计时，打印时间信息
+
+12、发布ApplicationReadyEvent事件
+
+13、callRunners：执行自定义的run方法，实现ApplicationRunner和CommandLineRunner接口
+
+
 
 
 
@@ -930,7 +968,7 @@ MySQL 字符编码集中有两套 UTF-8 编码实现：
 
 
 
-### 事务ACID懂？
+### ***事务ACID懂？
 
 **原子性**（`Atomicity`）：事务是最小的执行单位，不允许分割。事务的原子性确保动作要么全部完成，要么完全不起作用；
 
@@ -969,7 +1007,7 @@ MySQL 中并发事务的控制方式无非就两种：**锁** 和 **MVCC**。锁
 
 
 
-### 事务隔离级别？
+### ***事务隔离级别？
 
 SQL 标准定义了四个隔离级别：
 
@@ -1007,7 +1045,7 @@ InnoDB 的行锁是针对索引字段加的锁，表级锁是针对非索引字�
 
 
 
-### Mysql索引？
+### ***Mysql索引？
 
 **索引是一种用于快速查询和检索数据的数据结构，其本质可以看成是一种排序好的数据结构。**
 
@@ -1027,7 +1065,7 @@ InnoDB 的行锁是针对索引字段加的锁，表级锁是针对非索引字�
 
 
 
-### 索引有哪些？
+### ***索引有哪些？
 
 > 主键索引
 
@@ -1077,13 +1115,21 @@ ALTER TABLE `cus_order` ADD INDEX id_score_name(score, name);
 
 
 
-### 索引注意事项？
+### ***索引注意事项？
 
 - 被频繁更新的字段应该慎重建立索引
 - 索引并不是越多越好，建议单张表索引不超过 5 个！索引可以提高效率同样可以降低效率。
 - 尽可能考虑联合索引而不是单列索引：因为索引是需要占用磁盘空间的，可以简单理解为每个索引都对应着一颗 B+树。如果一个表的字段过多，索引过多，那么当这个表的数据达到一个体量后，索引占用的空间也是很多的，且修改索引时，耗费的时间也是较多的。如果是联合索引，多个字段在一个索引上，那么将会节约很大磁盘空间，且修改数据的操作效率也会提升。
 - 避免冗余索引：冗余索引指的是索引的功能相同，能够命中索引(a, b)就肯定能命中索引(a) ，那么索引(a)就是冗余索引。如（name,city ）和（name ）这两个索引就是冗余索引，能够命中前者的查询肯定是能够命中后者的 在大多数情况下，都应该尽量扩展已有的索引而不是创建新索引。
 - 字符串使用前追索引：前缀索引仅限于字符串类型，较普通索引会占用更小的空间，所以可以考虑使用前缀索引带替普通索引。
-- 避免索引失效：条件查询过大；在索引列上进行计算等操作；以%开头的like查询；查询条件中使用 OR，且 OR 的前后条件中有一个列没有索引，涉及的索引都不会被使用到
+- **避免索引失效：条件查询过大；在索引列上进行计算等操作；以%开头的like查询；查询条件中使用 OR，且 OR 的前后条件中有一个列没有索引，涉及的索引都不会被使用到，使用联合索引，但是没有遵循最左匹配原则**
 - 删除长期未使用的索引，不用的索引的存在会造成不必要的性能损耗。
+
+
+
+### 数据库范式？
+
+- 1NF(第一范式)：属性不可再分。
+- 2NF(第二范式)：1NF 的基础之上，消除了非主属性对于码的部分函数依赖。
+- 3NF(第三范式)：3NF 在 2NF 的基础之上，消除了非主属性对于码的传递函数依赖 。
 

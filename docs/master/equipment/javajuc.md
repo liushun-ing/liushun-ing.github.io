@@ -10,7 +10,7 @@
 
 
 
-### Java线程的状态懂？
+### ***Java线程的状态懂？
 
 Java 线程在运行的生命周期中的指定时刻只可能处于下面 6 种不同状态的其中一个状态：
 
@@ -38,7 +38,7 @@ Java 线程在运行的生命周期中的指定时刻只可能处于下面 6 种
 
 
 
-### sleep和await区别懂？
+### ***sleep和await区别懂？
 
 **共同点**：两者都可以暂停线程的执行。
 
@@ -61,19 +61,19 @@ Java 线程在运行的生命周期中的指定时刻只可能处于下面 6 种
 
 
 
-### volatile干嘛的？
+### ***volatile干嘛的？
 
 在 Java 中，`volatile` 关键字可以保证变量的可见性，如果我们将变量声明为 **`volatile`** ，这就指示 JVM，这个变量是共享且不稳定的，每次使用它都到主存中进行读取，从主存拷贝一份新的到本地内存。
 
 `volatile` 关键字其实并非是 Java 语言特有的，在 C 语言里也有，它最原始的意义就是禁用 CPU 缓存。如果我们将一个变量使用 `volatile` 修饰，这就指示 编译器，这个变量是共享且不稳定的，每次使用它都到主存中进行读取。
 
-`volatile` 关键字能保证数据的可见性，但不能保证数据的原子性(++自增的例子，他不是一个原子操作)。`synchronized` 关键字两者都能保证。
+`volatile` 关键字能保证数据的可见性，但不能保证数据的原子性(++自增的例子，他不是一个原子操作，多个线程加到1000次，但实际可能不到)。`synchronized` 关键字两者都能保证。
 
-**在 Java 中，`volatile` 关键字除了可以保证变量的可见性，还有一个重要的作用就是防止 JVM 的指令重排序。** 如果我们将变量声明为 **`volatile`** ，在对这个变量进行读写操作的时候，会通过插入特定的 **内存屏障** 的方式来禁止指令重排序。实际就是在这个语句前面的指令不会放到他后面，后面的不会放到他前面去，但是前面和后面内部的顺序他无法保证不会变，然后这个语句他本身的指令也是不会改变顺序的。
+**在 Java 中，`volatile` 关键字除了可以保证变量的可见性，还有一个重要的作用就是防止 JVM 的指令重排序。例子在下面那个问题，如果我们将变量声明为 **`volatile`** ，在对这个变量进行读写操作的时候，会通过插入特定的 **内存屏障** 的方式来禁止指令重排序。实际就是在这个语句前面的指令不会放到他后面，后面的不会放到他前面去，但是前面和后面内部的顺序他无法保证不会变，然后这个语句他本身的指令也是不会改变顺序的。
 
 
 
-### 重检验锁方式实现单例模式的原理懂？
+### ***重检验锁方式实现单例模式的原理懂？
 
 ```java
 public class Singleton {
@@ -83,7 +83,7 @@ public class Singleton {
   private Singleton() {
   }
 
-  public  static Singleton getUniqueInstance() {
+  public static Singleton getUniqueInstance() {
      //先判断对象是否已经实例过，没有实例化过才进入加锁代码
       if (uniqueInstance == null) {
           //类对象加锁
@@ -116,7 +116,7 @@ public class Singleton {
 
 
 
-### 乐观锁实现懂？
+### ***乐观锁实现懂？
 
 版本号机制
 
@@ -144,7 +144,7 @@ Java 语言并没有直接实现 CAS，CAS 相关的实现是通过 C++ 内联�
 
 
 
-### 乐观锁有啥问题？
+### ***乐观锁有啥问题？
 
 **ABA**
 
@@ -185,7 +185,7 @@ CAS 只对单个共享变量有效，当操作涉及跨多个共享变量时 CAS
 
 
 
-### synchronized原理懂？
+### ***synchronized原理懂？
 
 **`synchronized` 同步语句块的实现使用的是 `monitorenter` 和 `monitorexit` 指令，其中 `monitorenter` 指令指向同步代码块的开始位置，`monitorexit` 指令则指明同步代码块的结束位置。**
 
@@ -201,7 +201,7 @@ monitorenter判断当前锁计数器是否为0，如果是他就回去获取锁�
 
 
 
-### synchronized和volatile有什么区别？
+### ***synchronized和volatile有什么区别？
 
 `synchronized` 关键字和 `volatile` 关键字是两个互补的存在，而不是对立的存在！
 
@@ -209,9 +209,9 @@ monitorenter判断当前锁计数器是否为0，如果是他就回去获取锁�
 - `volatile` 关键字能保证数据的可见性，但不能保证数据的原子性。`synchronized` 关键字两者都能保证。
 - `volatile`关键字主要用于解决变量在多个线程之间的可见性，而 `synchronized` 关键字解决的是多个线程之间访问资源的同步性。
 
-## 
 
-### ReentrantLock懂？
+
+### ***ReentrantLock懂？
 
 `ReentrantLock` 实现了 `Lock` 接口，是一个可重入且独占式的锁，和 `synchronized` 关键字类似。不过，`ReentrantLock` 更灵活、更强大，增加了轮询、超时、中断、公平锁和非公平锁等高级功能。
 
@@ -223,16 +223,22 @@ public class ReentrantLock implements Lock, java.io.Serializable {}
 
 `ReentrantLock` 默认使用非公平锁，也可以通过构造器来显式的指定使用公平锁。
 
+```java
+ReentrantLock lock = new ReentrantLock();
+Condition producerCondition = lock.newCondition();
+Condition consumerCondition = lock.newCondition();
+```
 
 
-### 公平锁和非公平锁懂？
+
+### ***公平锁和非公平锁懂？
 
 - **公平锁** : 锁被释放之后，先申请的线程先得到锁。性能较差一些，因为公平锁为了保证时间上的绝对顺序，上下文切换更频繁。
 - **非公平锁**：锁被释放之后，后申请的线程可能会先获取到锁，是随机或者按照其他优先级排序的。性能更好，但可能会导致某些线程永远无法获取到锁。
 
 
 
-### synchronized 和 ReentrantLock 有什么区别？
+### ***synchronized 和 ReentrantLock 有什么区别？
 
 两者都是可重入锁：**可重入锁** 也叫递归锁，指的是线程可以再次获取自己的内部锁。比如一个线程获得了某个对象的锁，此时这个对象锁还没有释放，当其再次想要获取这个对象的锁的时候还是可以获取的，如果是不可重入锁的话，就会造成死锁，他一直拿不到。JDK 提供的所有现成的 `Lock` 实现类，包括 `synchronized` 关键字锁都是可重入的。
 
@@ -240,7 +246,7 @@ synchronized 依赖于 JVM 而 ReentrantLock 依赖于 API：`synchronized` 是�
 
 
 
-### ReentrantLock比synchronized有哪些高级点？
+### ***ReentrantLock比synchronized有哪些高级点？
 
 相比`synchronized`，`ReentrantLock`增加了一些高级功能。主要来说主要有三点：
 
@@ -256,7 +262,7 @@ synchronized 依赖于 JVM 而 ReentrantLock 依赖于 API：`synchronized` 是�
 
 
 
-### 可中断锁和不可中断锁有什么区别？
+### ***可中断锁和不可中断锁有什么区别？
 
 注意中断只能中断正在阻塞的线程，不能中断已经获得锁在运行的线程
 
@@ -265,7 +271,7 @@ synchronized 依赖于 JVM 而 ReentrantLock 依赖于 API：`synchronized` 是�
 
 
 
-### ReentrantReadWriteLock懂？
+### ***ReentrantReadWriteLock懂？
 
 `ReentrantReadWriteLock` 实现了 `ReadWriteLock` ，是一个可重入的读写锁，既可以保证多个线程同时读的效率，同时又可以保证有写入操作时的线程安全。
 
@@ -291,9 +297,9 @@ synchronized 依赖于 JVM 而 ReentrantLock 依赖于 API：`synchronized` 是�
 - 写锁可以降级为读锁，但是读锁却不能升级为写锁。这是因为读锁升级为写锁会引起线程的争夺，毕竟写锁属于是独占锁，这样的话，会影响性能。
 - 另外，还可能会有死锁问题发生。举个例子：假设两个线程的读锁都想升级写锁，则需要对方都释放自己锁，而双方都不释放，就会产生死锁。
 
-## 
 
-### **ThreadLocal懂？
+
+### ******ThreadLocal懂？
 
 通常情况下，我们创建的变量是可以被任何一个线程访问并修改的。如果想实现每一个线程都有自己的专属本地变量该如何解决呢？
 
@@ -355,7 +361,7 @@ private static final ThreadLocal<SimpleDateFormat> formatter = new ThreadLocal<S
 
 
 
-### **ThreadLocal原理懂？
+### *******ThreadLocal原理懂？
 
 从 `Thread`类源代码入手。
 
@@ -410,11 +416,13 @@ ThreadLocalMap(ThreadLocal<?> firstKey, Object firstValue) {
 
 
 
-### ThreadLocal为啥有内存泄漏？
+### ****ThreadLocal为啥有内存泄漏？
 
 `ThreadLocalMap` 中使用的 key 为 `ThreadLocal` 的弱引用，而 value 是强引用。所以，如果 `ThreadLocal` 没有被外部强引用的情况下，在垃圾回收的时候，key 会被清理掉，而 value 不会被清理掉。
 
 这样一来，`ThreadLocalMap` 中就会出现 key 为 null 的 Entry。假如我们不做任何措施的话，value 永远无法被 GC 回收，这个时候就可能会产生内存泄露。`ThreadLocalMap` 实现中已经考虑了这种情况，在调用 `set()`、`get()`、`remove()` 方法的时候，会清理掉 key 为 null 的记录。使用完 `ThreadLocal`方法后最好手动调用`remove()`方法
+
+在保存用户信息的时候，可以在拦截器的preHandler里设置ThreadLocal，然后在完成方法里移除ThreadLocal
 
 ```java
 static class Entry extends WeakReference<ThreadLocal<?>> {
@@ -430,9 +438,15 @@ static class Entry extends WeakReference<ThreadLocal<?>> {
 
 > 如果一个对象只具有弱引用，那就类似于可有可无的生活用品。弱引用与软引用的区别在于：只具有弱引用的对象拥有更短暂的生命周期。在垃圾回收器线程扫描它 所管辖的内存区域的过程中，一旦发现了只具有弱引用的对象，不管当前内存空间足够与否，都会回收它的内存。不过，由于垃圾回收器是一个优先级很低的线程， 因此不一定会很快发现那些只具有弱引用的对象。弱引用可以和一个引用队列（ReferenceQueue）联合使用，如果弱引用所引用的对象被垃圾回收，Java 虚拟机就会把这个弱引用加入到与之关联的引用队列中。
 
+发生条件：
+
+- ①ThreadLocal引用被设置为null，且后面没有set，get，remove操作；
+- ②线程一直运行，不停止；
+- ③触发了垃圾回收（Minor GC或Full GC）
 
 
-### 线程池懂？为撒要用？
+
+### ****线程池懂？为撒要用？
 
 线程池就是管理一系列线程的资源池。当有任务要处理时，直接从线程池中获取线程来处理，处理完之后线程并不会立即被销毁，而是等待下一个任务。
 
@@ -448,7 +462,7 @@ static class Entry extends WeakReference<ThreadLocal<?>> {
 
 
 
-### **怎么创建线程池？
+### ****怎么创建线程池？
 
 **方式一：通过ThreadPoolExecutor**
 
@@ -497,7 +511,7 @@ public void ThreadPoolExecutor() throws Exception {
 
 
 
-### **线程池常用参数懂？
+### ****线程池常用参数懂？
 
 ```java
   /**
@@ -515,7 +529,7 @@ public void ThreadPoolExecutor() throws Exception {
 
 
 
-### 线程池拒绝策略有哪些？
+### ****线程池拒绝策略有哪些？
 
 如果当前同时运行的线程数量达到最大线程数量并且队列也已经被放满了任务时，`ThreadPoolExecutor` 定义一些策略:
 
@@ -526,7 +540,7 @@ public void ThreadPoolExecutor() throws Exception {
 
 
 
-### 线程池处理任务流程懂？
+### ****线程池处理任务流程懂？
 
 1. 如果当前运行的线程数小于核心线程数，那么就会新建一个线程来执行任务。
 2. 如果当前运行的线程数等于或大于核心线程数，但是小于最大线程数，那么就把该任务放入到任务队列里等待执行。
@@ -605,7 +619,7 @@ public interface Future<V> {
 
 
 
-### callable和Future有什么关系？
+### **callable和Future有什么关系？
 
 我们可以通过 `FutureTask` 来理解 `Callable` 和 `Future` 之间的关系。
 
@@ -639,11 +653,21 @@ AQS，是一个抽象类， 为构建锁和同步器提供了一些通用功能�
 
 
 
-### AQS原理懂？
+### ****AQS原理懂？
 
-AQS 核心思想是，如果被请求的共享资源空闲，则将当前请求资源的线程设置为有效的工作线程，并且将共享资源设置为锁定状态。如果被请求的共享资源被占用，那么就需要一套线程阻塞等待以及被唤醒时锁分配的机制，这个机制 AQS 是用 **CLH 队列锁** 实现的，即将暂时获取不到锁的线程加入到队列中。
+主要用到了**模版模式**
+
+AQS是一个用来构建锁和同步器的框架，使用AQS能简单且高效地构造出应用广泛的大量的同步器，比如我们提到的ReentrantLock，Semaphore，其他的诸如 ReentrantReadWriteLock，SynchronousQueue，FutureTask等等，皆是基于AQS的。当然，我们自己也能利用AQS非常轻松容易地构造出符合我们自己需求的同步器。
+
+**AQS 核心思想是，如果被请求的共享资源空闲，则将当前请求资源的线程设置为有效的工作线程，并且将共享资源设置为锁定状态。如果被请求的共享资源被占用，那么就需要一套线程阻塞等待以及被唤醒时锁分配的机制，这个机制 AQS 是用 CLH 队列锁 实现的，即将暂时获取不到锁的线程加入到队列中。**
 
 CLH(Craig,Landin,and Hagersten) 队列是一个虚拟的双向队列（虚拟的双向队列即不存在队列实例，仅存在结点之间的关联关系）。AQS 是将每条请求共享资源的线程封装成一个 CLH 锁队列的一个结点（Node）来实现锁的分配。在 CLH 同步队列中，一个节点表示一个线程，它保存着线程的引用（thread）、 当前节点在队列中的状态（waitStatus）、前驱节点（prev）、后继节点（next）。
+
+如果使用了Condition的话，还会有一个条件队列，signal会将条件队列的第一个元素加到同步队列中，排队获取锁执行，signalAll会讲条件队列的所有元素都唤醒，加到同步队列中去。
+
+1、调用await和signal方法都需要先获得锁，否则会抛异常。
+2、调用await方法会新建一个waitStatus为CONDITION、线程为当前线程的节点到条件队列尾部，然后当前线程会释放掉锁，并进入阻塞状态，直到该节点被移到同步队列或者被中断。该节点被移动到同步队列，并不代表该节点线程能立马获得锁，还是需要在同步队列中排队并在必要时候（前驱节点为head）调用tryAcquire方法去获取，如果获取成功则代表获得了锁。
+3、调用signal方法会将条件队列的头节点移动到同步队列。
 
 <img src="./javajuc.assets/screenshot2024-03-1522.05.46.png" alt="screenshot2024-03-15 22.05.46" style="zoom:50%;" />
 
@@ -653,9 +677,28 @@ AQS 使用 **int 成员变量 `state` 表示同步状态**，通过内置的 **�
 
 `state` 变量由 `volatile` 修饰，用于展示当前临界资源的获锁情况。
 
+AQS使用一个int成员变量来表示同步状态，通过内置的FIFO**线程等待队列**队列来完成获取资源线程的排队工作。**AQS使用CAS对该同步状态进行原子操作实现对其值的修改**。
+
 ```java
 // 共享变量，使用volatile修饰保证线程可见性
 private volatile int state;
+```
+
+状态信息通过protected类型的 getState，setState，compareAndSetState 进行操作
+
+```java
+// 返回同步状态的当前值
+protected final int getState() {
+  	return state;
+}
+// 设置同步状态的值
+protected final void setState(int newState) {
+  	state = newState;
+}
+// 原子地(CAS操作)将同步状态值设置为给定值update 如果当前同步状态的值等于expect(期望值)
+protected final boolean compareAndSetState(int expect, int update) {
+  	return unsafe.compareAndSwapInt(this, stateOffset, expect, update);
+}
 ```
 
 以 `ReentrantLock` 为例，`state` 初始值为 0，表示未锁定状态。A 线程 `lock()` 时，会调用 `tryAcquire()` 独占该锁并将 `state+1` 。此后，其他线程再 `tryAcquire()` 时就会失败，直到 A 线程 `unlock()` 到 `state=`0（即释放锁）为止，其它线程才有机会获取该锁。当然，释放锁之前，A 线程自己是可以重复获取此锁的（`state` 会累加），这就是可重入的概念。但要注意，获取多少次就要释放多少次，这样才能保证 state 是能回到零态的。
@@ -664,7 +707,7 @@ private volatile int state;
 
 
 
-### Semaphore/CountDownLatch/CyclicBarrier？
+### ****Semaphore/CountDownLatch/CyclicBarrier？
 
 Semaphore信号量，允许多个线程同时运行，也是有一个计数器，拿到一个锁就-1，释放一个锁就+1，否则需要阻塞等待
 
@@ -734,9 +777,9 @@ public class CountDownLatchExample1 {
 
 在 Java 中，`volatile` 关键字可以禁止指令进行重排序优化。
 
-## 
 
-### Runnable vs Callable
+
+### **Runnable vs Callable
 
 `Runnable`自 Java 1.0 以来一直存在，但`Callable`仅在 Java 1.5 中引入,目的就是为了来处理`Runnable`不支持的用例。`Runnable` 接口不会**返回结果或抛出检查**异常，但是 `Callable` 接口可以。所以，如果任务不需要返回结果或抛出异常推荐使用 `Runnable` 接口，这样代码看起来会更加简洁。
 
@@ -744,14 +787,14 @@ public class CountDownLatchExample1 {
 
 
 
-### execute() vs submit()
+### **execute() vs submit()
 
 - `execute()`方法用于提交不需要返回值的任务，所以无法判断任务是否被线程池执行成功与否；
 - `submit()`方法用于提交需要返回值的任务。线程池会返回一个 `Future` 类型的对象，通过这个 `Future` 对象可以判断任务是否执行成功，并且可以通过 `Future` 的 `get()`方法来获取返回值，`get()`方法会阻塞当前线程直到任务完成，而使用 `get（long timeout，TimeUnit unit）`方法的话，如果在 `timeout` 时间内任务还没有执行完，就会抛出 `java.util.concurrent.TimeoutException`。
 
 
 
-### shutdown() VS shutdownNow()
+### **shutdown() VS shutdownNow()
 
 - **`shutdown（）`** :关闭线程池，线程池的状态变为 `SHUTDOWN`。线程池不再接受新任务了，但是队列里的任务得执行完毕。
 - **`shutdownNow（）`** :关闭线程池，线程池的状态变为 `STOP`。线程池会**终止**当前正在运行的任务，并停止处理排队的任务并返回正在等待执行的 List。
@@ -764,6 +807,332 @@ public class CountDownLatchExample1 {
 - **`isTerminated`** 当调用 `shutdown()` 方法后，并且所有提交的任务完成后返回为 true
 
 
+
+### CompletableFuture
+
+CompletableFuture 在 Java 里面被用于异步编程，异步通常意味着非阻塞，可以使得我们的任务单独运行在与主线程分离的其他线程中，并且通过回调可以在主线程中得到异步任务的执行状态，是否完成，和是否异常等信息
+
+- 异步调用没有返回值方法runAsync
+- 异步调用有返回值方法supplyAsync
+
+```java
+public class CompletableFutureTest {
+  public static void main(String[] args) throws ExecutionException, InterruptedException {
+      // 异步调用没有返回值
+      CompletableFuture<Void> completableFuture = CompletableFuture.runAsync(()->{
+          // do something;
+      });
+      completableFuture.get();
+      // 异步调用
+      // mq消息队列
+      CompletableFuture<Integer> completableFuture1 = CompletableFuture.supplyAsync(()->{
+          // do something
+          // 模拟异常
+          int i = 10/0;
+          return 1024;
+      });
+      // 完成之后调用
+      completableFuture1.whenComplete((t,u)->{
+          System.out.println("-----t:"+t);    // 方法的返回值
+          System.out.println("-----u:"+u);    // 异常的返回信息
+      }).get();
+  }
+}
+```
+
+
+
+### Future vs CompletableFuture
+
+Future在Java5就引入了。
+
+优点：一定程度上让一个线程池内的任务异步执行了
+缺点：传统回调最大的问题就是不能将控制流分离到不同的事件处理器中。例如主线程等待各个异步执行的线程返回的结果来做下一步操作，则必须阻塞在future.get()的地方等待结果返回。这时候又变成同步了。
+
+CompletableFuture在Java8引入。
+
+实现了Future和CompletionStage接口，保留了Future的优点，并且弥补了其不足。即异步的任务完成后，需要用其结果继续操作时，无需等待。可以直接通过thenAccept、thenApply、thenCompose等方式将前面异步处理的结果交给另外一个异步事件处理线程来处理。可见，这种方式才是我们需要的异步处理。一个控制流的多个异步事件处理能无缝的连接在一起。
+
+
+
+### interrupt&interrupted&isInterrupted？
+
+interrupt()：将调用该方法的对象所表示的线程标记一个停止标记，并不是真的停止该线程。
+interrupted()：获取当前线程的中断状态，并且会清除线程的状态标记。是一个是静态方法。
+isInterrupted()：获取调用该方法的对象所表示的线程的中断状态，不会清除线程的状态标记。是一个实例方法。
+
+所以如果想要杀死线程，需要在线程内部做逻辑处理，判断当前的状态，然后主动结束线程任务。
+
+当阻塞sleep，wait方法收到中断请求的时候就会抛出InterruptedException异常
+
+
+
+### lock&lockInterruptibly？
+
+lock()方法是一种基本的锁定机制，当一个线程调用这个方法时，如果锁已经被其他线程持有，那么调用线程就会进入等待状态，直到锁被释放，在等待的过程中，这个线程会**无视中断请求**，也就是说，即使有其他线程调用了这个等待线程的interrupt()方法，它也不会有任何响应，依旧会“执着”地等待锁的释放。
+
+而lockInterruptibly()方法则不同，它提供了一种更加“灵活”的锁定机制，当一个线程调用这个方法时，如果锁已经被其他线程持有，那么这个线程同样会进入等待状态，但是，在等待的过程中，如果这个线程收到了中断请求（即有其他线程调用了它的interrupt()方法），那么它就会立即响应中断，不再等待锁的释放，而是**抛出一个InterruptedException异常**。这使得线程能够更灵活地处理中断，例如，可以在被中断时执行一些清理操作或通知其他线程。
+
+
+
+### JUC框架包含几个部分？
+
+- Lock框架和Tools类
+- Collections: 并发集合
+- Atomic: 原子类
+- Executors: 线程池
+
+<img src="./javajuc.assets/8d873470d0594d60f194afe4bdb659ed.png" alt="img" style="zoom:67%;" />
+
+
+
+### CAS问题及解决方案？
+
+CAS 方式为乐观锁，synchronized 为悲观锁。因此使用 CAS 解决并发问题通常情况下性能更优。
+
+但使用 CAS 方式也会有几个问题：
+
+1、ABA问题
+因为CAS需要在操作值的时候，检查值有没有发生变化，比如没有发生变化则更新，但是如果一个值原来是A，变成了B，又变成了A，那么使用CAS进行检查时则会发现它的值没有发生变化，但是实际上却变化了。
+
+ABA问题的解决思路就是使用版本号。在变量前面追加上版本号，每次变量更新的时候把版本号加1，那么A->B->A就会变成1A->2B->3A。
+
+从Java 1.5开始，JDK的Atomic包里提供了一个类AtomicStampedReference来解决ABA问题。这个类的compareAndSet方法的作用是首先检查当前引用是否等于预期引用，并且检查当前标志是否等于预期标志，如果全部相等，则以原子方式将该引用和该标志的值设置为给定的更新值。
+
+2、循环时间长开销大
+自旋CAS如果长时间不成功，会给CPU带来非常大的执行开销。如果JVM能支持处理器提供的pause指令，那么效率会有一定的提升。pause指令有两个作用：第一，它可以延迟流水线执行命令(de-pipeline)，使CPU不会消耗过多的执行资源，延迟的时间取决于具体实现的版本，在一些处理器上延迟时间是零；第二，它可以避免在退出循环的时候因内存顺序冲突(Memory Order Violation)而引起CPU流水线被清空(CPU Pipeline Flush)，从而提高CPU的执行效率。
+
+3、只能保证一个共享变量的原子操作
+当对一个共享变量执行操作时，我们可以使用循环CAS的方式来保证原子操作，但是对多个共享变量操作时，循环CAS就无法保证操作的原子性，这个时候就可以用锁。
+
+从Java 1.5开始，JDK提供了AtomicReference类来保证引用对象之间的原子性，就可以把多个变量放在一个对象里来进行CAS操作。
+
+
+
+### Unsafe？
+
+Unsafe是位于sun.misc包下的一个类，主要提供一些用于执行低级别、不安全操作的方法，如**直接访问系统内存资源、自主管理内存资源，CAS操作**等，这些方法在提升Java运行效率、增强Java语言底层资源操作能力方面起到了很大的作用。但由于Unsafe类使Java语言拥有了类似C语言指针一样操作内存空间的能力，这无疑也增加了程序发生相关指针问题的风险。在程序中过度、不正确使用Unsafe类会使得程序出错的概率变大，使得Java这种安全的语言变得不再“安全”，因此对Unsafe的使用一定要慎重。
+
+<img src="./javajuc.assets/ebc4f5403f4ebffd6ff6de0527f0973e.png" alt="img" style="zoom:50%;" />
+
+
+
+### AtomicInteger底层原理？
+
+AtomicInteger底层代码
+
+```java
+private volatile int value;
+
+//返回当前值
+public final int get() {
+    return value;
+}
+
+//递增加detla
+public final int getAndAdd(int delta) {
+    //三个参数，1、当前的实例 2、value实例变量的偏移量 3、当前value要加上的数(value+delta)。
+    return unsafe.getAndAddInt(this, valueOffset, delta);
+}
+
+//递增加1
+public final int incrementAndGet() {
+    return unsafe.getAndAddInt(this, valueOffset, 1) + 1;
+}
+```
+
+ AtomicInteger 底层用的是volatile的变量和CAS来进行更改数据的。
+
+- volatile保证线程的可见性，多线程并发时，一个线程修改数据，可以保证其它线程立马看到修改后的值；
+- CAS 保证数据更新的原子性。
+
+```java
+public final int getAndSetInt(Object paramObject, long paramLong, int paramInt){
+    int i;
+    do
+      	i = getIntVolatile(paramObject, paramLong);
+    while (!compareAndSwapInt(paramObject, paramLong, i, paramInt));
+    return i;
+}
+```
+
+原子操作其实只支持下面三个方法。
+
+```java
+public final native boolean compareAndSwapObject(Object paramObject1, long paramLong, Object paramObject2, Object paramObject3);
+
+public final native boolean compareAndSwapInt(Object paramObject, long paramLong, int paramInt1, int paramInt2);
+
+public final native boolean compareAndSwapLong(Object paramObject, long paramLong1, long paramLong2, long paramLong3);
+```
+
+我们发现Unsafe只提供了3种CAS方法：compareAndSwapObject、compareAndSwapInt和compareAndSwapLong。都是native方法。
+
+
+
+### AtomicStampedReference解决ABA问题？
+
+AtomicStampedReference主要维护包含一个对象引用以及一个可以自动更新的整数"stamp"的pair对象来解决ABA问题。
+
+```java
+public class AtomicStampedReference<V> {
+    private static class Pair<T> {
+        final T reference;  //维护对象引用
+        final int stamp;  //用于标志版本
+        private Pair(T reference, int stamp) {
+            this.reference = reference;
+            this.stamp = stamp;
+        }
+        static <T> Pair<T> of(T reference, int stamp) {
+            return new Pair<T>(reference, stamp);
+        }
+    }
+    private volatile Pair<V> pair;
+    ....
+    
+/**
+  * expectedReference ：更新之前的原始值
+  * newReference : 将要更新的新值
+  * expectedStamp : 期待更新的标志版本
+  * newStamp : 将要更新的标志版本
+  */
+public boolean compareAndSet(V expectedReference,
+                         V newReference,
+                         int expectedStamp,
+                         int newStamp) {
+    // 获取当前的(元素值，版本号)对
+    Pair<V> current = pair;
+    return
+        // 引用没变
+        expectedReference == current.reference &&
+        // 版本号没变
+        expectedStamp == current.stamp &&
+        // 新引用等于旧引用
+        ((newReference == current.reference &&
+        // 新版本号等于旧版本号
+        newStamp == current.stamp) ||
+        // 构造新的Pair对象并CAS更新
+        casPair(current, Pair.of(newReference, newStamp)));
+}
+
+private boolean casPair(Pair<V> cmp, Pair<V> val) {
+    // 调用Unsafe的compareAndSwapObject()方法CAS更新pair的引用为新引用
+    return UNSAFE.compareAndSwapObject(this, pairOffset, cmp, val);
+}
+```
+如果元素值和版本号都没有变化，并且和新的也相同，返回true；
+如果元素值和版本号都没有变化，并且和新的不完全相同，就构造一个新的Pair对象并执行CAS更新pair。
+
+可以看到，java中的实现跟我们上面讲的ABA的解决方法是一致的。
+
+首先，使用版本号控制（自己传入版本号）；
+其次，不重复使用节点(Pair)的引用，每次都新建一个新的Pair来作为CAS比较的对象，而不是复用旧的；
+最后，外部传入元素值及版本号，而不是节点(Pair)的引用。
+
+使用举例
+
+```java
+public class AtomicTester {
+private static AtomicStampedReference<Integer> atomicStampedRef =
+        new AtomicStampedReference<>(1, 0);
+
+public static void main(String[] args){
+    first().start();
+    second().start();
+}
+
+private static Thread first() {
+    return new Thread(() -> {
+        System.out.println("操作线程" + Thread.currentThread() +",初始值 a = " + atomicStampedRef.getReference());
+        int stamp = atomicStampedRef.getStamp(); //获取当前标识别
+        try {
+            Thread.sleep(1000); //等待1秒 ，以便让干扰线程执行
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        boolean isCASSuccess = atomicStampedRef.compareAndSet(1, 2, stamp, stamp +1);  //此时expectedReference未发生改变，但是stamp已经被修改了,所以CAS失败
+        System.out.println("操作线程" + Thread.currentThread() +",CAS操作结果: " + isCASSuccess);
+    },"主操作线程");
+}
+
+private static Thread second() {
+    return new Thread(() -> {
+        Thread.yield(); // 确保thread-first 优先执行
+        atomicStampedRef.compareAndSet(1, 2, atomicStampedRef.getStamp(), atomicStampedRef.getStamp() + 1);
+        System.out.println("操作线程" + Thread.currentThread() +",【increment】 ,值 = "+ atomicStampedRef.getReference());
+        atomicStampedRef.compareAndSet(2,1,atomicStampedRef.getStamp(),atomicStampedRef.getStamp() +1);
+        System.out.println("操作线程" + Thread.currentThread() +",【decrement】 ,值 = "+ atomicStampedRef.getReference());
+    },"干扰线程");
+}
+```
+输出结果：
+
+操作线程Thread[主操作线程,5,main],初始值 a = 1
+操作线程Thread[干扰线程,5,main],【increment】 ,值 = 2
+操作线程Thread[干扰线程,5,main],【decrement】 ,值 = 1
+操作线程Thread[主操作线程,5,main],CAS操作结果: false
+
+
+
+### ReentrantLock公平和非公平怎么实现的？
+
+ReentrantLock总共有三个内部类，并且三个内部类是紧密相关的，下面先看三个类的关系。
+
+<img src="./javajuc.assets/7efc8e461c1646a82ae7bfd557bebf44.png" alt="image" style="zoom:67%;" />
+
+FairSync类的lock的方法只要资源被其他线程占用，该线程就会添加到sync queue中的尾部，而不会先尝试获取资源。这也是和Nonfair最大的区别，Nonfair每一次都会尝试去获取资源，如果此时该资源恰好被释放，则会被当前线程获取，这就造成了不公平的现象，当获取不成功，再加入队列尾部。
+
+ReentrantLock() 型构造函数可以传递参数确定采用公平策略或者是非公平策略，参数为true表示公平策略，否则，采用非公平策略；
+
+默认是非公平策略。
+
+ReentrantLock对其操作都转化为对Sync对象的操作，由于Sync继承了AQS，所以基本上都可以转化为对AQS的操作。如将ReentrantLock的lock函数转化为对Sync的lock函数的调用，而具体会根据采用的策略(如公平策略或者非公平策略)的不同而调用到Sync的不同子类。
+
+
+
+### ReentrantReadWriteLock底层结构？
+
+![screenshot2024-03-21 16.51.00](./javajuc.assets/screenshot2024-03-216.51.00.png)
+
+读锁一般需要配合ThreadLocal使用，因为他是共享锁，需要记录各个线程的重入次数
+
+读锁和写锁支持的最大数目如下：
+
+```java
+// 高16位为读锁，低16位为写锁
+static final int SHARED_SHIFT   = 16;
+// 读锁单位  2^16
+static final int SHARED_UNIT    = (1 << SHARED_SHIFT);
+// 读锁最大数量 2^16 - 1
+static final int MAX_COUNT      = (1 << SHARED_SHIFT) - 1;
+// 写锁最大数量 2^16 - 1
+static final int EXCLUSIVE_MASK = (1 << SHARED_SHIFT) - 1;
+```
+
+sharedCount 函数
+表示占有读锁的线程数量，源码如下
+
+```java
+static int sharedCount(int c)    { return c >>> SHARED_SHIFT; }
+//说明：直接将state右移16位，就可以得到读锁的线程数量，因为state的高16位表示读锁，对应的低十六位表示写锁数量。
+```
+
+exclusiveCount函数
+表示占有写锁的线程数量，源码如下
+
+```java
+static int exclusiveCount(int c) { return c & EXCLUSIVE_MASK; }
+```
+
+说明: 直接将状态state和(2^16 - 1)做与运算，其等效于将state模上2^16。写锁数量由state的低十六位表示。
+
+所以通过一个count变量就记录了两个锁的线程占有个数。
+
+
+
+### 为什么HashTable慢？
+
+Hashtable之所以效率低下主要是因为其实现使用了synchronized关键字对put等操作进行加锁，而synchronized关键字加锁是对整个对象进行加锁，也就是说在进行put等修改Hash表的操作时，锁住了整个Hash表，从而使得其表现的效率低下。
 
 
 

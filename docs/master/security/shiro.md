@@ -130,7 +130,7 @@ anon： 无需认证就可以访问
 authc： 必须认证了才能访问
 user： 必须拥有记住我功能才能用
 perms： 拥有对某个资源的权限才能访问
-role： 拥有某个角色权限
+roles： 拥有某个角色权限
 
 ```java
 Map<String, String> filterMap = new LinkedHashMap<>();
