@@ -8,6 +8,9 @@ actions:
   # - text: Daily
   #   link: /master/daily/
   #   type: secondary
+  - text: Blockchian
+    link: /master/blockchain/
+    type: secondary
   - text: Ubuntu
     link: /master/ubuntu/
     type: secondary
@@ -29,6 +32,8 @@ actions:
 features:
 # - title: Daily
 #   details: 记录孤单的研究日常，有点神经质...
+- title: blockchian
+  details: 区块链研究所实习入门区块链...
 - title: ubuntu
   details: 记录一些在实验室ubuntu服务器上跑项目的菜狗经验...
 - title: GNN

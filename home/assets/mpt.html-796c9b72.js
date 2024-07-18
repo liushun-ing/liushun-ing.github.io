@@ -1,1 +1,0 @@
-const t=JSON.parse('{"key":"v-fc04e7a2","path":"/master/blockchain/mpt.html","title":"MPT默克尔压缩前缀树","lang":"zh-CN","frontmatter":{},"headers":[],"git":{"updatedTime":null,"contributors":[]},"filePathRelative":"master/blockchain/mpt.md"}');export{t as data};
