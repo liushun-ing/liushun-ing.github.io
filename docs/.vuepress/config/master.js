@@ -3,18 +3,33 @@ export const masterNavBar = {
   link: '/master/',
   children: [
     // { text: 'Daily', link: '/master/daily/' },
-    { text: 'blockchain', link: '/master/blockchain' },
-    { text: 'Ubuntu', link: '/master/ubuntu/' },
-    { text: 'GNN', link: '/master/GNN/' },
-    { text: 'Python', link: '/master/python/' },
-    { text: 'Spring', link: '/master/spring/' },
-    { text: 'JVM', link: '/master/jvm/' },
-    { text: 'Redis', link: '/master/redis/' },
-    { text: 'JUC', link: '/master/juc/' },
-    { text: 'Netty', link: '/master/netty/' },
-    { text: 'Security', link: '/master/security/' },
-    { text: 'Service', link: '/master/service/' },
-    { text: 'MyBatis', link: '/master/mybatis/' }
+    {
+      text: 'Block Chain',
+      children: [
+        { text: 'blockchain', link: '/master/blockchain' },
+      ]
+    },
+    {
+      text: 'Deep Learning',
+      children: [
+        { text: 'Ubuntu', link: '/master/ubuntu/' },
+        { text: 'GNN', link: '/master/GNN/' },
+        { text: 'Python', link: '/master/python/' },
+      ]
+    },
+    {
+      text: 'Java Engineering',
+      children: [
+        { text: 'Spring', link: '/master/spring/' },
+        { text: 'JVM', link: '/master/jvm/' },
+        { text: 'Redis', link: '/master/redis/' },
+        { text: 'JUC', link: '/master/juc/' },
+        { text: 'Netty', link: '/master/netty/' },
+        { text: 'Security', link: '/master/security/' },
+        { text: 'Service', link: '/master/service/' },
+        { text: 'MyBatis', link: '/master/mybatis/' }
+      ]
+    },
   ],
 }
 
