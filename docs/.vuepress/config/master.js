@@ -3,17 +3,18 @@ export const masterNavBar = {
   link: '/master/',
   children: [
     // { text: 'Daily', link: '/master/daily/' },
+    { text: 'blockchain', link: '/master/blockchain' },
     { text: 'Ubuntu', link: '/master/ubuntu/' },
     { text: 'GNN', link: '/master/GNN/' },
     { text: 'Python', link: '/master/python/' },
     { text: 'Spring', link: '/master/spring/' },
     { text: 'JVM', link: '/master/jvm/' },
     { text: 'Redis', link: '/master/redis/' },
-    { text: 'JUC', link: '/master/juc/'},
-    { text: 'Netty', link: '/master/netty/'},
-    { text: 'Security', link: '/master/security/'},
-    { text: 'Service', link: '/master/service/'},
-    { text: 'MyBatis', link: '/master/mybatis/'}
+    { text: 'JUC', link: '/master/juc/' },
+    { text: 'Netty', link: '/master/netty/' },
+    { text: 'Security', link: '/master/security/' },
+    { text: 'Service', link: '/master/service/' },
+    { text: 'MyBatis', link: '/master/mybatis/' }
   ],
 }
 
@@ -26,6 +27,30 @@ export const masterSideBar = {
         '/master/daily/23_Nov.md',
         '/master/daily/23_Dec.md',
         '/master/daily/24_Jan.md'
+      ],
+    },
+  ],
+  '/master/blockchain/': [
+    {
+      text: 'BlockChain',
+      children: [
+        '/master/blockchain/README.md',
+        '/master/blockchain/account.md',
+        '/master/blockchain/block.md',
+        '/master/blockchain/consensus.md',
+        '/master/blockchain/contract.md',
+        '/master/blockchain/crypto_base.md',
+        '/master/blockchain/ethereum_base.md',
+        '/master/blockchain/evm.md',
+        '/master/blockchain/gas.md',
+        '/master/blockchain/go_ethereum.md',
+        '/master/blockchain/hd_wallet.md',
+        '/master/blockchain/jsonrpc.md',
+        '/master/blockchain/mpt.md',
+        '/master/blockchain/node_client.md',
+        '/master/blockchain/rlp.md',
+        '/master/blockchain/statedb.md',
+        '/master/blockchain/transaction.md',
       ],
     },
   ],
@@ -67,6 +92,7 @@ export const masterSideBar = {
         '/master/spring/README.md',
         '/master/spring/springboot.md',
         '/master/spring/spring_annotation.md',
+        '/master/spring/springboot_base.md',
       ],
     },
   ],

@@ -164,6 +164,8 @@ Spring 内置的 `@Autowired` 以及 JDK 内置的 `@Resource` 和 `@Inject` 都
 
 @Autowired建议使用@Qualifier显示指定名称
 
+举个例子，`SmsService` 接口有两个实现类: `SmsServiceImpl1`和 `SmsServiceImpl2`，且它们都已经被 Spring 容器所管理。
+
 ```java
 // 报错，byName 和 byType 都无法匹配到 bean
 @Autowired

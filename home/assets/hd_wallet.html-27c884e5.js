@@ -1,0 +1,1 @@
+const t=JSON.parse('{"key":"v-6d24b738","path":"/master/blockchain/hd_wallet.html","title":"分层确定性钱包HD-Wallet","lang":"zh-CN","frontmatter":{},"headers":[],"git":{"updatedTime":null,"contributors":[]},"filePathRelative":"master/blockchain/hd_wallet.md"}');export{t as data};

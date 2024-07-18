@@ -623,7 +623,7 @@ while (keyIterator.hasNext()) {
 | sendfile                   | 1        | 2        | sendfile   | 2          |
 | sendfile + DMA gather copy | 0        | 2        | sendfile   | 2          |
 
-可以看出，无论是传统的 I/O 方式，还是引入了零拷贝之后，2 次 DMA(Direct Memory Access) 拷贝是都少不了的。因为两次 DMA 都是依赖硬件完成的。零拷贝主要是减少了 CPU 拷贝及上下文的切换。
+可以看出，无论是传统的 I/O 方式，还是引入了零拷贝之后，2 次 DMA(Direct Memory Access) 拷贝是都少不了的。因为两次 DMA 都是依赖硬件完成的。**零拷贝主要是减少了 CPU 拷贝及上下文的切换。**
 
 Java 对零拷贝的支持：
 
