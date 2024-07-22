@@ -8,8 +8,14 @@ actions:
   # - text: Daily
   #   link: /master/daily/
   #   type: secondary
-  - text: Blockchian
+  - text: Blockchain
     link: /master/blockchain/
+    type: secondary
+  - text: Docker
+    link: /master/docker/
+    type: secondary
+  - text: Golang
+    link: /master/golang/
     type: secondary
   - text: Ubuntu
     link: /master/ubuntu/
@@ -32,8 +38,12 @@ actions:
 features:
 # - title: Daily
 #   details: 记录孤单的研究日常，有点神经质...
-- title: blockchian
+- title: blockchain
   details: 区块链研究所实习入门区块链...
+- title: docker
+  details: 区块链研究所实习学 Docker...
+- title: Golang
+  details: 区块链研究所实习学 Golang...
 - title: ubuntu
   details: 记录一些在实验室ubuntu服务器上跑项目的菜狗经验...
 - title: GNN

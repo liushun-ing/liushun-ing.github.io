@@ -4,9 +4,11 @@ export const masterNavBar = {
   children: [
     // { text: 'Daily', link: '/master/daily/' },
     {
-      text: 'Block Chain',
+      text: 'Block Chain Internship',
       children: [
-        { text: 'blockchain', link: '/master/blockchain' },
+        { text: 'blockchain', link: '/master/blockchain/' },
+        { text: 'docker', link: '/master/docker/' },
+        { text: 'golang', link: '/master/golang/' },
       ]
     },
     {
@@ -66,6 +68,28 @@ export const masterSideBar = {
         '/master/blockchain/rlp.md',
         '/master/blockchain/statedb.md',
         '/master/blockchain/transaction.md',
+        '/master/blockchain/leveldb.md',
+      ],
+    },
+  ],
+  '/master/docker/': [
+    {
+      text: 'Docker',
+      children: [
+        '/master/docker/README.md',
+        '/master/docker/intro.md',
+        '/master/docker/image_construct.md',
+        '/master/docker/compose.md'
+      ],
+    },
+  ],
+  '/master/golang/': [
+    {
+      text: 'Golang',
+      children: [
+        '/master/golang/README.md',
+        '/master/golang/gin.md',
+        '/master/golang/gorm.md'
       ],
     },
   ],

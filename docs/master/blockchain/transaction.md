@@ -302,6 +302,8 @@ type DynamicFeeTx struct {
 
 ## 收据源码
 
+一个交易就对应有一个收据，如果交易是合约交易，则会产生日志。
+
 ```go
 // Receipt represents the results of a transaction.
 type Receipt struct {
@@ -310,6 +312,7 @@ type Receipt struct {
 	PostState         []byte `json:"root"`
 	Status            uint64 `json:"status"`
 	CumulativeGasUsed uint64 `json:"cumulativeGasUsed" gencodec:"required"`
+  // 日志布隆过滤器 关键日志索引集合
 	Bloom             Bloom  `json:"logsBloom"         gencodec:"required"`
 	Logs              []*Log `json:"logs"              gencodec:"required"`
 
