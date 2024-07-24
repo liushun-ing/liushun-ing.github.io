@@ -8,8 +8,8 @@ actions:
   # - text: Daily
   #   link: /master/daily/
   #   type: secondary
-  - text: Blockchain
-    link: /master/blockchain/
+  - text: Ethereum
+    link: /master/ethereum/
     type: secondary
   - text: Docker
     link: /master/docker/
@@ -38,9 +38,9 @@ actions:
 features:
 # - title: Daily
 #   details: 记录孤单的研究日常，有点神经质...
-- title: blockchain
-  details: 区块链研究所实习入门区块链...
-- title: docker
+- title: Ethereum
+  details: 区块链研究所实习入门区块链--以太坊...
+- title: Docker
   details: 区块链研究所实习学 Docker...
 - title: Golang
   details: 区块链研究所实习学 Golang...
