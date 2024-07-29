@@ -357,7 +357,7 @@ db.Omit("Name", "Age", "CreatedAt").Create(&user) // 指定列名时开头大小
 要高效地插入大量记录，可以组织成切片传递给`Create`方法。 GORM 将生成一条 SQL 来插入所有数据，以返回所有主键值，并触发 `Hook` 方法。 当这些记录可以被分割成多个批次时，GORM会开启一个事务来处理它们。
 
 ```go
-var users = []User{{Name: "jinzhu1"}, {Name: "jinzhu2"}, {Name: "jinzhu3"}}
+var users = []User{ {Name: "jinzhu1"}, {Name: "jinzhu2"}, {Name: "jinzhu3"} }
 db.Create(&users)
 
 for _, user := range users {
@@ -368,7 +368,7 @@ for _, user := range users {
 你可以通过`db.CreateInBatches`方法来指定批量插入的批次大小
 
 ```go
-var users = []User{{Name: "jinzhu_1"}, ...., {Name: "jinzhu_10000"}}
+var users = []User{ {Name: "jinzhu_1"}, ...., {Name: "jinzhu_10000"} }
 // batch size 100
 db.CreateInBatches(users, 100)
 ```
@@ -587,7 +587,7 @@ db.First(&user, "id = ?", "string_primary_key")
 db.Not("name = ?", "jinzhu").First(&user)
 // SELECT * FROM users WHERE NOT name = "jinzhu" ORDER BY id LIMIT 1;
 // Not In
-db.Not(map[string]interface{}{"name": []string{"jinzhu", "jinzhu 2"}}).Find(&users)
+db.Not(map[string]interface{}{"name": []string{"jinzhu", "jinzhu 2"} }).Find(&users)
 // SELECT * FROM users WHERE name NOT IN ("jinzhu", "jinzhu 2");
 // Struct
 db.Not(User{Name: "jinzhu", Age: 18}).First(&user) // 这里传结构体对象，和结构体指针都可以
@@ -829,7 +829,7 @@ GROM 支持多列的 IN 子句（the IN clause with multiple columns），允许
 
 ```go
 // 多列 IN
-db.Where("(name, age, role) IN ?", [][]interface{}{{"jinzhu", 18, "admin"}, {"jinzhu2", 19, "user"}}).Find(&users)
+db.Where("(name, age, role) IN ?", [][]interface{}{ {"jinzhu", 18, "admin"}, {"jinzhu2", 19, "user"} }).Find(&users)
 // SQL: SELECT * FROM users WHERE (name, age, role) IN (("jinzhu", 18, "admin"), ("jinzhu 2", 19, "user"));
 ```
 
@@ -837,7 +837,7 @@ db.Where("(name, age, role) IN ?", [][]interface{}{{"jinzhu", 18, "admin"}, {"ji
 
 #### Sql 命名参数
 
-GORM 支持命名的参数，提高SQL 查询的可读性和可维护性。 命名参数可以使用 [`sql.NamedArg`](https://tip.golang.org/pkg/database/sql/#NamedArg) 或 `map[string]interface{}{}}`。
+GORM 支持命名的参数，提高SQL 查询的可读性和可维护性。 命名参数可以使用 [`sql.NamedArg`](https://tip.golang.org/pkg/database/sql/#NamedArg) 或 `map[string]interface{}{} }`。
 
 ```go
 // 使用 sql.NamedArg 命名参数的例子
@@ -1199,7 +1199,7 @@ db.Where("email LIKE ?", "%jinzhu%").Delete(&Email{})
 ```go
 db.Delete(&User{}).Error // gorm.ErrMissingWhereClause
 
-db.Delete(&[]User{{Name: "jinzhu1"}, {Name: "jinzhu2"}}).Error // gorm.ErrMissingWhereClause
+db.Delete(&[]User{ {Name: "jinzhu1"}, {Name: "jinzhu2"} }).Error // gorm.ErrMissingWhereClause
 
 db.Where("1 = 1").Delete(&User{})
 // DELETE FROM `users` WHERE 1=1
@@ -1304,8 +1304,8 @@ GORM 内部使用 SQL builder 生成 SQL。对于每个操作，GORM 都会创�
 
 ```go
 var limit = 1
-clause.Select{Columns: []clause.Column{{Name: "*"}}}
-clause.From{Tables: []clause.Table{{Name: clause.CurrentTable}}}
+clause.Select{Columns: []clause.Column{ {Name: "*"} }}
+clause.From{Tables: []clause.Table{ {Name: clause.CurrentTable} }}
 clause.Limit{Limit: &limit}
 clause.OrderBy{Columns: []clause.OrderByColumn{
   {
@@ -1314,7 +1314,7 @@ clause.OrderBy{Columns: []clause.OrderByColumn{
       Name:  clause.PrimaryKey,
     },
   },
-}}
+} }
 ```
 
 ==看不明白，感觉暂时也用不到，todo==

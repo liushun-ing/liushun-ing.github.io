@@ -530,7 +530,7 @@ db.Preload("Dept", "did>?", 1).Find(&results)
 
 <img src="./gorm_2.assets/preload2.png" alt="screenshot2024-07-28 20.42.01" style="zoom: 50%;" />
 
-这种情况下，不会预加载 did 等于 1 的数据，这样在查询的 emps 中，原本应该填充 did=1 的数据，会查不出来，也就是都会被零值填充。现在是这样`{1 zhangsan 10 111@qq.com 1 {0 }} `，之前才出来是这样的`{1 zhangsan 10 111@qq.com 1 {1 a}} `
+这种情况下，不会预加载 did 等于 1 的数据，这样在查询的 emps 中，原本应该填充 did=1 的数据，会查不出来，也就是都会被零值填充。现在是这样`{1 zhangsan 10 111@qq.com 1 {0 } } `，之前才出来是这样的`{1 zhangsan 10 111@qq.com 1 {1 a} } `
 
 
 
