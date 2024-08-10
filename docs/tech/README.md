@@ -1,8 +1,8 @@
 ---
 home: true
-title: 技术
+title: 本科技术
 heroText: null
-tagline: 大学乱的飞起的编程
+tagline: 本科乱的飞起的编程
 
 actions:
   - text: JavaScript

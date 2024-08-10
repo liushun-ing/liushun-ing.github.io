@@ -2,7 +2,7 @@
 home: true
 title: 研究生
 heroText: null
-tagline: 记录孤单的研究生涯
+tagline: 研究生杂学
 
 actions:
   # - text: Daily
@@ -16,6 +16,9 @@ actions:
     type: secondary
   - text: Golang
     link: /master/golang/
+    type: secondary
+  - text: Prometheus
+    link: /master/prometheus/
     type: secondary
   - text: Ubuntu
     link: /master/ubuntu/
@@ -59,6 +62,8 @@ features:
   details: 区块链研究所实习学 Docker...
 - title: Golang
   details: 区块链研究所实习学 Golang...
+- title: Golang
+  details: 区块链研究所实习学 Prometheus...
 - title: ubuntu
   details: 记录一些在实验室ubuntu服务器上跑项目的菜狗经验...
 - title: GNN

@@ -1,8 +1,8 @@
 ---
 home: true
-title: 课程
+title: 本科课程
 heroText: null
-tagline: 几门计算机主要课程的笔记
+tagline: 本科几门计算机主要课程的笔记
 
 actions:
   - text: 操作系统
