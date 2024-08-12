@@ -9,17 +9,17 @@ actions:
   - text: Five研究生
     link: /master/
     type: primary
-  - text: Five技术
+  - text: Five本科技术
     link: /tech/
     type: secondary
-  - text: Five课程
+  - text: Five本科课程
     link: /course/
     type: secondary
 features:
 - title: Five研究生
-  details: 孤苦伶仃，可怜巴巴，日常菜哭的研究生涯
+  details: 稀碎的研究生
 - title: Five技术
-  details: 大学期间Five使用过的各种浅显技术知识。
+  details: 本科期间Five使用过的各种浅显技术知识。
 - title: Five课程
   details: 一部分计算机相关专业课的专业知识。
 

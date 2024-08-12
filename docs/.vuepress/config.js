@@ -10,7 +10,7 @@ export default defineUserConfig({
   base: '/home/',
   lang: 'zh-CN',
   dest: `home`,
-  head: [['link', { rel: 'icon', href: '/imgs/favicon.ico' }]],
+  head: [['link', { rel: 'icon', href: '/home/imgs/favicon.ico' }]],
   title: '不愿飞的蜂鸟首页',
   description: 'Five的垃圾库',
   theme: defaultTheme(myTheme),
