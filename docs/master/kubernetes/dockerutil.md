@@ -111,3 +111,13 @@ $ docker-compose up
 <img src="./dockerutil.assets/serviceandtask.png" alt="screenshot2024-08-12 16.25.49" style="zoom:33%;" />
 
 docker swarm 依托于 docker machine 来搭建 docker 集群。
+
+
+
+
+
+## Dockerfile最佳实践
+
+官网：[最佳实践原文](https://docs.docker.com/develop/develop-images/dockerfile_best-practices/)
+
+教程：[教程](https://www.k8stech.net/k8s-book/docs/13.Dockerfile%E6%9C%80%E4%BD%B3%E5%AE%9E%E8%B7%B5.html)
