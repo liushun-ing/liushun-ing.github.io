@@ -214,12 +214,12 @@ http.createServer((req, res) => {
       }
     }, 1000)
 
-    // 当客户端关闭连接时停止发送消息
-    req.on('close', () => {
-      clearInterval(intervalId)
-      id = 0
-      res.end()
-    })
+    // 当客户端关闭连接时停止发送消息,他妈的这个事件有很大问题，明明服务端还可以发消息给客户端，但是客户端会立马触发这个事件
+    // req.on('close', () => {
+    //   clearInterval(intervalId)
+    //   id = 0
+    //   res.end()
+    // })
   } else {
     // 如果请求的路径无效，返回 404 状态码
     res.writeHead(404)
@@ -329,12 +329,12 @@ http.createServer((req, res) => {
       }
     }, 1000)
 
-    // 当客户端关闭连接时停止发送消息
-    req.on('close', () => {
-      clearInterval(intervalId)
-      id = 0
-      res.end()
-    })
+    // 当客户端关闭连接时停止发送消息，这个事件会立马出发，很傻逼
+    // req.on('close', () => {
+      // clearInterval(intervalId)
+      // id = 0
+      // res.end()
+    // })
   } else {
     // 如果请求的路径无效，返回 404 状态码
     res.writeHead(404)
