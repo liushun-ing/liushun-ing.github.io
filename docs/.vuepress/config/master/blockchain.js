@@ -1,17 +1,28 @@
 export const BlockChainNavBar = {
-	text: 'Block Chain Internship',
-	children: [
-		{ text: 'ethereum', link: '/master/ethereum/' },
-		{ text: 'docker', link: '/master/docker/' },
-		{ text: 'golang', link: '/master/golang/' },
-		{ text: 'prometheus', link: '/master/prometheus/' },
-	]
+  text: 'Block Chain Internship',
+  children: [
+    { text: 'ethereum', link: '/master/ethereum/' },
+    { text: 'block chain developement', link: '/master/blockchaindevelopment/' },
+    { text: 'docker', link: '/master/docker/' },
+    { text: 'golang', link: '/master/golang/' },
+    { text: 'prometheus', link: '/master/prometheus/' },
+  ]
 }
 
 export const BlockChainSideBar = {
+  '/master/blockchaindevelopment/': [
+    {
+      text: 'Development',
+      children: [
+        '/master/blockchaindevelopment/README.md',
+        '/master/blockchaindevelopment/statedb_execute.md',
+        '/master/blockchaindevelopment/gas_fee.md',
+      ]
+    }
+  ],
   '/master/ethereum/': [
     {
-      text: 'Ethereum',
+      text: 'Block Chain Ethereum',
       children: [
         '/master/ethereum/README.md',
         '/master/ethereum/ethereum_base.md',

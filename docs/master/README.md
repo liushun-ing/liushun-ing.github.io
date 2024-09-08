@@ -11,6 +11,9 @@ actions:
   - text: Ethereum
     link: /master/ethereum/
     type: secondary
+  - text: Development
+    link: /master/blockchaindevelopment/
+    type: secondary
   - text: Docker
     link: /master/docker/
     type: secondary
@@ -57,7 +60,9 @@ features:
 # - title: Daily
 #   details: 记录孤单的研究日常，有点神经质...
 - title: Ethereum
-  details: 区块链研究所实习入门区块链--以太坊...
+  details: 区块链研究所实习入门区块链--以太坊,币安链...
+- title: BlockChainDevelopment
+  details: 实习做项目中遇到的一些问题，以及引发的源码探索，还挺有意思的...
 - title: Docker
   details: 区块链研究所实习学 Docker...
 - title: Golang
