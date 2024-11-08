@@ -170,6 +170,44 @@ scrape_configs:
 
 ```
 
+> curl ifconfig.me 可以用这个指令查看电脑对外的公有ip
+>
+> 解决主机解析不到的问题
+>
+> 错误消息表明 Docker 容器无法解析 host.docker.internal 这个主机名，导致无法访问主机上的服务。host.docker.internal 是一个特殊的 DNS 名称，通常用于从容器访问主机网络上的服务，但它在不同的环境中可能无法使用（例如非 Docker Desktop 的 Linux 环境）。
+>
+> **解决方法**
+>
+> **方法 1: 使用主机 IP 地址代替 host.docker.internal**
+>
+> 如果你在 AWS、GCP 等云环境或使用的不是 Docker Desktop（如在本地 Linux 上），host.docker.internal 可能不可用。可以尝试将 host.docker.internal 替换为主机的实际 IP 地址。比如，假设你的主机 IP 地址为 172.31.0.1：
+>
+> http://172.31.0.1:6060/debug/metrics/prometheus
+>
+> 你可以用这个 IP 地址在 Docker 容器中测试访问。
+>
+> **方法 2: 将主机 IP 地址添加到 /etc/hosts**
+>
+> 如果需要长期解决，可以将主机 IP 地址手动添加到 Docker 容器的 /etc/hosts 文件中，这样在容器内访问 host.docker.internal 时会解析到主机 IP。启动容器时可以用以下命令：
+>
+> docker run --add-host=host.docker.internal:主机IP <其他参数> <镜像名称>
+>
+> 替换 主机IP 为你的实际主机 IP 地址。
+>
+> **方法 3: 使用 Docker 网络模式 host**
+>
+> 在 Linux 上，也可以通过 --network=host 启动 Docker 容器，以便容器直接使用主机网络。这样一来，容器和主机会共享同一个网络空间。
+>
+> docker run --network=host <其他参数> <镜像名称>
+>
+> 使用 host 网络模式可以避免 DNS 解析问题，但这也会使容器暴露在主机网络中，适合特定环境下使用。
+>
+> **方法 4: 使用 Docker Desktop（如果适用）**
+>
+> 如果你的环境支持，可以考虑使用 Docker Desktop（适用于 Windows 和 macOS），它原生支持 host.docker.internal 解析。在 Docker Desktop 上运行容器时，可以直接使用 host.docker.internal。
+>
+> 选择合适的解决方案后，你应该可以在容器内成功访问主机上的 http://host.docker.internal:6060/debug/metrics/prometheus。
+
 需要修改Prometheus的配置文件。
 
 <img src="./intro.assets/ifconfig.png" alt="screenshot2024-08-06 13.43.49" style="zoom: 33%;" />

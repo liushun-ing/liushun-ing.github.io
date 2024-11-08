@@ -1,0 +1,1 @@
+import{_ as t,o as a,c as n,b as e,d as o}from"./app-6d09a449.js";const s={},c=e("h1",{id:"navigation",tabindex:"-1"},[e("a",{class:"header-anchor",href:"#navigation","aria-hidden":"true"},"#"),o(" Navigation")],-1),i=e("p",null,"Mysql",-1),r=[c,i];function _(d,l){return a(),n("div",null,r)}const f=t(s,[["render",_],["__file","index.html.vue"]]);export{f as default};

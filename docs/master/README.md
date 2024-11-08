@@ -23,6 +23,9 @@ actions:
   - text: Prometheus
     link: /master/prometheus/
     type: secondary
+  - text: Shell
+    link: /master/shell/
+    type: secondary
   - text: Ubuntu
     link: /master/ubuntu/
     type: secondary
@@ -69,6 +72,8 @@ features:
   details: 区块链研究所实习学 Golang...
 - title: Golang
   details: 区块链研究所实习学 Prometheus...
+- title: Shell
+  details: 区块链研究所实习学 shell, shell基础和如何编写shell脚本...
 - title: ubuntu
   details: 记录一些在实验室ubuntu服务器上跑项目的菜狗经验...
 - title: GNN
