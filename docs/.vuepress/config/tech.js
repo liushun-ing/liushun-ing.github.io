@@ -3,8 +3,8 @@ import { ForegroundNavBar, ForegroundSideBar } from './tech/foreground'
 import { BackgroundNavBar, BackgroundSideBar } from './tech/background'
 import { ServerNavBar, ServerSideBar } from './tech/server'
 
-export const techNavBar = {
-  text: 'Five本科技术',
+export const TechNavBar = {
+  text: 'Five本科',
   link: '/tech/',
   children: [
     ForegroundNavBar,
@@ -14,7 +14,7 @@ export const techNavBar = {
   ],
 }
 
-export const techSideBar = {
+export const TechSideBar = {
   ...ForegroundSideBar,
   ...BackgroundSideBar,
   ...AppMpSideBar,

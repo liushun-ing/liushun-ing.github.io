@@ -9,19 +9,24 @@ actions:
   - text: Five研究生
     link: /master/
     type: primary
-  - text: Five本科技术
+  - text: Five本科
     link: /tech/
     type: secondary
   - text: Five本科课程
     link: /course/
     type: secondary
+  - text: Five杂学
+    link: /trivia/
+    type: secondary
 features:
 - title: Five研究生
   details: 稀碎的研究生
-- title: Five技术
+- title: Five本科
   details: 本科期间Five使用过的各种浅显技术知识。
-- title: Five课程
+- title: Five本科课程
   details: 一部分计算机相关专业课的专业知识。
+- title: Five杂学
+  details: 杂学，一些不成系统的学习。
 
 footer: MIT Licensed | Copyright © 2020-present liushun
 ---

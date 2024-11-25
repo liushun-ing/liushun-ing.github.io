@@ -2,7 +2,7 @@ import { ComputerNetworkNavBar, ComputerNetworkSideBar } from './course/computer
 import { DataStructureNavBar, DataStructureSideBar } from './course/datastructure'
 import { OperatingSystemNavBar, OperatingSystemSideBar } from './course/operating_system'
 
-export const courseNavBar = {
+export const CourseNavBar = {
   text: 'Five本科课程',
   link: '/course/',
   children: [
@@ -12,7 +12,7 @@ export const courseNavBar = {
   ],
 }
 
-export const courseSideBar = {
+export const CourseSideBar = {
   ...OperatingSystemSideBar,
   ...ComputerNetworkSideBar,
   ...DataStructureSideBar,

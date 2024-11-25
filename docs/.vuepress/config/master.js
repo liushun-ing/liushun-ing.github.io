@@ -2,18 +2,18 @@ import { BlockChainNavBar, BlockChainSideBar } from './master/blockchain'
 import { DeepLearningNavBar, DeepLearningSideBar } from './master/deepLearning'
 import { JavaNavBar, JavaSideBar } from './master/java'
 
-export const masterNavBar = {
+export const MasterNavBar = {
   text: 'Five研究生',
   link: '/master/',
   children: [
     // { text: 'Daily', link: '/master/daily/' },
     BlockChainNavBar,
-    DeepLearningNavBar,
     JavaNavBar,
+    DeepLearningNavBar,
   ],
 }
 
-export const masterSideBar = {
+export const MasterSideBar = {
   // '/master/daily/': [
   //   {
   //     text: 'Daily',
@@ -26,6 +26,6 @@ export const masterSideBar = {
   //   },
   // ],
   ...BlockChainSideBar,
-  ...DeepLearningSideBar,
   ...JavaSideBar,
+  ...DeepLearningSideBar,
 }
