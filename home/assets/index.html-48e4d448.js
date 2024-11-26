@@ -1,0 +1,1 @@
+const t=JSON.parse('{"key":"v-e7e59122","path":"/trivia/spring/","title":"Navigation","lang":"zh-CN","frontmatter":{},"headers":[],"git":{"updatedTime":1732534355000,"contributors":[{"name":"liushun-ing","email":"1743760069@qq.com","commits":1}]},"filePathRelative":"trivia/spring/README.md"}');export{t as data};

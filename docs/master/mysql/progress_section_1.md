@@ -512,7 +512,7 @@ tables_priv表有8个字段，分别是Host、Db、User、Table_name、Grantor�
 
 详细架构：
 
-<img src="./progress_section_1.assets/screenshot2024-11-12%2011.22.07.png" alt="screenshot2024-11-12 11.22.07" style="zoom:50%;" />
+<img src="./progress_section_1.assets/1.png" alt="screenshot2024-11-12 11.22.07" style="zoom:50%;" />
 
 - 连接层：主要是指数据库连接池，会负责处理所有客户端接入的工作。
 - 服务层：主要包含`SQL`接口、解析器、优化器以及缓存缓冲区（mysql8已经废弃这个模块了）四块区域。

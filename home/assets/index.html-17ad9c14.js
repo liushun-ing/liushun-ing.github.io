@@ -1,0 +1,1 @@
+const t=JSON.parse('{"key":"v-7fa1e22a","path":"/trivia/juc/","title":"Navigation","lang":"zh-CN","frontmatter":{},"headers":[],"git":{"updatedTime":1732534355000,"contributors":[{"name":"liushun-ing","email":"1743760069@qq.com","commits":1}]},"filePathRelative":"trivia/juc/README.md"}');export{t as data};

@@ -289,7 +289,7 @@ B-Tree作为多路平衡二叉树，他的每一个节点最多可以包括M个�
 
 更直观的例子：
 
-<img src="./progress_section_2.assets/screenshot2024-11-13%2011.40.24.png" alt="screenshot2024-11-13 11.40.24" style="zoom:50%;" />
+<img src="./progress_section_2.assets/24.png" alt="24" style="zoom:50%;" />
 
 小结：
 
@@ -779,7 +779,7 @@ MySQL的索引包括普通索引、唯一性索引、全文索引、单列索引
 >
 > 可以通过`show index from table;`查看
 
-![screenshot2024-11-14 16.35.18](./progress_section_2.assets/screenshot2024-11-14%2016.35.18.png)
+![screenshot2024-11-14 16.35.18](./progress_section_2.assets/18.png)
 
 **删除索引**
 
