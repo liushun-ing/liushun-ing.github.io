@@ -159,7 +159,7 @@ $ source ~/.bashrc
 
 举例来说，`[\u@\h \W]\$`这个提示符定义，显示出来就是`[user@host ~]$`（具体的显示内容取决于你的系统）。
 
-```sh
+```
 [user@host ~]$ echo $PS1
 [\u@\h \W]\$
  liushun@ls  ~  echo $PS1
