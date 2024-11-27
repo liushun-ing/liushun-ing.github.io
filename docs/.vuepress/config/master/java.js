@@ -1,58 +1,58 @@
 export const JavaNavBar = {
-  text: 'Java Engineering',
+  text: 'Java编程池',
   children: [
-    { text: 'Redis', link: '/master/redis/' },
-    { text: 'MySQL', link: '/master/mysql/' },
-    { text: 'JVM', link: '/master/jvm/' },
-    { text: 'MyBatis', link: '/master/mybatis/' },
+    { text: 'Redis', link: '/master/java/redis/' },
+    { text: 'MySQL', link: '/master/java/mysql/' },
+    { text: 'JVM', link: '/master/java/jvm/' },
+    { text: 'MyBatis', link: '/master/java/mybatis/' },
   ]
 }
 
 export const JavaSideBar = {
-  '/master/redis/': [
+  '/master/java/redis/': [
     {
       text: 'Redis',
       children: [
-        '/master/redis/README.md',
-        '/master/redis/1.md',
-        '/master/redis/2.md',
-        '/master/redis/3.md',
-        '/master/redis/4.md',
+        '/master/java/redis/README.md',
+        '/master/java/redis/1.md',
+        '/master/java/redis/2.md',
+        '/master/java/redis/3.md',
+        '/master/java/redis/4.md',
       ],
     },
   ],
-  '/master/mysql/': [
+  '/master/java/mysql/': [
     {
       text: 'MySQL',
       children: [
-        '/master/mysql/README.md',
-        '/master/mysql/base.md',
-        '/master/mysql/progress_section_1.md',
-        '/master/mysql/progress_section_2.md',
-        '/master/mysql/progress_section_3.md',
-        '/master/mysql/progress_section_4.md',
-        '/master/mysql/progress_section_5.md',
+        '/master/java/mysql/README.md',
+        '/master/java/mysql/base.md',
+        '/master/java/mysql/progress_section_1.md',
+        '/master/java/mysql/progress_section_2.md',
+        '/master/java/mysql/progress_section_3.md',
+        '/master/java/mysql/progress_section_4.md',
+        '/master/java/mysql/progress_section_5.md',
       ],
     },
   ],
-  '/master/jvm/': [
+  '/master/java/jvm/': [
     {
       text: 'JVM',
       children: [
-        '/master/jvm/README.md',
-        '/master/jvm/1.md',
-        '/master/jvm/2.md',
-        '/master/jvm/3.md',
-        '/master/jvm/4.md',
+        '/master/java/jvm/README.md',
+        '/master/java/jvm/1.md',
+        '/master/java/jvm/2.md',
+        '/master/java/jvm/3.md',
+        '/master/java/jvm/4.md',
       ],
     },
   ],
-  '/master/mybatis/': [
+  '/master/java/mybatis/': [
     {
       text: 'MyBatis',
       children: [
-        '/master/mybatis/README.md',
-        '/master/mybatis/mybatis.md',
+        '/master/java/mybatis/README.md',
+        '/master/java/mybatis/mybatis.md',
       ],
     },
   ],

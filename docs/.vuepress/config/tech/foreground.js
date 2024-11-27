@@ -1,5 +1,5 @@
 export const ForegroundNavBar = {
-  text: 'foreground',
+  text: '前端池',
   children: [
     { text: 'JavaScript', link: '/tech/js/' },
     { text: 'TypeScript', link: '/tech/typescript/' },

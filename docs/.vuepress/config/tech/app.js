@@ -1,5 +1,5 @@
 export const AppMpNavbar = {
-  text: 'app.mp',
+  text: '小程序池',
   children: [
     { text: 'MiniProgram', link: '/tech/miniProgram/' },
     { text: 'uni-app', link: '/tech/uni-app/' },

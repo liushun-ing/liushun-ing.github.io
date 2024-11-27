@@ -1,1 +1,0 @@
-const e=JSON.parse('{"key":"v-d03daf96","path":"/master/kubernetes/","title":"Navigation","lang":"zh-CN","frontmatter":{},"headers":[],"git":{"updatedTime":1723432550000,"contributors":[{"name":"liushun-ing","email":"1743760069@qq.com","commits":1}]},"filePathRelative":"master/kubernetes/README.md"}');export{e as data};

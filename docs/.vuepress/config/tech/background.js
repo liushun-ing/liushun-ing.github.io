@@ -1,5 +1,5 @@
 export const BackgroundNavBar = {
-  text: 'background',
+  text: '后端池',
   children: [
     { text: 'JAVA', link: '/tech/java/' },
     { text: 'Node', link: '/tech/node/' },

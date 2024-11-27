@@ -1,104 +1,104 @@
 export const BlockChainNavBar = {
-  text: 'Block Chain Internship',
+  text: '区块链研究院池',
   children: [
-    { text: 'ethereum', link: '/master/ethereum/' },
-    { text: 'block chain development', link: '/master/blockchaindevelopment/' },
-    { text: 'docker', link: '/master/docker/' },
-    { text: 'golang', link: '/master/golang/' },
-    { text: 'prometheus', link: '/master/prometheus/' },
-    { text: 'shell', link: '/master/shell/' },
+    { text: 'ethereum', link: '/master/gointern/ethereum/' },
+    { text: 'block chain development', link: '/master/gointern/blockchaindevelopment/' },
+    { text: 'docker', link: '/master/gointern/docker/' },
+    { text: 'golang', link: '/master/gointern/golang/' },
+    { text: 'prometheus', link: '/master/gointern/prometheus/' },
+    { text: 'shell', link: '/master/gointern/shell/' },
   ]
 }
 
 export const BlockChainSideBar = {
-  '/master/blockchaindevelopment/': [
+  '/master/gointern/blockchaindevelopment/': [
     {
       text: 'Development',
       children: [
-        '/master/blockchaindevelopment/README.md',
-        '/master/blockchaindevelopment/statedb_execute.md',
-        '/master/blockchaindevelopment/gas_fee.md',
-        '/master/blockchaindevelopment/monitoring.md',
+        '/master/gointern/blockchaindevelopment/README.md',
+        '/master/gointern/blockchaindevelopment/statedb_execute.md',
+        '/master/gointern/blockchaindevelopment/gas_fee.md',
+        '/master/gointern/blockchaindevelopment/monitoring.md',
       ]
     }
   ],
-  '/master/ethereum/': [
+  '/master/gointern/ethereum/': [
     {
       text: 'Block Chain Ethereum',
       children: [
-        '/master/ethereum/README.md',
-        '/master/ethereum/ethereum_base.md',
-        '/master/ethereum/account.md',
-        '/master/ethereum/block.md',
-        '/master/ethereum/node_client.md',
-        '/master/ethereum/contract.md',
-        '/master/ethereum/transaction.md',
-        '/master/ethereum/gas.md',
-        '/master/ethereum/crypto_base.md',
-        '/master/ethereum/consensus.md',
-        '/master/ethereum/evm.md',
-        '/master/ethereum/hd_wallet.md',
-        '/master/ethereum/jsonrpc.md',
-        '/master/ethereum/mpt.md',
-        '/master/ethereum/rlp.md',
-        '/master/ethereum/statedb.md',
-        '/master/ethereum/leveldb.md',
-        '/master/ethereum/mev.md',
-        '/master/ethereum/go_ethereum.md',
+        '/master/gointern/ethereum/README.md',
+        '/master/gointern/ethereum/ethereum_base.md',
+        '/master/gointern/ethereum/account.md',
+        '/master/gointern/ethereum/block.md',
+        '/master/gointern/ethereum/node_client.md',
+        '/master/gointern/ethereum/contract.md',
+        '/master/gointern/ethereum/transaction.md',
+        '/master/gointern/ethereum/gas.md',
+        '/master/gointern/ethereum/crypto_base.md',
+        '/master/gointern/ethereum/consensus.md',
+        '/master/gointern/ethereum/evm.md',
+        '/master/gointern/ethereum/hd_wallet.md',
+        '/master/gointern/ethereum/jsonrpc.md',
+        '/master/gointern/ethereum/mpt.md',
+        '/master/gointern/ethereum/rlp.md',
+        '/master/gointern/ethereum/statedb.md',
+        '/master/gointern/ethereum/leveldb.md',
+        '/master/gointern/ethereum/mev.md',
+        '/master/gointern/ethereum/go_ethereum.md',
       ],
     },
   ],
-  '/master/docker/': [
+  '/master/gointern/docker/': [
     {
       text: 'Docker',
       children: [
-        '/master/docker/README.md',
-        '/master/docker/intro.md',
-        '/master/docker/image_construct.md',
-        '/master/docker/compose.md'
+        '/master/gointern/docker/README.md',
+        '/master/gointern/docker/intro.md',
+        '/master/gointern/docker/image_construct.md',
+        '/master/gointern/docker/compose.md'
       ],
     },
   ],
-  '/master/golang/': [
+  '/master/gointern/golang/': [
     {
       text: 'Golang',
       children: [
-        '/master/golang/README.md',
-        '/master/golang/goweb.md',
-        '/master/golang/protobuf.md',
-        '/master/golang/rpc.md',
-        '/master/golang/websocket.md',
-        '/master/golang/sse.md',
-        '/master/golang/gin.md',
-        '/master/golang/distributed.md',
-        '/master/golang/gorm_1.md',
-        '/master/golang/gorm_2.md',
-        '/master/golang/test.md',
+        '/master/gointern/golang/README.md',
+        '/master/gointern/golang/goweb.md',
+        '/master/gointern/golang/protobuf.md',
+        '/master/gointern/golang/rpc.md',
+        '/master/gointern/golang/websocket.md',
+        '/master/gointern/golang/sse.md',
+        '/master/gointern/golang/gin.md',
+        '/master/gointern/golang/distributed.md',
+        '/master/gointern/golang/gorm_1.md',
+        '/master/gointern/golang/gorm_2.md',
+        '/master/gointern/golang/test.md',
       ],
     },
   ],
-  '/master/prometheus/': [
+  '/master/gointern/prometheus/': [
     {
       text: 'Prometheus',
       children: [
-        '/master/prometheus/README.md',
-        '/master/prometheus/intro.md',
-        '/master/prometheus/promql.md',
-        '/master/prometheus/alert.md',
-        '/master/prometheus/exporter.md',
-        '/master/prometheus/clustering.md',
-        '/master/prometheus/servicediscovery.md',
+        '/master/gointern/prometheus/README.md',
+        '/master/gointern/prometheus/intro.md',
+        '/master/gointern/prometheus/promql.md',
+        '/master/gointern/prometheus/alert.md',
+        '/master/gointern/prometheus/exporter.md',
+        '/master/gointern/prometheus/clustering.md',
+        '/master/gointern/prometheus/servicediscovery.md',
       ],
     },
   ],
-  '/master/shell/': [
+  '/master/gointern/shell/': [
     {
       text: 'Shell',
       children: [
-        '/master/prometheus/README.md',
-        '/master/prometheus/base.md',
-        '/master/prometheus/script.md',
-        '/master/prometheus/progress.md',
+        '/master/gointern/prometheus/README.md',
+        '/master/gointern/prometheus/base.md',
+        '/master/gointern/prometheus/script.md',
+        '/master/gointern/prometheus/progress.md',
       ],
     },
   ],

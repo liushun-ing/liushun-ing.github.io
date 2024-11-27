@@ -1,5 +1,5 @@
 export const ServerNavBar = {
-  text: 'server',
+  text: '服务池',
   children: [{ text: 'Centos', link: '/tech/centos/' }],
 }
 

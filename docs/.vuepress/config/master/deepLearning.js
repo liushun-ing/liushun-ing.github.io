@@ -1,32 +1,32 @@
 export const DeepLearningNavBar = {
-	text: 'Deep Learning',
+	text: '不成文研究池',
 	children: [
-		{ text: 'Ubuntu', link: '/master/ubuntu/' },
-		{ text: 'GNN', link: '/master/GNN/' },
-		{ text: 'Python', link: '/master/python/' },
+		{ text: 'Ubuntu', link: '/master/research/ubuntu/' },
+		{ text: 'GNN', link: '/master/research/GNN/' },
+		{ text: 'Python', link: '/master/research/python/' },
 	]
 }
 
 export const DeepLearningSideBar = {
-	'/master/ubuntu/': [
+	'/master/research/ubuntu/': [
 		{
 			text: 'Ubuntu',
 			children: [
-				'/master/ubuntu/README.md',
-				'/master/ubuntu/system_usage.md',
-				'/master/ubuntu/python_usage.md',
-				'/master/ubuntu/java_usage.md',
+				'/master/research/ubuntu/README.md',
+				'/master/research/ubuntu/system_usage.md',
+				'/master/research/ubuntu/python_usage.md',
+				'/master/research/ubuntu/java_usage.md',
 			],
 		},
 	],
-	'/master/GNN/': [
+	'/master/research/GNN/': [
 		{
 			text: 'GNN',
 			children: [
-				'/master/GNN/README.md',
-				'/master/GNN/base_concept.md',
-				'/master/GNN/pytorch_usage.md',
-				'/master/GNN/python_usage.md',
+				'/master/research/GNN/README.md',
+				'/master/research/GNN/base_concept.md',
+				'/master/research/GNN/pytorch_usage.md',
+				'/master/research/GNN/python_usage.md',
 			],
 		},
 	],
@@ -34,8 +34,8 @@ export const DeepLearningSideBar = {
 		{
 			text: 'Python',
 			children: [
-				'/master/python/README.md',
-				'/master/python/base_usage.md',
+				'/master/research/python/README.md',
+				'/master/research/python/base_usage.md',
 			],
 		},
 	],

@@ -9,43 +9,43 @@ actions:
   #   link: /master/daily/
   #   type: secondary
   - text: Ethereum
-    link: /master/ethereum/
+    link: /master/gointern/ethereum/
     type: secondary
   - text: 区块链开发
-    link: /master/blockchaindevelopment/
+    link: /master/gointern/blockchaindevelopment/
     type: secondary
   - text: Docker
-    link: /master/docker/
+    link: /master/gointern/docker/
     type: secondary
   - text: Golang
-    link: /master/golang/
+    link: /master/gointern/golang/
     type: secondary
   - text: Prometheus
-    link: /master/prometheus/
+    link: /master/gointern/prometheus/
     type: secondary
   - text: Shell
-    link: /master/shell/
+    link: /master/gointern/shell/
     type: secondary
   - text: Redis
-    link: /master/redis/
+    link: /master/java/redis/
     type: secondary
   - text: MySQL
-    link: /master/mysql/
+    link: /master/java/mysql/
     type: secondary
   - text: JVM
-    link: /master/jvm/
+    link: /master/java/jvm/
     type: secondary
   - text: MyBatis
-    link: /master/mybatis/
+    link: /master/java/mybatis/
     type: secondary
   - text: Ubuntu
-    link: /master/ubuntu/
+    link: /master/research/ubuntu/
     type: secondary
   - text: GNN
-    link: /master/GNN/
+    link: /master/research/GNN/
     type: secondary
   - text: Python
-    link: /master/python/
+    link: /master/research/python/
     type: secondary
 features:
 # - title: Daily
