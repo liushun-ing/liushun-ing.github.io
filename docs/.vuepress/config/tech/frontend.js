@@ -1,8 +1,8 @@
 export const FrontendNavBar = {
   text: '前端池',
   children: [
-    { text: 'JS&TS', link: '/tech/frontend/js&ts/' },
-    { text: '页面&样式', link: '/tech/frontend/page&style/' },
+    { text: 'JS&TS', link: '/tech/frontend/js_ts/' },
+    { text: '页面&样式', link: '/tech/frontend/page_style/' },
     { text: 'React', link: '/tech/frontend/react/' },
     { text: 'Vue', link: '/tech/frontend/vue/' },
     { text: 'Vite', link: '/tech/frontend/vite/' },
@@ -11,29 +11,29 @@ export const FrontendNavBar = {
 }
 
 export const FrontendSideBar = {
-  '/tech/frontend/js&ts/': [
+  '/tech/frontend/js_ts/': [
     {
       text: 'JS&TS',
       children: [
-        '/tech/frontend/js&ts/README.md',
-        '/tech/frontend/js&ts/js1.md',
-        '/tech/frontend/js&ts/js2.md',
-        '/tech/frontend/js&ts/js3.md',
-        '/tech/frontend/js&ts/js4.md',
-        '/tech/frontend/js&ts/js5.md',
-        '/tech/frontend/js&ts/ts1.md'
+        '/tech/frontend/js_ts/README.md',
+        '/tech/frontend/js_ts/js1.md',
+        '/tech/frontend/js_ts/js2.md',
+        '/tech/frontend/js_ts/js3.md',
+        '/tech/frontend/js_ts/js4.md',
+        '/tech/frontend/js_ts/js5.md',
+        '/tech/frontend/js_ts/ts1.md'
       ],
     },
   ],
-  '/tech/frontend/page&style/': [
+  '/tech/frontend/page_style/': [
     {
       text: '页面&样式',
       children: [
-        '/tech/frontend/page&style/README.md',
-        '/tech/frontend/page&style/hcbase.md',
-        '/tech/frontend/page&style/csstip.md',
-        '/tech/frontend/page&style/less.md',
-        '/tech/frontend/page&style/sass.md',
+        '/tech/frontend/page_style/README.md',
+        '/tech/frontend/page_style/hcbase.md',
+        '/tech/frontend/page_style/csstip.md',
+        '/tech/frontend/page_style/less.md',
+        '/tech/frontend/page_style/sass.md',
       ],
     },
   ],
