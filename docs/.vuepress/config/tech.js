@@ -1,22 +1,22 @@
 import { AppMpNavbar, AppMpSideBar } from './tech/app'
-import { ForegroundNavBar, ForegroundSideBar } from './tech/foreground'
-import { BackgroundNavBar, BackgroundSideBar } from './tech/background'
+import { FrontendNavBar, FrontendSideBar } from './tech/frontend'
+import { BackendNavBar, BackendSideBar } from './tech/backend'
 import { ServerNavBar, ServerSideBar } from './tech/server'
 
 export const TechNavBar = {
   text: 'Five本科',
   link: '/tech/',
   children: [
-    ForegroundNavBar,
-    BackgroundNavBar,
+    FrontendNavBar,
+    BackendNavBar,
     AppMpNavbar,
     ServerNavBar
   ],
 }
 
 export const TechSideBar = {
-  ...ForegroundSideBar,
-  ...BackgroundSideBar,
+  ...FrontendSideBar,
+  ...BackendSideBar,
   ...AppMpSideBar,
   ...ServerSideBar
 }

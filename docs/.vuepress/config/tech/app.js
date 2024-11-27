@@ -1,29 +1,29 @@
 export const AppMpNavbar = {
   text: '小程序池',
   children: [
-    { text: 'MiniProgram', link: '/tech/miniProgram/' },
-    { text: 'uni-app', link: '/tech/uni-app/' },
+    { text: '微信小程序', link: '/tech/miniprogram/wxmini' },
+    { text: 'uni-app', link: '/tech/miniprogram/uni-app/' },
   ],
 }
 
 export const AppMpSideBar = {
-  '/tech/uni-app/': [
+  '/tech/miniprogram/uni-app/': [
     {
       text: 'uni-app',
       children: [
-        '/tech/uni-app/README.md',
-        '/tech/uni-app/uniCloud.md',
-        '/tech/uni-app/uniTips',
+        '/tech/miniprogram/uni-app/README.md',
+        '/tech/miniprogram/uni-app/uniCloud.md',
+        '/tech/miniprogram/uni-app/uniTips',
       ],
     },
   ],
-  '/tech/miniProgram/': [
+  '/tech/miniprogram/wxmini/': [
     {
-      text: 'MiniProgram',
+      text: '微信小程序',
       children: [
-        '/tech/miniProgram/README.md',
-        '/tech/miniProgram/1.md',
-        '/tech/miniProgram/2.md',
+        '/tech/miniprogram/wxmini/README.md',
+        '/tech/miniprogram/wxmini/1.md',
+        '/tech/miniprogram/wxmini/2.md',
       ],
     },
   ],
