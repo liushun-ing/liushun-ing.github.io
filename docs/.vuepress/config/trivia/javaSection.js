@@ -1,5 +1,5 @@
 export const JavaSectionNavBar = {
-  text: 'Java Section',
+  text: 'Java池',
   children: [
     { text: 'Spring', link: '/trivia/spring/' },
     { text: 'JUC', link: '/trivia/juc/' },

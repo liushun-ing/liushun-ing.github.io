@@ -83,7 +83,7 @@ let obj = {
 console.log(Object.values(obj))
 ```
 
-<img src="./5.assets/image-20220920154527417.png" alt="image-20220920154527417" style="zoom:50%;" />
+<img src="./js5.assets/image-20220920154527417.png" alt="image-20220920154527417" style="zoom:50%;" />
 
 
 ```js
@@ -96,7 +96,7 @@ console.log(Object.entries(obj))
 
 
 
-<img src="./5.assets/image-20220920154622530.png" alt="image-20220920154622530" style="zoom:50%;" />
+<img src="./js5.assets/image-20220920154622530.png" alt="image-20220920154622530" style="zoom:50%;" />
 
 
 
@@ -108,7 +108,7 @@ let obj = {
 console.log(Object.getOwnPropertyDescriptors(obj))
 ```
 
-<img src="./5.assets/image-20220920155143538.png" alt="image-20220920155143538" style="zoom:50%;" />
+<img src="./js5.assets/image-20220920155143538.png" alt="image-20220920155143538" style="zoom:50%;" />
 
 
 
@@ -229,7 +229,7 @@ ES9允许使用命名捕获 `?<name>` , 在打开捕获括号后立即命名
  console.log(res1)
 ```
 
-<img src="./5.assets/image-20220921110518183.png" alt="image-20220921110518183" style="zoom:67%;" />
+<img src="./js5.assets/image-20220921110518183.png" alt="image-20220921110518183" style="zoom:67%;" />
 
 
 
@@ -241,7 +241,7 @@ let res1 = reg.exec(str)
 console.log(res1)
 ```
 
-<img src="./5.assets/image-20220921110644896.png" alt="image-20220921110644896" style="zoom:67%;" />
+<img src="./js5.assets/image-20220921110644896.png" alt="image-20220921110644896" style="zoom:67%;" />
 
 ### 3. Promise.finally()
 
@@ -282,7 +282,7 @@ console.log(syncI.next())
 console.log(syncI.next())
 ```
 
-<img src="./5.assets/image-20220921132030973.png" alt="image-20220921132030973" style="zoom:67%;" />
+<img src="./js5.assets/image-20220921132030973.png" alt="image-20220921132030973" style="zoom:67%;" />
 
 ###### 
 
@@ -297,7 +297,7 @@ syncI.next().value.then(res=>{console.log(res)})
 syncI.next().value.then(res=>{console.log(res)})
 ```
 
-<img src="./5.assets/image-20220921132403676.png" alt="image-20220921132403676" style="zoom:67%;" />
+<img src="./js5.assets/image-20220921132403676.png" alt="image-20220921132403676" style="zoom:67%;" />
 
 > `value`属性的返回值是一个 Promise 对象，用来放置异步操作。但是这样写很麻烦，不太符合直觉，语义也比较绕。
 
@@ -327,7 +327,7 @@ asyncI.next().then(res=>{
 })
 ```
 
-<img src="./5.assets/image-20220921132528997.png" alt="image-20220921132528997" style="zoom:67%;" />
+<img src="./js5.assets/image-20220921132528997.png" alt="image-20220921132528997" style="zoom:67%;" />
 
 
 
@@ -595,7 +595,7 @@ export * as obj1 from './1.js'
 
 
 
-<img src="./5.assets/image-20220922111416681.png" alt="image-20220922111416681" style="zoom:67%;" />
+<img src="./js5.assets/image-20220922111416681.png" alt="image-20220922111416681" style="zoom:67%;" />
 
 
 
@@ -1112,7 +1112,7 @@ let res = reg.exec(str)
 console.log(res)
 ```
 
-![image-20220927105243515](./5.assets/image-20220927105243515.png)
+![image-20220927105243515](./js5.assets/image-20220927105243515.png)
 
 
 

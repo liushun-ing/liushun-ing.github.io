@@ -13,23 +13,18 @@ export const ForegroundNavBar = {
 }
 
 export const ForegroundSideBar = {
-  '/tech/js/': [
+  '/tech/js&ts/': [
     {
-      text: 'JavaScript',
+      text: 'JS&TS',
       children: [
-        '/tech/js/README.md',
-        '/tech/js/1.md',
-        '/tech/js/2.md',
-        '/tech/js/3.md',
-        '/tech/js/4.md',
-        '/tech/js/5.md',
+        '/tech/js&ts/README.md',
+        '/tech/js&ts/js1.md',
+        '/tech/js&ts/js2.md',
+        '/tech/js&ts/js3.md',
+        '/tech/js&ts/js4.md',
+        '/tech/js&ts/js5.md',
+        '/tech/js&ts/ts1.md'
       ],
-    },
-  ],
-  '/tech/typescript/': [
-    {
-      text: 'TypeScript',
-      children: ['/tech/typescript/README.md', '/tech/typescript/1.md'],
     },
   ],
   '/tech/html_css/': [

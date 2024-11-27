@@ -25,9 +25,9 @@ Function.prototype === Function.__proto__  //true
 // Object.prototype.__proto__ = null;
 ```
 
-<img src="./3.assets/image-20220223225057510.png" alt="image-20220223225057510" style="zoom: 50%;" />
+<img src="./js3.assets/image-20220223225057510.png" alt="image-20220223225057510" style="zoom: 50%;" />
 
-<img src="./3.assets/image-20220224131310628.png" alt="image-20220224131310628" style="zoom:67%;" />
+<img src="./js3.assets/image-20220224131310628.png" alt="image-20220224131310628" style="zoom:67%;" />
 
 ## 2、显示原型和隐式原型
 
@@ -402,7 +402,7 @@ js引擎执行代码的基本流程:
 - 当事件发生时，管理模块会将回调函数及其数据添加到回调列队中
 - 只有当初始化代码执行完后(可能要一定时间)，才会遍历读取回调队列中的回调函数执行
 
-<img src="./3.assets/image-20220225111845410.png" alt="image-20220225111845410" style="zoom:67%;" />
+<img src="./js3.assets/image-20220225111845410.png" alt="image-20220225111845410" style="zoom:67%;" />
 
 ## 经典问题
 

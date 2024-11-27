@@ -902,7 +902,7 @@ type TypeC = Props[keyof Props]  // 所有属性的联合属性
 
 比如，在使用数组时，数组所有方法都会有相应的代码提示以及类型信息:
 
-<img src="./1.assets/image-20220914230705339.png" alt="image-20220914230705339" style="zoom:80%;" />
+<img src="./ts1.assets/image-20220914230705339.png" alt="image-20220914230705339" style="zoom:80%;" />
 
 
 
@@ -910,7 +910,7 @@ type TypeC = Props[keyof Props]  // 所有属性的联合属性
 
 第三方库的类型声明文件有两种存在形式: 1库自带类型声明文件  2由DefinitelyTyped提供。
 
-<img src="./1.assets/image-20220914231402838.png" alt="image-20220914231402838" style="zoom:80%;" />
+<img src="./ts1.assets/image-20220914231402838.png" alt="image-20220914231402838" style="zoom:80%;" />
 
 
 
@@ -998,6 +998,6 @@ tsconfig.json指定:项目文件和项目编译所需的配置项。
 
 2. tsconfig.json可以自动生成，命令: `tsc --init`。
 
-<img src="./1.assets/image-20220915104220988.png" alt="image-20220915104220988" style="zoom: 67%;" />
+<img src="./ts1.assets/image-20220915104220988.png" alt="image-20220915104220988" style="zoom: 67%;" />
 
-<img src="./1.assets/image-20220915104337500.png" alt="image-20220915104337500" style="zoom:67%;" />
+<img src="./ts1.assets/image-20220915104337500.png" alt="image-20220915104337500" style="zoom:67%;" />
