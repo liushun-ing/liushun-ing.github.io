@@ -1,0 +1,1 @@
+const t=JSON.parse('{"key":"v-d7562b80","path":"/master/gointern/shell/","title":"Navigation","lang":"zh-CN","frontmatter":{},"headers":[],"git":{"updatedTime":null,"contributors":[]},"filePathRelative":"master/gointern/shell/README.md"}');export{t as data};

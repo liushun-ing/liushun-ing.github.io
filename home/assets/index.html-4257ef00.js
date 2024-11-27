@@ -1,0 +1,1 @@
+const t=JSON.parse('{"key":"v-79055a38","path":"/master/gointern/prometheus/","title":"Navigation","lang":"zh-CN","frontmatter":{},"headers":[],"git":{"updatedTime":null,"contributors":[]},"filePathRelative":"master/gointern/prometheus/README.md"}');export{t as data};
