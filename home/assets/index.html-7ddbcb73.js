@@ -1,0 +1,1 @@
+const t=JSON.parse('{"key":"v-5ff53b6d","path":"/tech/miniprogram/uni-app/","title":"Navigation","lang":"zh-CN","frontmatter":{},"headers":[],"git":{"updatedTime":1732681128000,"contributors":[{"name":"liushun-ing","email":"1743760069@qq.com","commits":1}]},"filePathRelative":"tech/miniprogram/uni-app/README.md"}');export{t as data};

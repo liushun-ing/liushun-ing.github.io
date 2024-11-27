@@ -1,1 +1,0 @@
-const e=JSON.parse('{"key":"v-0289f3da","path":"/tech/frontend/vue/base_tutorial.html","title":"VUE问题合集","lang":"zh-CN","frontmatter":{},"headers":[{"level":2,"title":"1 vue2跨域问题-配置代理","slug":"_1-vue2跨域问题-配置代理","link":"#_1-vue2跨域问题-配置代理","children":[]}],"git":{"updatedTime":null,"contributors":[]},"filePathRelative":"tech/frontend/vue/base_tutorial.md"}');export{e as data};
