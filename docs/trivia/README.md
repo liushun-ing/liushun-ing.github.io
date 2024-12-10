@@ -20,6 +20,18 @@ actions:
   - text: Netty
     link: /trivia/netty/
     type: secondary
+  - text: HTTP
+    link: /trivia/http/
+    type: secondary
+  - text: SSE
+    link: /trivia/sse/
+    type: secondary
+  - text: WebSocket
+    link: /trivia/websocket/
+    type: secondary
+  - text: Github Action
+    link: /trivia/githubaction/
+    type: secondary
 features:
   - title: JUC
     details: JUC Java多线程...
@@ -31,4 +43,12 @@ features:
     details: 安全...
   - title: Netty
     details: Netty...
+  - title: HTTP
+    details: HTTP...
+  - title: SSE
+    details: SSE...
+  - title: WebSocket
+    details: WebSocket...
+  - title: Github Action
+    details: Github Action...
 ---

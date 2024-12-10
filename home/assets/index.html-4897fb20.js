@@ -1,1 +1,0 @@
-const t=JSON.parse('{"key":"v-f0659410","path":"/master/gointern/golang/","title":"Navigation","lang":"zh-CN","frontmatter":{},"headers":[],"git":{"updatedTime":null,"contributors":[]},"filePathRelative":"master/gointern/golang/README.md"}');export{t as data};

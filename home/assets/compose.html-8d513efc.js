@@ -1,1 +1,0 @@
-const e=JSON.parse('{"key":"v-6f53a175","path":"/master/gointern/docker/compose.html","title":"Docker Compose","lang":"zh-CN","frontmatter":{},"headers":[{"level":2,"title":"介绍","slug":"介绍","link":"#介绍","children":[]}],"git":{"updatedTime":null,"contributors":[]},"filePathRelative":"master/gointern/docker/compose.md"}');export{e as data};

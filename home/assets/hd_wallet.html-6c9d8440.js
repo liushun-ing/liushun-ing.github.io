@@ -1,0 +1,1 @@
+const e=JSON.parse('{"key":"v-1c7c0298","path":"/master/gointern/ethereum/hd_wallet.html","title":"分层确定性钱包HD-Wallet","lang":"zh-CN","frontmatter":{},"headers":[],"git":{"updatedTime":1732686309000,"contributors":[{"name":"liushun-ing","email":"1743760069@qq.com","commits":1}]},"filePathRelative":"master/gointern/ethereum/hd_wallet.md"}');export{e as data};
