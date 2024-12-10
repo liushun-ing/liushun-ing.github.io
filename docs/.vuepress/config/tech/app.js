@@ -1,7 +1,7 @@
 export const AppMpNavbar = {
   text: '小程序池',
   children: [
-    { text: '微信小程序', link: '/tech/miniprogram/wxmini' },
+    { text: '微信小程序', link: '/tech/miniprogram/wxmini/' },
     { text: 'uni-app', link: '/tech/miniprogram/uni-app/' },
   ],
 }

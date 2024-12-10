@@ -55,8 +55,7 @@ export const JavaSectionSideBar = {
       text: 'Service',
       children: [
         '/trivia/service/README.md',
-        '/trivia/service/jwt.md',
-        '/trivia/service/shiro.md',
+        '/trivia/service/nacos.md',
       ],
     },
   ],

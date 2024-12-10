@@ -30,7 +30,7 @@ export const DeepLearningSideBar = {
 			],
 		},
 	],
-	'/master/python/': [
+	'/master/research/python/': [
 		{
 			text: 'Python',
 			children: [
