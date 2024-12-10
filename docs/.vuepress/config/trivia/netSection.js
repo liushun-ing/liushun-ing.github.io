@@ -14,7 +14,7 @@ export const NetSectionSideBar = {
       children: [
         '/trivia/http/README.md',
         '/trivia/http/http1.md',
-        '/trivia/http/htp2&3.md',
+        '/trivia/http/http2&3.md',
         '/trivia/http/quicgo.md',
       ],
     },
