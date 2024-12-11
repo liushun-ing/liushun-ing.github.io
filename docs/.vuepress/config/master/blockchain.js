@@ -74,6 +74,8 @@ export const BlockChainSideBar = {
         '/master/gointern/golang/test.md',
         '/master/gointern/golang/template.md',
         '/master/gointern/golang/embed.md',
+        '/master/gointern/golang/dependency.md',
+        '/master/gointern/golang/gowork.md',
       ],
     },
   ],
@@ -95,10 +97,10 @@ export const BlockChainSideBar = {
     {
       text: 'Shell',
       children: [
-        '/master/gointern/prometheus/README.md',
-        '/master/gointern/prometheus/base.md',
-        '/master/gointern/prometheus/script.md',
-        '/master/gointern/prometheus/progress.md',
+        '/master/gointern/shell/README.md',
+        '/master/gointern/shell/base.md',
+        '/master/gointern/shell/script.md',
+        '/master/gointern/shell/progress.md',
       ],
     },
   ],
