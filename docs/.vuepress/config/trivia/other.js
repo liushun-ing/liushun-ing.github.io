@@ -10,6 +10,7 @@ export const OtherSectionSideBar = {
     {
       text: 'Github Action',
       children: [
+        '/trivia/githubaction/README.md',
         '/trivia/githubaction/action.md',
       ],
     },

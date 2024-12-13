@@ -23,6 +23,7 @@ export const NetSectionSideBar = {
     {
       text: 'SSE',
       children: [
+        '/trivia/sse/README.md',
         '/trivia/sse/sse.md',
       ],
     },
@@ -31,6 +32,7 @@ export const NetSectionSideBar = {
     {
       text: 'WebSocket',
       children: [
+        '/trivia/websocket/README.md',
         '/trivia/websocket/websocket.md',
       ],
     },
