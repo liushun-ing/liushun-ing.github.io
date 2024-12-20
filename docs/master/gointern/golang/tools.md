@@ -90,7 +90,7 @@ go install github.com/go-delve/delve/cmd/dlv@latest
 dlv --listen=:2345 --headless=true --api-version=2 --accept-multiclient exec xxx -- -a=a -b=b
 ```
 
-![](./tools.assets/screenshot2024-12-20%2017.10.15.png)
+![](./tools.assets/exampe.png)
 
 运行成功的话，就会有日志打印，他在监听2345端口，等待连接。
 
@@ -98,7 +98,7 @@ dlv --listen=:2345 --headless=true --api-version=2 --accept-multiclient exec xxx
 
 然后这是goland就可以去连接了。注意goland需要新建的是go remote配置。
 
-<img src="./tools.assets/screenshot2024-12-20%2017.03.40.png" alt="screenshot2024-12-20 17.03.40" style="zoom: 33%;" />
+<img src="./tools.assets/golangconfig.png" alt="screenshot2024-12-20 17.03.40" style="zoom: 33%;" />
 
 配置好后，启动goland程序，就可以打断点进行远程调试了。
 
