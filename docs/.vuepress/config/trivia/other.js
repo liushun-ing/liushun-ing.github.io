@@ -12,6 +12,7 @@ export const OtherSectionSideBar = {
       children: [
         '/trivia/githubaction/README.md',
         '/trivia/githubaction/action.md',
+        '/trivia/githubaction/release.md',
       ],
     },
   ],

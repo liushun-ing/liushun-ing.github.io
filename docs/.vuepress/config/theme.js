@@ -11,7 +11,7 @@ export default {
     TriviaNavBar,
     {
       text: 'GitHub',
-      link: 'https://github.com/liushun-ing',
+      link: 'https://github.com/liushunkkk',
     },
   ],
   sidebar: {

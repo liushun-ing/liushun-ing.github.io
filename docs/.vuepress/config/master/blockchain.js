@@ -76,6 +76,7 @@ export const BlockChainSideBar = {
         '/master/gointern/golang/embed.md',
         '/master/gointern/golang/dependency.md',
         '/master/gointern/golang/gowork.md',
+        '/master/gointern/golang/tools.md',
       ],
     },
   ],

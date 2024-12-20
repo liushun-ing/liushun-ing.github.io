@@ -89,7 +89,7 @@ jobs:
 
 jobs.<job_id>.runs-on：runs-on字段指定运行所需要的虚拟机环境，是必填字段，下面是一些可用的环境
 
-![screenshot2024-12-09 11.12.13](./action.assets/runson.png)
+<img src="./action.assets/runson.png" alt="screenshot2024-12-09 11.12.13" style="zoom: 33%;" />
 
 jobs.<job_id>.steps：steps字段指定每个job的运行步骤，可以包含一个或多个步骤，每个步骤都可以指定以下三个字段：
 
@@ -100,8 +100,6 @@ jobs.<job_id>.steps：steps字段指定每个job的运行步骤，可以包含�
 
 
 下面是一个完整的实例：
-
-下面
 
 ```yml
 name: golangci-gotest-ci
